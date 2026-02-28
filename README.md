@@ -2,6 +2,8 @@
 
 A minimal, professional web app showcasing company overview, team, technology projects, AI applications, and contact. Built for sharing with partners and investors.
 
+**Live site:** [https://gpsl-technology.vercel.app](https://gpsl-technology.vercel.app)
+
 ## Tech stack
 
 - **Next.js 14** (App Router)
