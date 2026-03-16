@@ -1,4 +1,8 @@
+"use client";
+
+import { User } from "lucide-react";
 import CTA from "@/components/CTA";
+import FadeIn from "@/components/FadeIn";
 
 const team = [
   {
@@ -22,25 +26,36 @@ export default function Team() {
   return (
     <>
       <section className="mx-auto max-w-4xl px-6 py-16">
-        <span className="font-mono text-xs uppercase tracking-widest text-cyan-600">
-          People
-        </span>
-        <h1 className="mt-2 text-3xl font-semibold tracking-tight text-zinc-900">
-          Team
-        </h1>
-        <p className="mt-4 text-zinc-600">
-          The people behind our technology: engineering, product, and operations.
-        </p>
+        <FadeIn>
+          <span className="font-mono text-xs uppercase tracking-widest text-cyan-600">
+            People
+          </span>
+          <h1 className="mt-2 text-3xl font-semibold tracking-tight text-zinc-900">
+            Team
+          </h1>
+          <p className="mt-4 text-zinc-600">
+            The people behind our technology: engineering, product, and
+            operations.
+          </p>
+        </FadeIn>
         <ul className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {team.map((person) => (
-            <li
-              key={person.name}
-              className="rounded-lg border border-zinc-200 border-l-4 border-l-cyan-500 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
-            >
-              <h2 className="font-semibold text-zinc-900">{person.name}</h2>
-              <p className="mt-1 font-mono text-xs font-medium text-zinc-500">{person.role}</p>
-              <p className="mt-4 text-sm leading-relaxed text-zinc-600">{person.bio}</p>
-            </li>
+          {team.map((person, i) => (
+            <FadeIn key={person.name} delay={i * 0.1}>
+              <li className="rounded-lg border border-zinc-200 border-l-4 border-l-cyan-500 bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-cyan-500/10">
+                    <User size={16} className="text-cyan-600" />
+                  </div>
+                  <h2 className="font-semibold text-zinc-900">{person.name}</h2>
+                </div>
+                <p className="mt-3 font-mono text-xs font-medium text-zinc-500">
+                  {person.role}
+                </p>
+                <p className="mt-4 text-sm leading-relaxed text-zinc-600">
+                  {person.bio}
+                </p>
+              </li>
+            </FadeIn>
           ))}
         </ul>
       </section>
