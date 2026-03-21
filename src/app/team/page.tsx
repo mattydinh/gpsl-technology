@@ -20,6 +20,16 @@ const team = [
     role: "Full-Stack Software Engineer | AI Engineer | Systems & Automation",
     bio: "Full-stack engineer with deep frontend expertise and end-to-end product delivery experience. Builds scalable applications backed by modern CI/CD pipelines and production-grade infrastructure. Experienced in developing AI agents and retrieval-augmented generation (RAG) systems, integrating LLMs into real-world products with a focus on performance, reliability, and maintainability. Combines strong UI engineering with backend architecture and intelligent automation to ship robust, AI-enabled systems.",
   },
+  {
+    name: "Martin Leung",
+    role: "Full-Stack Software Engineer | Payments | Authentication",
+    bio: "Full-stack software engineer with specialized expertise in payments infrastructure and authentication systems. Builds secure, high-reliability transaction pipelines and identity management solutions that meet the demands of production-scale financial operations. Brings deep experience designing and integrating payment processing workflows, token-based auth flows, and fraud-prevention mechanisms into modern full-stack applications with a focus on correctness, security, and seamless user experience.",
+  },
+  {
+    name: "Bernie Chan",
+    role: "Sales Engineer | Finance | Business Operations",
+    bio: "Sales engineer and business operations strategist with a strong background in M&A financial advising. Bridges technical product capabilities with client needs, translating complex solutions into clear business value. Experienced in financial modeling, deal structuring, and go-to-market execution, bringing analytical rigor from investment advisory into technology sales and operational strategy to drive revenue growth and strategic partnerships.",
+  },
 ];
 
 export default function Team() {

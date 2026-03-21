@@ -86,6 +86,8 @@ describe("Team page", () => {
     expect(screen.getByText("Matty Dinh")).toBeInTheDocument();
     expect(screen.getByText("Cliff Wu")).toBeInTheDocument();
     expect(screen.getByText("Nate Sou")).toBeInTheDocument();
+    expect(screen.getByText("Martin Leung")).toBeInTheDocument();
+    expect(screen.getByText("Bernie Chan")).toBeInTheDocument();
   });
 
   it("renders team member roles", () => {

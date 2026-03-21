@@ -23,7 +23,7 @@ src/
 │   ├── globals.css         # CSS vars, Tailwind directives, .bg-grid
 │   ├── robots.ts           # Auto-generated robots.txt
 │   ├── sitemap.ts          # Auto-generated sitemap.xml
-│   ├── team/page.tsx       # Team member cards (3 members)
+│   ├── team/page.tsx       # Team member cards (5 members)
 │   ├── projects/page.tsx   # Project cards (7 projects)
 │   ├── ai/page.tsx         # AI philosophy + stack overview
 │   └── contact/page.tsx    # Contact form (mailto handler)
