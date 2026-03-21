@@ -107,19 +107,19 @@ describe("Projects page", () => {
   it("renders all projects including political intelligence platform", () => {
     render(<Projects />);
     expect(
-      screen.getByText("Political intelligence data platform")
+      screen.getByText("Civic Sentinel — political intelligence data platform")
     ).toBeInTheDocument();
     expect(
-      screen.getByText("Logistics & corporate data platform")
+      screen.getByText("Red Cedar Routes — logistics & corporate data platform")
     ).toBeInTheDocument();
     expect(
-      screen.getByText("ML research news & summaries")
+      screen.getByText("Signal Desk — ML research news & summaries")
     ).toBeInTheDocument();
     expect(
-      screen.getByText("Peptide synthesis with protein models")
+      screen.getByText("HelixBridge — peptide synthesis with protein models")
     ).toBeInTheDocument();
     expect(
-      screen.getByText("Sales automation with AI-generated presentations")
+      screen.getByText("QwikClose — sales automation with AI-generated presentations")
     ).toBeInTheDocument();
     expect(
       screen.getByText("Meridian AI — conversational real estate advisor")

@@ -15,7 +15,7 @@ import FadeIn from "@/components/FadeIn";
 const projects = [
   {
     icon: Landmark,
-    title: "Political intelligence data platform",
+    title: "Civic Sentinel — political intelligence data platform",
     description:
       "An AI-powered intelligence platform that aggregates, analyzes, and surfaces political data at scale. Uses multi-agent orchestration to coordinate specialized LLM agents — including legislative trackers, sentiment analyzers, media monitors, and policy impact modelers — that work in concert to deliver real-time briefings and predictive insights. Ingests data from government filings, legislative databases, news feeds, social media, and public records, then synthesizes it into actionable intelligence dashboards for government affairs teams, lobbying firms, and political strategists.",
     tags: [
@@ -28,28 +28,28 @@ const projects = [
   },
   {
     icon: Ship,
-    title: "Logistics & corporate data platform",
+    title: "Red Cedar Routes — logistics & corporate data platform",
     description:
       "A logistics app built with Supabase and Next.js for a shipping company. Tracks shipping data end-to-end and houses all corporate data in one secure, modern platform.",
     tags: ["Next.js", "Supabase", "Logistics"],
   },
   {
     icon: Newspaper,
-    title: "ML research news & summaries",
+    title: "Signal Desk — ML research news & summaries",
     description:
       "A news app that parses the web from the largest machine learning research conferences. Surfaces new authors, publications, and advancements in AI, with AI-written summaries of new findings.",
     tags: ["AI", "Web parsing", "Summarization"],
   },
   {
     icon: FlaskConical,
-    title: "Peptide synthesis with protein models",
+    title: "HelixBridge — peptide synthesis with protein models",
     description:
       "An AI project using Google's latest protein models to improve peptide synthesis. Includes predicting binding affinity, structure prediction, and generative peptide design.",
     tags: ["AI", "Protein models", "Generative design"],
   },
   {
     icon: Presentation,
-    title: "Sales automation with AI-generated presentations",
+    title: "QwikClose — sales automation with AI-generated presentations",
     description:
       "A business operations system using Google Apps Script to automate sales workflows. Sales teams input data into a form; AI generates a customer-ready PowerPoint from the input, helping teams close deals faster.",
     tags: ["Google Apps Script", "AI", "Sales automation"],
