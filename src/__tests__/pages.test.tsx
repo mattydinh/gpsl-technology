@@ -121,6 +121,12 @@ describe("Projects page", () => {
     expect(
       screen.getByText("Sales automation with AI-generated presentations")
     ).toBeInTheDocument();
+    expect(
+      screen.getByText("Meridian AI — conversational real estate advisor")
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("Grantbridge — AI-powered grant discovery & drafting")
+    ).toBeInTheDocument();
   });
 
   it("renders tags for the political intelligence project", () => {

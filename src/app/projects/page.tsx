@@ -6,6 +6,8 @@ import {
   FlaskConical,
   Presentation,
   Landmark,
+  Home,
+  FileSearch,
 } from "lucide-react";
 import CTA from "@/components/CTA";
 import FadeIn from "@/components/FadeIn";
@@ -51,6 +53,20 @@ const projects = [
     description:
       "A business operations system using Google Apps Script to automate sales workflows. Sales teams input data into a form; AI generates a customer-ready PowerPoint from the input, helping teams close deals faster.",
     tags: ["Google Apps Script", "AI", "Sales automation"],
+  },
+  {
+    icon: Home,
+    title: "Meridian AI — conversational real estate advisor",
+    description:
+      "An AI-powered home search platform that guides buyers through the purchasing journey. Uses a conversational agent to build detailed buyer profiles across location, budget, financing, and feature preferences, then delivers matched property listings with compatibility scores. Tracks buyers through five stages from discovery to offer-ready.",
+    tags: ["AI Chat", "Real Estate", "Buyer Matching", "Session Management"],
+  },
+  {
+    icon: FileSearch,
+    title: "Grantbridge — AI-powered grant discovery & drafting",
+    description:
+      "A platform that streamlines the grant-seeking process using AI. Helps researchers and organizations discover relevant grant opportunities and generates application drafts, reducing the manual effort of navigating complex funding landscapes.",
+    tags: ["Next.js", "AI", "Grant Discovery", "Document Generation"],
   },
 ];
 
