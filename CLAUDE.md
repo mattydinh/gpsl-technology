@@ -1,7 +1,7 @@
 # GPSL Technology — Developer Context
 
 ## Project Overview
-Company technology showcase site for GPSL. Displays team, projects, AI approach, and contact form.
+Company technology showcase site for GPSL Technology — a forward-deployed AI agency that handles everything from proof of concept to MVP, pilot, and production-scale AI/ML systems with mature data infrastructure. Displays team, projects, AI approach, and contact form.
 Live at: https://gpsl-technology.vercel.app
 
 ## Tech Stack
