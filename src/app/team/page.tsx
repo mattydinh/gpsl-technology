@@ -27,8 +27,8 @@ const team = [
   },
   {
     name: "Bernie Chan",
-    role: "Sales Engineer | Finance | Business Operations",
-    bio: "Sales engineer and business operations strategist with a strong background in M&A financial advising. Bridges technical product capabilities with client needs, translating complex solutions into clear business value. Experienced in financial modeling, deal structuring, and go-to-market execution, bringing analytical rigor from investment advisory into technology sales and operational strategy to drive revenue growth and strategic partnerships.",
+    role: "Forward Deployed Engineer | Deal Flow & Client Integration",
+    bio: "Forward deployed engineer driving deal flow and client delivery for the agency. Manages the full lifecycle from proof of concept through MVP, pilot, and production-scale deployment — ensuring GPSL's technology maps directly to client workflows. Specializes in scoping AI integration opportunities, designing implementation roadmaps, and embedding intelligent systems seamlessly into existing business operations. Combines a strong M&A financial advising background with hands-on technical engagement to translate complex AI capabilities into measurable client value.",
   },
 ];
 
