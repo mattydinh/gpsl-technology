@@ -106,29 +106,15 @@ describe("Team page", () => {
 });
 
 describe("Projects page", () => {
-  it("renders all projects including political intelligence platform", () => {
+  it("renders all projects", () => {
     render(<Projects />);
-    expect(
-      screen.getByText("Civic Sentinel — political intelligence data platform")
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText("Red Cedar Routes — logistics & corporate data platform")
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText("Signal Desk — ML research news & summaries")
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText("HelixBridge — peptide synthesis with protein models")
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText("QwikClose — sales automation with AI-generated presentations")
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText("Meridian AI — conversational real estate advisor")
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText("Grantbridge — AI-powered grant discovery & drafting")
-    ).toBeInTheDocument();
+    expect(screen.getByText("Civic Sentinel")).toBeInTheDocument();
+    expect(screen.getByText("HelixBridge")).toBeInTheDocument();
+    expect(screen.getByText("Grantbridge")).toBeInTheDocument();
+    expect(screen.getByText("Meridian AI")).toBeInTheDocument();
+    expect(screen.getByText("LegacyCompass")).toBeInTheDocument();
+    expect(screen.getByText("LuxusAI")).toBeInTheDocument();
+    expect(screen.getByText("InvenioAI")).toBeInTheDocument();
   });
 
   it("renders tags for the political intelligence project", () => {
@@ -144,7 +130,7 @@ describe("Projects page", () => {
   it("renders project descriptions", () => {
     render(<Projects />);
     expect(
-      screen.getByText(/multi-agent orchestration to coordinate/i)
+      screen.getByText(/aggregates and analyzes political data/i)
     ).toBeInTheDocument();
   });
 });

@@ -24,7 +24,7 @@ src/
 │   ├── robots.ts           # Auto-generated robots.txt
 │   ├── sitemap.ts          # Auto-generated sitemap.xml
 │   ├── team/page.tsx       # Team member cards (5 members)
-│   ├── projects/page.tsx   # Project cards (7 projects)
+│   ├── projects/page.tsx   # Project cards (7 projects, 2-col grid with external links)
 │   ├── ai/page.tsx         # AI philosophy + stack overview
 │   └── contact/page.tsx    # Contact form (mailto handler)
 ├── components/
@@ -65,9 +65,11 @@ Edit `src/app/projects/page.tsx` — add to the `projects` array:
 ```ts
 {
   icon: SomeLucideIcon,   // import from "lucide-react"
-  title: "Product Name — short description of what it does",
-  description: "What it does...",
+  title: "Product Name",
+  subtitle: "Short tagline for the product",
+  description: "1-2 sentence description of what it does.",
   tags: ["Tag1", "Tag2"],
+  url: "https://example.com",
 }
 ```
 
