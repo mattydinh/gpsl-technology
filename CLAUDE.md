@@ -19,13 +19,13 @@ Live at: https://gpsl-technology.vercel.app
 src/
 ├── app/
 │   ├── layout.tsx          # Root layout (Nav + Footer + SEO metadata)
-│   ├── page.tsx            # Home — hero, capabilities grid, CTA
-│   ├── globals.css         # CSS vars, Tailwind directives, .bg-grid
+│   ├── page.tsx            # Home — hero, Claude Partner badge, capabilities grid, CTA
+│   ├── globals.css         # CSS vars, Tailwind directives, .bg-grid, Claude partner animations
 │   ├── robots.ts           # Auto-generated robots.txt
 │   ├── sitemap.ts          # Auto-generated sitemap.xml
 │   ├── team/page.tsx       # Team member cards (5 members)
 │   ├── projects/page.tsx   # Project cards (7 projects, 2-col grid with external links)
-│   ├── ai/page.tsx         # AI philosophy + stack overview
+│   ├── ai/page.tsx         # AI philosophy + stack overview + Claude Partner Network card
 │   └── contact/page.tsx    # Contact form (mailto handler)
 ├── components/
 │   ├── Nav.tsx             # Sticky nav, mobile hamburger, icons, animated underline
@@ -38,11 +38,12 @@ src/
 ```
 
 ## Design System
-- **Colors:** Zinc base + Cyan (#22d3ee) accent. See `tailwind.config.ts` for `surface.*` and `accent.*` tokens.
+- **Colors:** Zinc base + Cyan (#22d3ee) accent + Claude peach (#D97757) for partner branding. See `tailwind.config.ts` for `surface.*` and `accent.*` tokens.
 - **Typography:** System monospace for labels/nav (`font-mono`), system sans for body.
 - **Cards:** `rounded-lg border border-zinc-200 border-l-4 border-l-cyan-500 bg-white p-6 shadow-sm`
 - **Shadows:** `shadow-glow` and `shadow-glow-sm` for cyan glow effects.
 - **Grid pattern:** `.bg-grid` class in globals.css (24x24 subtle grid).
+- **Partner badge:** `.claude-icon-pulse` (sparkle glow) and `.claude-border-shimmer` (border color oscillation) in globals.css.
 
 ## Commands
 ```bash

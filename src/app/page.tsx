@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Users, FolderKanban, Brain, ArrowRight } from "lucide-react";
+import { Users, FolderKanban, Brain, ArrowRight, Sparkles } from "lucide-react";
 import CTA from "@/components/CTA";
 import FadeIn from "@/components/FadeIn";
 
@@ -65,6 +65,24 @@ export default function Home() {
               View projects
             </Link>
           </div>
+        </FadeIn>
+      </section>
+
+      <section className="border-t border-zinc-800 bg-zinc-950 py-5">
+        <FadeIn>
+          <Link
+            href="/ai"
+            className="group mx-auto flex max-w-4xl items-center justify-center gap-3 px-6 transition-opacity hover:opacity-80"
+          >
+            <Sparkles size={18} className="claude-icon-pulse text-[#D97757]" />
+            <span className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-zinc-300">
+              Official Claude Partner Network
+            </span>
+            <ArrowRight
+              size={12}
+              className="text-zinc-500 transition-transform group-hover:translate-x-0.5"
+            />
+          </Link>
         </FadeIn>
       </section>
 

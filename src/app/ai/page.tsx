@@ -1,6 +1,6 @@
 "use client";
 
-import { Cpu, Layers } from "lucide-react";
+import { Cpu, Layers, Sparkles } from "lucide-react";
 import CTA from "@/components/CTA";
 import FadeIn from "@/components/FadeIn";
 
@@ -86,6 +86,34 @@ export default function AI() {
                 By combining strong engineering foundations with advanced AI
                 capabilities, we accelerate development without compromising
                 reliability, performance, or long-term maintainability.
+              </p>
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.3}>
+            <div className="claude-border-shimmer rounded-lg border border-zinc-200 border-l-4 bg-white p-6 shadow-sm space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="flex h-8 w-8 items-center justify-center rounded-md bg-[#D97757]/10">
+                  <Sparkles size={16} className="claude-icon-pulse text-[#D97757]" />
+                </div>
+                <h2 className="font-mono text-xs font-semibold uppercase tracking-widest text-zinc-500">
+                  Claude Partner Network
+                </h2>
+              </div>
+              <p className="text-zinc-700 leading-relaxed">
+                GPSL Technology is an official member of the{" "}
+                <span className="font-semibold text-[#D97757]">
+                  Claude Partner Network
+                </span>
+                . This partnership gives us direct access to Anthropic&apos;s
+                Claude models, Claude Code as a core development tool, and
+                early access to new capabilities as they ship.
+              </p>
+              <p className="text-zinc-700 leading-relaxed">
+                Claude is deeply embedded in how we build — from architecture
+                and code generation to testing and deployment. As a partner,
+                we work closely with Anthropic to push the boundaries of
+                AI-assisted software development, ensuring our clients
+                benefit from the most advanced AI tooling available.
               </p>
             </div>
           </FadeIn>

@@ -24,6 +24,27 @@ body {
   background-size: 24px 24px;
 }
 
+/* Claude Partner badge pulse */
+@keyframes claude-pulse {
+  0%, 100% { opacity: 0.7; filter: drop-shadow(0 0 6px rgba(217, 119, 87, 0.4)); }
+  50% { opacity: 1; filter: drop-shadow(0 0 14px rgba(217, 119, 87, 0.7)); }
+}
+
+.claude-icon-pulse {
+  animation: claude-pulse 3s ease-in-out infinite;
+}
+
+/* Shimmer on partner card border */
+@keyframes claude-shimmer {
+  0% { border-left-color: #D97757; }
+  50% { border-left-color: #e8956e; }
+  100% { border-left-color: #D97757; }
+}
+
+.claude-border-shimmer {
+  animation: claude-shimmer 4s ease-in-out infinite;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
