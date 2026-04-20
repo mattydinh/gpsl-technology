@@ -1,6 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
+import RootLayout from "@/app/layout";
+
+jest.mock("next/font/google", () => ({
+  Fraunces: () => ({ variable: "--font-fraunces", className: "mock-fraunces" }),
+}));
 
 jest.mock("framer-motion", () => ({
   motion: {
@@ -98,4 +103,10 @@ describe("Nav", () => {
       screen.getByRole("button", { name: /open menu/i })
     ).toBeInTheDocument();
   });
+});
+
+test("layout applies Fraunces serif font variable", () => {
+  render(<RootLayout>{null}</RootLayout>);
+  const body = document.body;
+  expect(body.className).toMatch(/--font-fraunces/);
 });
