@@ -114,3 +114,28 @@ test("layout applies Fraunces serif font variable", () => {
     errorSpy.mockRestore();
   }
 });
+
+import ThemeSurface from "@/components/ThemeSurface";
+
+describe("ThemeSurface", () => {
+  test("sets data-surface='operating' on root div", () => {
+    const { container } = render(
+      <ThemeSurface surface="operating">content</ThemeSurface>
+    );
+    expect(container.firstChild).toHaveAttribute("data-surface", "operating");
+  });
+
+  test("sets data-surface='technology' on root div", () => {
+    const { container } = render(
+      <ThemeSurface surface="technology">content</ThemeSurface>
+    );
+    expect(container.firstChild).toHaveAttribute("data-surface", "technology");
+  });
+
+  test("renders children", () => {
+    const { getByText } = render(
+      <ThemeSurface surface="operating">hello world</ThemeSurface>
+    );
+    expect(getByText("hello world")).toBeInTheDocument();
+  });
+});
