@@ -502,9 +502,11 @@ test("/execution renders under operating surface with Execution H1", () => {
 
 **Files:** Modify `src/app/execution/page.tsx`, tests.
 
-**Step 1:** Test for 3 bookable service titles (Execution Discovery Call, Operational Execution Sprint, Supply Chain Resilience Audit) and their CTAs (all → `/contact?topic=execution`).
+**Constraint (user decision):** NO prices, NO dollar amounts, NO tier names ("Starter/Growth/Enterprise"), NO "from $X" copy anywhere on this page. Cards are qualitative offerings only; pricing is discussed on the call. This is a deliberate positioning choice — priced packages read as cheap/transactional and undercut the operating-group narrative.
 
-**Step 2:** Implement 3-card grid. Operating-surface card treatment, terracotta CTA button.
+**Step 1:** Test for 3 bookable service titles (Execution Discovery Call, Operational Execution Sprint, Supply Chain Resilience Audit) and their CTAs (all → `/contact?topic=execution`). Also assert NO `$` character appears in the rendered Execution page (pricing guard).
+
+**Step 2:** Implement 3-card grid. Operating-surface card treatment, terracotta CTA button. Each card shows: title, 2-sentence description of what the engagement delivers, 3-4 bullet "what you get" outcomes, CTA. Never shows price or duration-as-price-proxy ("2-week sprint from $X").
 
 **Step 3:** Commit.
 
