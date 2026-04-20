@@ -88,20 +88,23 @@ describe("Nav", () => {
     expect(brandLinks.length).toBeGreaterThan(0);
   });
 
-  it("renders all nav links in desktop view", () => {
+  it("renders the 6 top-level items", () => {
     render(<Nav />);
-    expect(screen.getByText("Overview")).toBeInTheDocument();
-    expect(screen.getByText("Team")).toBeInTheDocument();
-    expect(screen.getByText("Projects")).toBeInTheDocument();
-    expect(screen.getByText("AI")).toBeInTheDocument();
-    expect(screen.getByText("Contact")).toBeInTheDocument();
+    ["Home", "Execution", "Technology", "Portfolio", "Team", "Contact"].forEach((label) => {
+      expect(screen.getByText(label)).toBeInTheDocument();
+    });
+  });
+
+  it("does not render the old AI/Projects/Overview items", () => {
+    render(<Nav />);
+    expect(screen.queryByText("AI")).not.toBeInTheDocument();
+    expect(screen.queryByText("Projects")).not.toBeInTheDocument();
+    expect(screen.queryByText("Overview")).not.toBeInTheDocument();
   });
 
   it("renders mobile menu toggle button", () => {
     render(<Nav />);
-    expect(
-      screen.getByRole("button", { name: /open menu/i })
-    ).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /open menu/i })).toBeInTheDocument();
   });
 });
 
