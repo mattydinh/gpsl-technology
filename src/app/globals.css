@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+[data-surface="operating"] {
+  background-color: theme("colors.op.bg");
+  color: theme("colors.op.ink");
+}
+[data-surface="technology"] {
+  background-color: #ffffff;
+  color: theme("colors.zinc.900");
+}
+
 :root {
   --foreground: #18181b;
   --background: #fafafa;
