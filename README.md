@@ -6,7 +6,7 @@ GPSL is a diversified operating group with two divisions: Execution and Technolo
 
 ## Tech stack
 
-- **Next.js 14** (App Router)
+- **Next.js 15** (App Router)
 - **React** + **TypeScript**
 - **Tailwind CSS**
 - Ready for **Vercel** deployment
