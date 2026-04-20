@@ -61,7 +61,7 @@ describe("Home page", () => {
 
   test("Home hero mentions 'operating group' and has two primary CTAs", () => {
     render(<Home />);
-    expect(screen.getByText(/operating group/i)).toBeInTheDocument();
+    expect(screen.getByText(/GPSL.*Operating Group/i)).toBeInTheDocument();
     expect(
       screen.getByRole("link", { name: /Explore our ventures/i })
     ).toHaveAttribute("href", "/portfolio");
@@ -80,6 +80,15 @@ describe("Home page", () => {
   test("Home wraps content in data-surface='operating'", () => {
     const { container } = render(<Home />);
     expect(container.querySelector('[data-surface="operating"]')).not.toBeNull();
+  });
+
+  test("Home Two Engines section renders Execution + Technology cards", () => {
+    render(<Home />);
+    expect(screen.getByText(/one operating group, two engines/i)).toBeInTheDocument();
+    const exec = screen.getByRole("link", { name: /Execution/i });
+    const tech = screen.getByRole("link", { name: /^Technology/ });
+    expect(exec).toHaveAttribute("href", "/execution");
+    expect(tech).toHaveAttribute("href", "/technology");
   });
 });
 

@@ -47,6 +47,60 @@ export default function Home() {
           </div>
         </FadeIn>
       </section>
+
+      <section className="py-24 border-t border-op-line">
+        <div className="max-w-6xl mx-auto px-6">
+          <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono">
+            One operating group, two engines.
+          </p>
+          <h2 className="font-display text-3xl md:text-4xl text-op-ink mt-4 leading-tight">
+            How GPSL is organized.
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-6 mt-12">
+            <Link
+              href="/execution"
+              aria-label="Execution"
+              className="block group rounded-lg border border-op-line bg-white p-8 transition-colors hover:border-op-accent"
+            >
+              <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">
+                Division 01
+              </p>
+              <h3 className="font-display text-2xl md:text-3xl text-op-ink mt-3">
+                Execution
+              </h3>
+              <p className="text-op-muted text-base leading-relaxed mt-3">
+                Human logistics, deal flow, stakeholder alignment, and
+                operational delivery across our ventures in finance, trade,
+                logistics, and tribal economic development.
+              </p>
+              <p className="text-sm text-op-ink mt-6 flex items-center gap-2 group-hover:text-op-accent transition-colors">
+                Visit division <span aria-hidden="true">→</span>
+              </p>
+            </Link>
+
+            <Link
+              href="/technology"
+              aria-label="Technology"
+              className="block group rounded-lg border border-op-line bg-white p-8 transition-colors hover:border-op-accent"
+            >
+              <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">
+                Division 02
+              </p>
+              <h3 className="font-display text-2xl md:text-3xl text-op-ink mt-3">
+                Technology
+              </h3>
+              <p className="text-op-muted text-base leading-relaxed mt-3">
+                In-house AI agency building production software for our ventures
+                and external clients. Claude Partner Network firm.
+              </p>
+              <p className="text-sm text-op-ink mt-6 flex items-center gap-2 group-hover:text-op-accent transition-colors">
+                Visit division <span aria-hidden="true">→</span>
+              </p>
+            </Link>
+          </div>
+        </div>
+      </section>
     </ThemeSurface>
   );
 }
