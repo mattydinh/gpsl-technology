@@ -59,24 +59,27 @@ describe("Home page", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders capability cards", () => {
+  test("Home hero mentions 'operating group' and has two primary CTAs", () => {
     render(<Home />);
-    expect(screen.getByText("Team")).toBeInTheDocument();
-    expect(screen.getByText("Projects")).toBeInTheDocument();
-    expect(screen.getByText("AI")).toBeInTheDocument();
+    expect(screen.getByText(/operating group/i)).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: /Explore our ventures/i })
+    ).toHaveAttribute("href", "/portfolio");
+    expect(
+      screen.getByRole("link", { name: /How we execute/i })
+    ).toHaveAttribute("href", "/execution");
   });
 
-  it("renders CTA section", () => {
+  test("Home hero H1 says 'We build, operate, and scale ventures.'", () => {
     render(<Home />);
-    expect(screen.getByText("Let's talk")).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { level: 1, name: /build, operate, and scale ventures/i })
+    ).toBeInTheDocument();
   });
 
-  it("has navigation links to key pages", () => {
-    render(<Home />);
-    const teamLink = screen.getAllByRole("link").find(
-      (el) => el.getAttribute("href") === "/team"
-    );
-    expect(teamLink).toBeInTheDocument();
+  test("Home wraps content in data-surface='operating'", () => {
+    const { container } = render(<Home />);
+    expect(container.querySelector('[data-surface="operating"]')).not.toBeNull();
   });
 });
 
