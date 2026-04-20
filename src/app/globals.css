@@ -6,6 +6,7 @@
   background-color: theme("colors.op.bg");
   color: theme("colors.op.ink");
 }
+
 [data-surface="technology"] {
   background-color: #ffffff;
   color: theme("colors.zinc.900");
