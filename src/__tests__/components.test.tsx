@@ -106,7 +106,11 @@ describe("Nav", () => {
 });
 
 test("layout applies Fraunces serif font variable", () => {
-  render(<RootLayout>{null}</RootLayout>);
-  const body = document.body;
-  expect(body.className).toMatch(/--font-fraunces/);
+  const errorSpy = jest.spyOn(console, "error").mockImplementation(() => {});
+  try {
+    render(<RootLayout>{null}</RootLayout>);
+    expect(document.body.className).toMatch(/--font-fraunces/);
+  } finally {
+    errorSpy.mockRestore();
+  }
 });
