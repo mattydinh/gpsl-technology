@@ -47,6 +47,7 @@ jest.mock("next/link", () => {
 // Mock next/navigation
 jest.mock("next/navigation", () => ({
   usePathname: () => "/",
+  useSearchParams: () => ({ get: () => null }),
 }));
 
 describe("Home page", () => {
@@ -180,24 +181,18 @@ describe("Team page", () => {
 });
 
 describe("Contact page", () => {
-  it("renders the contact form", () => {
+  it("renders the Let's talk headline", () => {
     render(<Contact />);
-    expect(screen.getByLabelText(/name/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/message/i)).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /let's talk/i, level: 1 })).toBeInTheDocument();
   });
 
-  it("renders the submit button", () => {
-    render(<Contact />);
-    expect(
-      screen.getByRole("button", { name: /send message/i })
-    ).toBeInTheDocument();
+  it("wraps content in operating surface", () => {
+    const { container } = render(<Contact />);
+    expect(container.querySelector('[data-surface="operating"]')).not.toBeNull();
   });
 
-  it("has required fields", () => {
+  it("shows the GPSL email as a mailto link", () => {
     render(<Contact />);
-    expect(screen.getByLabelText(/name/i)).toBeRequired();
-    expect(screen.getByLabelText(/email/i)).toBeRequired();
-    expect(screen.getByLabelText(/message/i)).toBeRequired();
+    expect(screen.getByRole("link", { name: /matthew\.dinh@gpsl-ubo\.com/i })).toBeInTheDocument();
   });
 });

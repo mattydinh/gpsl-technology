@@ -1,136 +1,132 @@
 "use client";
 
-import { useState } from "react";
-import { Send, CheckCircle, Mail, User, MessageSquare } from "lucide-react";
-import CTA from "@/components/CTA";
-import FadeIn from "@/components/FadeIn";
+import { Suspense, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import ThemeSurface from "@/components/ThemeSurface";
+import { Mail, Phone } from "lucide-react";
 
-export default function Contact() {
-  const [submitted, setSubmitted] = useState(false);
+type TopicId = "execution" | "technology" | "partnerships";
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const data = new FormData(form);
-    const name = data.get("name") as string;
-    const email = data.get("email") as string;
-    const message = data.get("message") as string;
+const TOPICS: { id: TopicId; label: string; body: string }[] = [
+  { id: "execution", label: "Execution", body: "Operators, deal flow, ventures, operations." },
+  { id: "technology", label: "Technology", body: "AI agency engagement, product builds, forward-deployed engineering." },
+  { id: "partnerships", label: "Partnerships", body: "Tribal, institutional, investor. Long-horizon relationships." },
+];
 
-    const subject = encodeURIComponent(`GPSL Contact: ${name}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\n\n${message}`
-    );
-    window.open(`mailto:contact@gpsl.tech?subject=${subject}&body=${body}`);
-    setSubmitted(true);
-  }
+const HEADINGS: Record<TopicId, string> = {
+  execution: "Tell us about the deal or the operation.",
+  technology: "Tell us what you need built.",
+  partnerships: "Tell us about the partnership.",
+};
+
+const SUBJECTS: Record<TopicId, string> = {
+  execution: "GPSL — Execution inquiry",
+  technology: "GPSL — Technology engagement",
+  partnerships: "GPSL — Partnership conversation",
+};
+
+const EMAIL = "matthew.dinh@gpsl-ubo.com";
+
+function ContactInner() {
+  const searchParams = useSearchParams();
+  const topicParam = searchParams.get("topic");
+
+  const initialTopic: TopicId =
+    topicParam === "execution" || topicParam === "technology" || topicParam === "partnerships"
+      ? topicParam
+      : "execution";
+
+  const [selected, setSelected] = useState<TopicId>(initialTopic);
+
+  const mailtoHref = `mailto:${EMAIL}?subject=${encodeURIComponent(SUBJECTS[selected])}`;
 
   return (
     <>
-      <section className="mx-auto max-w-2xl px-6 py-16">
-        <FadeIn>
-          <span className="font-mono text-xs uppercase tracking-widest text-cyan-600">
-            Get in touch
-          </span>
-          <h1 className="mt-2 text-3xl font-semibold tracking-tight text-zinc-900">
-            Contact
-          </h1>
-          <p className="mt-4 text-zinc-600">
-            Get in touch for partnerships, investment discussions, or general
-            inquiries about our technology.
+      {/* Hero */}
+      <div className="max-w-6xl mx-auto px-6 pt-24 pb-12">
+        <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono">Contact</p>
+        <h1 className="font-display text-5xl md:text-6xl text-op-ink mt-6 leading-[1.05] tracking-[-0.02em] max-w-3xl">
+          {"Let's talk."}
+        </h1>
+        <p className="text-lg text-op-muted mt-6 max-w-2xl leading-relaxed">
+          Tell us what brings you in, and we will come back with the right person on our side of the table.
+        </p>
+      </div>
+
+      {/* Topic selector */}
+      <div className="max-w-6xl mx-auto px-6 pb-12">
+        <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono">What brings you in?</p>
+        <div className="mt-6 grid md:grid-cols-3 gap-4">
+          {TOPICS.map((topic, i) => {
+            const isSelected = selected === topic.id;
+            return (
+              <button
+                key={topic.id}
+                onClick={() => setSelected(topic.id)}
+                className={`text-left rounded-lg border p-6 transition-colors ${
+                  isSelected
+                    ? "border-op-accent bg-white"
+                    : "border-op-line bg-white hover:border-op-accent/50"
+                }`}
+              >
+                <span
+                  className={
+                    isSelected
+                      ? "text-xs uppercase tracking-[0.2em] text-op-accent font-mono"
+                      : "text-xs uppercase tracking-[0.2em] text-op-muted font-mono"
+                  }
+                >
+                  Topic 0{i + 1}
+                </span>
+                <h3 className="font-display text-xl text-op-ink mt-2">{topic.label}</h3>
+                <p className="text-sm text-op-muted mt-2 leading-relaxed">{topic.body}</p>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Contact block */}
+      <div className="max-w-6xl mx-auto px-6 pb-24">
+        <div className="mt-8 rounded-lg bg-op-ink text-op-bg p-10 md:p-14">
+          <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">Get in touch</p>
+          <h2 className="font-display text-3xl md:text-4xl mt-4 leading-tight max-w-3xl">
+            {HEADINGS[selected]}
+          </h2>
+
+          <a
+            href={mailtoHref}
+            className="inline-flex items-center gap-3 text-op-bg hover:text-op-accent transition-colors mt-8 text-lg"
+          >
+            <Mail size={20} />
+            {EMAIL}
+          </a>
+
+          <br />
+
+          <a
+            href="tel:+19044399174"
+            className="inline-flex items-center gap-3 text-op-bg hover:text-op-accent transition-colors mt-4 text-lg"
+          >
+            <Phone size={20} />
+            (904) 439-9174
+          </a>
+
+          <p className="text-sm text-op-muted mt-8">
+            Or just reply to anything we have already sent you. We read everything.
           </p>
-        </FadeIn>
-
-        <FadeIn delay={0.15}>
-          <div className="mt-12 rounded-lg border border-zinc-200 border-l-4 border-l-cyan-500 bg-white p-8 shadow-sm">
-            {submitted ? (
-              <div className="flex flex-col items-center gap-4 py-8 text-center">
-                <CheckCircle size={40} className="text-cyan-500" />
-                <h2 className="text-lg font-semibold text-zinc-900">
-                  Message prepared
-                </h2>
-                <p className="text-sm text-zinc-600">
-                  Your default email client should have opened with the message.
-                  If it didn&apos;t, feel free to email us directly.
-                </p>
-                <button
-                  onClick={() => setSubmitted(false)}
-                  className="mt-2 font-mono text-xs font-medium text-cyan-600 hover:text-cyan-700"
-                >
-                  Send another message
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="flex items-center gap-2 font-mono text-xs font-medium uppercase tracking-wider text-zinc-600"
-                  >
-                    <User size={12} />
-                    Name
-                  </label>
-                  <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    required
-                    className="mt-2 block w-full rounded-md border border-zinc-300 bg-surface px-3 py-2.5 font-mono text-sm text-zinc-900 placeholder-zinc-400 focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500"
-                    placeholder="Your name"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="flex items-center gap-2 font-mono text-xs font-medium uppercase tracking-wider text-zinc-600"
-                  >
-                    <Mail size={12} />
-                    Email
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    className="mt-2 block w-full rounded-md border border-zinc-300 bg-surface px-3 py-2.5 font-mono text-sm text-zinc-900 placeholder-zinc-400 focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500"
-                    placeholder="you@example.com"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="flex items-center gap-2 font-mono text-xs font-medium uppercase tracking-wider text-zinc-600"
-                  >
-                    <MessageSquare size={12} />
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={4}
-                    required
-                    className="mt-2 block w-full rounded-md border border-zinc-300 bg-surface px-3 py-2.5 font-mono text-sm text-zinc-900 placeholder-zinc-400 focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500"
-                    placeholder="How can we help?"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="inline-flex items-center gap-2 rounded-md border border-cyan-500/60 bg-cyan-500/10 px-5 py-2.5 font-mono text-sm font-medium text-cyan-700 transition-colors hover:bg-cyan-500/20 hover:border-cyan-600 hover:shadow-glow-sm"
-                >
-                  <Send size={14} />
-                  Send message
-                </button>
-              </form>
-            )}
-          </div>
-        </FadeIn>
-      </section>
-
-      <CTA
-        title="Prefer a meeting?"
-        description="We can schedule a call to walk through our technology and roadmap."
-        primaryLabel="Return to overview"
-        primaryHref="/"
-      />
+        </div>
+      </div>
     </>
+  );
+}
+
+export default function ContactPage() {
+  return (
+    <ThemeSurface surface="operating">
+      <Suspense fallback={null}>
+        <ContactInner />
+      </Suspense>
+    </ThemeSurface>
   );
 }
