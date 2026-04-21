@@ -53,7 +53,9 @@ Every page wraps its content in `<ThemeSurface surface="operating" | "technology
 The `ThemeToggle` component flips the attribute and persists the choice.
 
 ### Theme Tokens (CSS-variable-backed)
-**⚠️ Critical — do not hardcode hex values.** The `op.*` Tailwind tokens resolve to `rgb(var(--op-*) / <alpha-value>)`. CSS variables live in [src/app/globals.css](src/app/globals.css) under `:root` (light) and `:root[data-theme="dark"]` (dark). Adding a new color means adding the RGB triplet to BOTH blocks, then extending `tailwind.config.ts`. Editing static hex in `tailwind.config.ts` will not theme.
+**⚠️ Critical — do not hardcode hex values OR static Tailwind color classes on themed surfaces.** The `op.*` Tailwind tokens resolve to `rgb(var(--op-*) / <alpha-value>)`. CSS variables live in [src/app/globals.css](src/app/globals.css) under `:root` (light) and `:root[data-theme="dark"]` (dark). Adding a new color means adding the RGB triplet to BOTH blocks, then extending `tailwind.config.ts`. Editing static hex in `tailwind.config.ts` will not theme.
+
+**⚠️ `bg-white` is a trap on operating-surface pages.** `bg-white` stays white in dark mode while `text-op-ink` flips to warm ivory — card titles become invisible. Always use `bg-op-card` for cards, `bg-op-panel` for full-width section lifts. The *only* pages that may use static zinc/white classes are those wrapped in `<ThemeSurface surface="technology">` — the Technology division surface is brand-locked dark on purpose.
 
 Operating surface tokens (light → dark):
 | Token | Light | Dark | Purpose |
