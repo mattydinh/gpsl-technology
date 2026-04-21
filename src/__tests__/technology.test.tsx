@@ -68,4 +68,21 @@ describe("TechnologyPage", () => {
     const matches = screen.getAllByText(/claude partner network/i);
     expect(matches.length).toBeGreaterThan(0);
   });
+
+  test("Technology forward-deployed section lists three tiles", () => {
+    render(<TechnologyPage />);
+    expect(screen.getByText(/forward-deployed engineering, not billable hours/i)).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /embedded engineers/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /claude-grade agents/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /own the outcome/i, level: 3 })).toBeInTheDocument();
+  });
+
+  test("Technology final CTA links to contact and portfolio", () => {
+    render(<TechnologyPage />);
+    expect(screen.getByText(/tell us what you need built/i)).toBeInTheDocument();
+    const contact = screen.getByRole("link", { name: /start the conversation/i });
+    expect(contact).toHaveAttribute("href", "/contact?topic=technology");
+    const portfolio = screen.getByRole("link", { name: /see what we've shipped/i });
+    expect(portfolio).toHaveAttribute("href", "/portfolio#tech");
+  });
 });

@@ -227,6 +227,58 @@ export default function TechnologyPage() {
             </div>
           </div>
         </section>
+
+        <section className="border-t border-zinc-900">
+          <div className="max-w-6xl mx-auto px-6 py-24">
+            <p className="text-xs uppercase tracking-[0.2em] text-cyan-400 font-mono">How we work with clients</p>
+            <h2 className="font-display text-3xl md:text-4xl text-zinc-50 mt-4 leading-tight max-w-3xl">
+              Forward-deployed engineering, not billable hours.
+            </h2>
+            <p className="text-zinc-400 mt-6 max-w-2xl leading-relaxed">
+              We work the way the strongest AI-native teams work: small, senior, and deployed inside your problem. No account managers, no layered delivery orgs — just engineers who own the outcome with you.
+            </p>
+
+            <div className="mt-12 grid md:grid-cols-3 gap-6">
+              <div className="rounded-lg border border-zinc-800 bg-zinc-900/50 p-6">
+                <p className="font-display text-4xl text-cyan-400">01</p>
+                <h3 className="font-display text-xl text-zinc-50 mt-3">Embedded engineers</h3>
+                <p className="text-sm text-zinc-400 mt-3 leading-relaxed">Our engineers sit inside your team, not across a ticket queue. They learn your codebase, your data, and your culture — and ship into it.</p>
+              </div>
+              <div className="rounded-lg border border-zinc-800 bg-zinc-900/50 p-6">
+                <p className="font-display text-4xl text-cyan-400">02</p>
+                <h3 className="font-display text-xl text-zinc-50 mt-3">Claude-grade agents</h3>
+                <p className="text-sm text-zinc-400 mt-3 leading-relaxed">Every engagement uses Claude as the reasoning layer. We bring opinionated tooling and patterns we have built across GPSL ventures, so you skip the first 6 months of experimentation.</p>
+              </div>
+              <div className="rounded-lg border border-zinc-800 bg-zinc-900/50 p-6">
+                <p className="font-display text-4xl text-cyan-400">03</p>
+                <h3 className="font-display text-xl text-zinc-50 mt-3">Own the outcome</h3>
+                <p className="text-sm text-zinc-400 mt-3 leading-relaxed">We take commercial ownership of the work. Not &apos;consulted on&apos; — delivered. When the agent goes live, it is because our engineer pressed the button with yours.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="border-t border-zinc-900">
+          <div className="max-w-6xl mx-auto px-6 py-24">
+            <div className="rounded-lg border border-cyan-500/30 bg-gradient-to-br from-zinc-900 to-zinc-950 p-10 md:p-16">
+              <p className="text-xs uppercase tracking-[0.2em] text-cyan-400 font-mono">Engage the Technology division</p>
+              <h2 className="font-display text-3xl md:text-4xl text-zinc-50 mt-4 leading-tight max-w-3xl">
+                Tell us what you need built.
+              </h2>
+              <p className="mt-6 text-base leading-relaxed max-w-2xl text-zinc-400">
+                The fastest way in is a conversation. Tell us the shape of the problem — agents, a CRM, a platform — and we will come back with who from our team would be right for the work.
+              </p>
+              <div className="mt-10 flex flex-wrap gap-3">
+                <Link href="/contact?topic=technology" className="inline-flex items-center gap-2 rounded-md bg-cyan-500 px-5 py-3 text-sm font-medium text-zinc-950 hover:bg-cyan-400 transition-colors">
+                  Start the conversation <span aria-hidden>→</span>
+                </Link>
+                <Link href="/portfolio#tech" className="inline-flex items-center gap-2 rounded-md border border-zinc-800 px-5 py-3 text-sm font-medium text-zinc-50 hover:border-cyan-500 transition-colors">
+                  See what we&apos;ve shipped
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </ThemeSurface>
   );
