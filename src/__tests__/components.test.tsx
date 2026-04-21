@@ -54,19 +54,43 @@ jest.mock("next/navigation", () => ({
 }));
 
 describe("Footer", () => {
-  it("renders brand name", () => {
+  it("renders brand name and tagline", () => {
     render(<Footer />);
-    const brandElements = screen.getAllByText(/GPSL/);
-    expect(brandElements.length).toBeGreaterThan(0);
+    expect(screen.getByText("GPSL")).toBeInTheDocument();
+    expect(screen.getByText(/a diversified operating group/i)).toBeInTheDocument();
   });
 
-  it("renders all page links", () => {
+  it("renders all six nav links with correct hrefs", () => {
     render(<Footer />);
-    expect(screen.getByText("Overview")).toBeInTheDocument();
-    expect(screen.getByText("Team")).toBeInTheDocument();
-    expect(screen.getByText("Portfolio")).toBeInTheDocument();
-    expect(screen.getByText("Technology")).toBeInTheDocument();
-    expect(screen.getByText("Contact")).toBeInTheDocument();
+    const expected: [string, string][] = [
+      ["Home", "/"],
+      ["Execution", "/execution"],
+      ["Technology", "/technology"],
+      ["Portfolio", "/portfolio"],
+      ["Team", "/team"],
+      ["Contact", "/contact"],
+    ];
+    expected.forEach(([label, href]) => {
+      const link = screen.getByRole("link", { name: label });
+      expect(link).toHaveAttribute("href", href);
+    });
+  });
+
+  it("renders email link", () => {
+    render(<Footer />);
+    const email = screen.getByRole("link", { name: /matthew\.dinh@gpsl-ubo\.com/i });
+    expect(email).toHaveAttribute("href", "mailto:matthew.dinh@gpsl-ubo.com");
+  });
+
+  it("renders phone link", () => {
+    render(<Footer />);
+    const phone = screen.getByRole("link", { name: /\(904\)\s?439-9174/i });
+    expect(phone).toHaveAttribute("href", "tel:+19044399174");
+  });
+
+  it("renders copyright", () => {
+    render(<Footer />);
+    expect(screen.getByText(/© 2026 GPSL Technology\. All rights reserved/i)).toBeInTheDocument();
   });
 
   it("renders social links with aria labels", () => {
@@ -74,13 +98,6 @@ describe("Footer", () => {
     expect(screen.getByLabelText("GitHub")).toBeInTheDocument();
     expect(screen.getByLabelText("LinkedIn")).toBeInTheDocument();
     expect(screen.getByLabelText("Email")).toBeInTheDocument();
-  });
-
-  it("renders copyright text", () => {
-    render(<Footer />);
-    expect(
-      screen.getByText(/GPSL Technology\. All rights reserved/i)
-    ).toBeInTheDocument();
   });
 });
 
