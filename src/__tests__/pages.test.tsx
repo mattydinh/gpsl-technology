@@ -90,6 +90,14 @@ describe("Home page", () => {
     expect(exec).toHaveAttribute("href", "/execution");
     expect(tech).toHaveAttribute("href", "/technology");
   });
+
+  test("Home operating model section renders all four steps", () => {
+    render(<Home />);
+    expect(screen.getByText(/our operating model/i)).toBeInTheDocument();
+    ["Discover", "Align", "Execute", "Sustain"].forEach((step) => {
+      expect(screen.getByRole("heading", { name: step, level: 3 })).toBeInTheDocument();
+    });
+  });
 });
 
 describe("Team page", () => {

@@ -99,6 +99,50 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <section className="py-24 border-t border-op-line">
+        <div className="max-w-6xl mx-auto px-6">
+          <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono">
+            Our operating model
+          </p>
+          <h2 className="font-display text-3xl md:text-4xl text-op-ink mt-4 leading-tight max-w-2xl">
+            How we turn opportunity into durable venture.
+          </h2>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
+            <div className="border-t border-op-line pt-6">
+              <p className="text-xs font-mono text-op-accent">01</p>
+              <h3 className="font-display text-xl text-op-ink mt-2">Discover</h3>
+              <p className="text-sm text-op-muted mt-3 leading-relaxed">
+                Originate opportunity through our networks in finance, trade, tribal economic development, and forward-deployed engineering.
+              </p>
+            </div>
+
+            <div className="border-t border-op-line pt-6">
+              <p className="text-xs font-mono text-op-accent">02</p>
+              <h3 className="font-display text-xl text-op-ink mt-2">Align</h3>
+              <p className="text-sm text-op-muted mt-3 leading-relaxed">
+                Structure the deal or engagement so the ownership, governance, and incentives hold up at scale.
+              </p>
+            </div>
+
+            <div className="border-t border-op-line pt-6">
+              <p className="text-xs font-mono text-op-accent">03</p>
+              <h3 className="font-display text-xl text-op-ink mt-2">Execute</h3>
+              <p className="text-sm text-op-muted mt-3 leading-relaxed">
+                Stand the venture up. Ship the software. Close the deal. Run the operation with the people who will own it.
+              </p>
+            </div>
+
+            <div className="border-t border-op-line pt-6">
+              <p className="text-xs font-mono text-op-accent">04</p>
+              <h3 className="font-display text-xl text-op-ink mt-2">Sustain</h3>
+              <p className="text-sm text-op-muted mt-3 leading-relaxed">
+                Operate as a long-horizon holder. Reinvest, compound, and keep the asset close to the people it serves.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </ThemeSurface>
   );
 }
