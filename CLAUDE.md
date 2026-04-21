@@ -44,8 +44,10 @@ src/
 
 ### Surfaces
 Every page wraps its content in `<ThemeSurface surface="operating" | "technology">`.
-- `operating` — warm paper aesthetic (default brand). Follows the light/dark toggle.
-- `technology` — brand-locked dark (near-black zinc, cyan accent). Intentionally does NOT follow the toggle — the Technology division's identity is the dark surface.
+- `operating` — warm paper aesthetic (default brand). Terracotta accent. Tokens: `op.*`.
+- `technology` — cool technical aesthetic (zinc family, cyan accent). Tokens: `tech.*`.
+
+**Both surfaces theme.** Light/dark toggle flips both — operating swaps warm paper → warm near-black; technology swaps cool off-white → zinc-950. Accents (terracotta + cyan) each have a light-mode variant tuned for AA contrast on the light bg.
 
 ### Light + Dark Mode
 `data-theme="light"` or `data-theme="dark"` is set on `<html>` by an inline `<script>` in `layout.tsx:49`. The script reads `localStorage['gpsl-theme']` first, falls back to `prefers-color-scheme`. This runs **before** React hydrates, so there is no FOUC. `<html>` carries `suppressHydrationWarning`.
@@ -68,7 +70,18 @@ Operating surface tokens (light → dark):
 | `op.accent` | `#B55A30` | `#E08259` | Terracotta — brightened in dark for AA |
 | `op.line` | `#E5E0D8` | `#38322C` | Hairlines |
 
-Hierarchy: `bg → panel → card` always reads as a lift in both modes. Don't mix `op.bg` and `op.card` on adjacent surfaces — you'll invert the hierarchy in one mode.
+Technology surface tokens (light → dark):
+| Token | Light | Dark | Purpose |
+|---|---|---|---|
+| `tech.bg` | `#FAFAFB` | `#09090B` | Page background |
+| `tech.panel` | `#F4F4F5` | `#18181B` | Section panel |
+| `tech.card` | `#FFFFFF` | `#1E1E21` | Card lift |
+| `tech.ink` | `#09090B` | `#FAFAFA` | Primary text |
+| `tech.muted` | `#52525B` | `#A1A1AA` | Secondary text |
+| `tech.accent` | `#0891B2` | `#22D3EE` | Cyan — cyan-600 light / cyan-400 dark (AA) |
+| `tech.line` | `#E4E4E7` | `#27272A` | Hairlines |
+
+Hierarchy: `bg → panel → card` always reads as a lift in both modes. Don't mix `*.bg` and `*.card` on adjacent surfaces — you'll invert the hierarchy in one mode. Never put `op.*` tokens on the Technology surface (or vice versa); the two families aren't interchangeable.
 
 ### Typography
 - **Display:** Fraunces (serif) — `.font-display` / `font-display:`. Loaded at weights **500 / 600 / 700 only**. Stylistic sets 01/02/03 enabled in globals.css.
