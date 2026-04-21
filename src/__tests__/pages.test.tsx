@@ -85,8 +85,12 @@ describe("Home page", () => {
   test("Home Two Engines section renders Execution + Technology cards", () => {
     render(<Home />);
     expect(screen.getByText(/one operating group, two engines/i)).toBeInTheDocument();
-    const exec = screen.getByRole("link", { name: /Execution/i });
-    expect(exec).toHaveAttribute("href", "/execution");
+    // Find the Two Engines division card (href="/execution", contains "Division 01")
+    const execLinks = screen.getAllByRole("link").filter(
+      (el) => el.getAttribute("href") === "/execution"
+    );
+    expect(execLinks.length).toBeGreaterThanOrEqual(1);
+    expect(execLinks.some((el) => /division 01/i.test(el.textContent ?? ""))).toBe(true);
     // Multiple links go to /technology; confirm at least one is a division card (contains "Division 02" text)
     const techLinks = screen.getAllByRole("link").filter(
       (el) => el.getAttribute("href") === "/technology"
@@ -121,6 +125,25 @@ describe("Home page", () => {
     expect(screen.getByRole("heading", { name: /luxusai/i, level: 3 })).toBeInTheDocument();
     const cta = screen.getByRole("link", { name: /explore the technology division/i });
     expect(cta).toHaveAttribute("href", "/technology");
+  });
+
+  test("Home trust tiles render three differentiators", () => {
+    render(<Home />);
+    expect(screen.getByText(/why gpsl/i)).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /tribal sovereignty as advantage/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /long-horizon holder posture/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /in-house ai, not outsourced/i, level: 3 })).toBeInTheDocument();
+  });
+
+  test("Home engagement routing exposes three topic-routed contact doors", () => {
+    render(<Home />);
+    expect(screen.getByText(/three doors into gpsl/i)).toBeInTheDocument();
+    const allLinks = screen.getAllByRole("link");
+    const topics = ["execution", "technology", "partnerships"];
+    topics.forEach((topic) => {
+      const match = allLinks.find((l) => l.getAttribute("href") === `/contact?topic=${topic}`);
+      expect(match).toBeDefined();
+    });
   });
 });
 

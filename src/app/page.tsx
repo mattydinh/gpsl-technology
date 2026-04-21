@@ -241,6 +241,94 @@ export default function Home() {
           </Link>
         </div>
       </section>
+
+      <section className="py-24 border-t border-op-line bg-op-bg">
+        <div className="max-w-6xl mx-auto px-6">
+          <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono">Why GPSL</p>
+          <h2 className="font-display text-3xl md:text-4xl text-op-ink mt-4 leading-tight max-w-2xl">
+            An operator&apos;s approach, in an owner&apos;s timeframe.
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-8 mt-12">
+            <div>
+              <p className="font-display text-5xl text-op-accent">01</p>
+              <h3 className="font-display text-xl text-op-ink mt-4">Tribal sovereignty as advantage</h3>
+              <p className="text-sm text-op-muted mt-3 leading-relaxed">
+                We operate under tribal jurisdiction with a federally recognized nation. That structure unlocks finance, trade, and regulatory positions our peers cannot access.
+              </p>
+            </div>
+
+            <div>
+              <p className="font-display text-5xl text-op-accent">02</p>
+              <h3 className="font-display text-xl text-op-ink mt-4">Long-horizon holder posture</h3>
+              <p className="text-sm text-op-muted mt-3 leading-relaxed">
+                We are not a fund with a return clock. We buy, build, and hold. Our incentive is the asset compounding, not a five-year exit.
+              </p>
+            </div>
+
+            <div>
+              <p className="font-display text-5xl text-op-accent">03</p>
+              <h3 className="font-display text-xl text-op-ink mt-4">In-house AI, not outsourced</h3>
+              <p className="text-sm text-op-muted mt-3 leading-relaxed">
+                Our Technology division is our leverage. Every venture ships with agentic software built by the same team that built the CRM.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 border-t border-op-line">
+        <div className="max-w-6xl mx-auto px-6">
+          <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono">Work with us</p>
+          <h2 className="font-display text-3xl md:text-4xl text-op-ink mt-4 leading-tight max-w-2xl">
+            Three doors into GPSL.
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-6 mt-12">
+            <Link
+              href="/contact?topic=execution"
+              className="block group rounded-lg border border-op-line bg-white p-8 transition-colors hover:border-op-accent"
+            >
+              <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">EXECUTION</p>
+              <h3 className="font-display text-xl text-op-ink mt-3">Operators &amp; deal flow</h3>
+              <p className="text-sm text-op-muted mt-3 leading-relaxed">
+                You have an asset, an operation, or a deal we should be looking at. Come in via Execution.
+              </p>
+              <p className="text-sm text-op-ink mt-6 flex items-center gap-2 group-hover:text-op-accent transition-colors">
+                Start the conversation <span aria-hidden>→</span>
+              </p>
+            </Link>
+
+            <Link
+              href="/contact?topic=technology"
+              className="block group rounded-lg border border-op-line bg-white p-8 transition-colors hover:border-op-accent"
+            >
+              <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">TECHNOLOGY</p>
+              <h3 className="font-display text-xl text-op-ink mt-3">AI agency engagement</h3>
+              <p className="text-sm text-op-muted mt-3 leading-relaxed">
+                You want the Technology division to build or embed with you. Come in via Technology.
+              </p>
+              <p className="text-sm text-op-ink mt-6 flex items-center gap-2 group-hover:text-op-accent transition-colors">
+                Start the conversation <span aria-hidden>→</span>
+              </p>
+            </Link>
+
+            <Link
+              href="/contact?topic=partnerships"
+              className="block group rounded-lg border border-op-line bg-white p-8 transition-colors hover:border-op-accent"
+            >
+              <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">PARTNERSHIPS</p>
+              <h3 className="font-display text-xl text-op-ink mt-3">Tribal &amp; institutional partnerships</h3>
+              <p className="text-sm text-op-muted mt-3 leading-relaxed">
+                You represent a tribe, a partner institution, or an investor. Start a partnership conversation.
+              </p>
+              <p className="text-sm text-op-ink mt-6 flex items-center gap-2 group-hover:text-op-accent transition-colors">
+                Start the conversation <span aria-hidden>→</span>
+              </p>
+            </Link>
+          </div>
+        </div>
+      </section>
     </ThemeSurface>
   );
 }
