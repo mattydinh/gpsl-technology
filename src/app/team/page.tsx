@@ -9,36 +9,36 @@ export const metadata: Metadata = {
 const executionTeam = [
   {
     name: "Bernie Chan",
-    role: "Forward Deployed Engineer",
-    bio: "Drives deal flow and client delivery from proof of concept through production-scale deployment. Translates complex AI capabilities into measurable client value.",
+    role: "Forward Deployed Engineer & Strategist",
+    bio: "Owns deal flow, client delivery, and the financial architecture behind every AI product we ship. Turns proof-of-concept work into durable businesses — modeling unit economics, structuring engagements, and translating novel AI capability into measurable client outcomes.",
+  },
+  {
+    name: "Kentory Thomas",
+    role: "AI Platform & Transformation",
+    bio: "Runs AI product and platform delivery across healthcare technology integration and enterprise transformation work. Pairs a deep finance background with operator rigor — making sure our agency, and the systems we ship alongside partners, scale together.",
   },
 ];
 
 const technologyTeam = [
   {
     name: "Matty Dinh",
-    role: "Founding Engineer",
-    bio: "Designs and deploys end-to-end data and technology systems spanning machine learning, NLP, analytics engineering, and enterprise IT infrastructure. Bridges advanced AI with production-grade systems.",
+    role: "Chief Scientist",
+    bio: "Architects end-to-end data and AI systems across machine learning, NLP, analytics engineering, and enterprise infrastructure. Connective tissue between research-grade capability and production-grade execution — what AI can do, and what actually ships.",
   },
   {
     name: "Cliff Wu",
     role: "AI Engineer",
-    bio: "Applied ML engineer with a full-stack foundation and a track record of winning competitive AI challenges. Combines algorithmic rigor with scalable engineering execution.",
+    bio: "Founding an AI startup while partnering with faculty at a California university medical school to build clinical automations. Decorated competitor with wins across AI case competitions and Kaggle, and deep expertise in scaled AI architecture — the systems that keep models reliable at production scale.",
   },
   {
     name: "Nate Sou",
-    role: "Full-Stack Engineer",
-    bio: "Builds scalable applications backed by modern CI/CD pipelines and production-grade infrastructure. Specializes in AI agents and retrieval-augmented generation systems.",
+    role: "Full-Stack Software",
+    bio: "Ships across the full application stack — backend, frontend, and the AI agent architecture in between. Shapes how end-to-end products come together, from infrastructure up through interface, with equal fluency at each layer.",
   },
   {
     name: "Martin Leung",
-    role: "Engineer, Payments & Auth",
-    bio: "Builds secure, high-reliability transaction pipelines and identity management solutions. Deep expertise in payments infrastructure and authentication systems.",
-  },
-  {
-    name: "Kentory",
-    role: "Software Engineer",
-    bio: "Software engineer contributing across the GPSL technology stack. Focused on reliable, maintainable systems that support long-horizon ventures.",
+    role: "Full-Stack Software",
+    bio: "Owns the backend, authentication, and high-reliability plumbing that keeps our production services running. Deep expertise in identity systems and transaction infrastructure — the unglamorous layer that makes everything else trustworthy.",
   },
 ];
 
