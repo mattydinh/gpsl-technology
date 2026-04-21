@@ -1,97 +1,108 @@
 # GPSL Technology — Developer Context
 
 ## Project Overview
-Company technology showcase site for GPSL Technology — a forward-deployed AI agency that handles everything from proof of concept to MVP, pilot, and production-scale AI/ML systems with mature data infrastructure. Displays team, projects, AI approach, and contact form.
+Company marketing site for GPSL — a diversified operating group with two engines: an Execution arm (ventures we own and run) and a Technology division (agentic software we ship into those ventures and to client engagements).
 Live at: https://gpsl-technology.vercel.app
 
 ## Tech Stack
 - **Framework:** Next.js 15.5 (App Router, Turbopack dev)
 - **Runtime:** React 19
 - **Language:** TypeScript 5 (strict mode)
-- **Styling:** Tailwind CSS 3.4 with custom design tokens
+- **Styling:** Tailwind CSS 3.4 with CSS-var-backed design tokens
+- **Fonts:** Fraunces (display serif) + Figtree (body sans) via `next/font/google`
 - **Animations:** Framer Motion 11
 - **Icons:** Lucide React
 - **Testing:** Jest 30 + Testing Library
-- **Deploy:** Vercel
+- **Deploy:** Vercel (auto-deploy on push to `main`)
+
+## Default Branch
+`main` (not `master`)
 
 ## File Structure
 ```
 src/
 ├── app/
-│   ├── layout.tsx          # Root layout (Nav + Footer + SEO metadata)
-│   ├── page.tsx            # Home — hero, Claude Partner badge, capabilities grid, CTA
-│   ├── globals.css         # CSS vars, Tailwind directives, .bg-grid, Claude partner animations
-│   ├── robots.ts           # Auto-generated robots.txt
-│   ├── sitemap.ts          # Auto-generated sitemap.xml
-│   ├── team/page.tsx       # Team member cards (5 members)
-│   ├── projects/page.tsx   # Project cards (7 projects, 2-col grid with external links)
-│   ├── ai/page.tsx         # AI philosophy + stack overview + Claude Partner Network card
+│   ├── layout.tsx          # Root: Nav + Footer, Fraunces + Figtree, inline theme-init <script>
+│   ├── page.tsx            # Home — operating-group hero, two-engine grid, operating-model steps
+│   ├── globals.css         # Theme tokens (light + dark per surface), body typography, animations
+│   ├── robots.ts / sitemap.ts
+│   ├── execution/page.tsx  # Execution arm — ventures, operating model, sectors
+│   ├── technology/page.tsx # Technology division — dark zinc surface, flagships, philosophy, stack
+│   ├── portfolio/page.tsx  # Ventures + Technology island (soft tonal panel, not black card)
+│   ├── team/page.tsx       # Team cards
 │   └── contact/page.tsx    # Contact form (mailto handler)
 ├── components/
-│   ├── Nav.tsx             # Sticky nav, mobile hamburger, icons, animated underline
-│   ├── Footer.tsx          # Site footer with links + socials
-│   ├── CTA.tsx             # Reusable call-to-action section
-│   └── FadeIn.tsx          # Scroll-triggered animation wrapper (framer-motion)
-└── __tests__/
-    ├── pages.test.tsx      # Tests for all 5 pages
-    └── components.test.tsx # Tests for Nav, Footer
+│   ├── Nav.tsx             # Sticky nav, mobile hamburger, ThemeToggle, animated active underline
+│   ├── Footer.tsx          # Links + contact
+│   ├── ThemeSurface.tsx    # Wraps pages; sets data-surface="operating" | "technology"
+│   ├── ThemeToggle.tsx     # Sun/moon toggle, persists to localStorage, hydration-safe
+│   ├── CTA.tsx / FadeIn.tsx
+└── __tests__/              # 6 suites, 66 tests — must pass before push
 ```
 
 ## Design System
-- **Colors:** Zinc base + Cyan (#22d3ee) accent + Claude peach (#D97757) for partner branding. See `tailwind.config.ts` for `surface.*` and `accent.*` tokens.
-- **Typography:** System monospace for labels/nav (`font-mono`), system sans for body.
-- **Cards:** `rounded-lg border border-zinc-200 border-l-4 border-l-cyan-500 bg-white p-6 shadow-sm`
-- **Shadows:** `shadow-glow` and `shadow-glow-sm` for cyan glow effects.
-- **Grid pattern:** `.bg-grid` class in globals.css (24x24 subtle grid).
-- **Partner badge:** `.claude-icon-pulse` (sparkle glow) and `.claude-border-shimmer` (border color oscillation) in globals.css.
+
+### Surfaces
+Every page wraps its content in `<ThemeSurface surface="operating" | "technology">`.
+- `operating` — warm paper aesthetic (default brand). Follows the light/dark toggle.
+- `technology` — brand-locked dark (near-black zinc, cyan accent). Intentionally does NOT follow the toggle — the Technology division's identity is the dark surface.
+
+### Light + Dark Mode
+`data-theme="light"` or `data-theme="dark"` is set on `<html>` by an inline `<script>` in `layout.tsx:49`. The script reads `localStorage['gpsl-theme']` first, falls back to `prefers-color-scheme`. This runs **before** React hydrates, so there is no FOUC. `<html>` carries `suppressHydrationWarning`.
+
+The `ThemeToggle` component flips the attribute and persists the choice.
+
+### Theme Tokens (CSS-variable-backed)
+**⚠️ Critical — do not hardcode hex values.** The `op.*` Tailwind tokens resolve to `rgb(var(--op-*) / <alpha-value>)`. CSS variables live in [src/app/globals.css](src/app/globals.css) under `:root` (light) and `:root[data-theme="dark"]` (dark). Adding a new color means adding the RGB triplet to BOTH blocks, then extending `tailwind.config.ts`. Editing static hex in `tailwind.config.ts` will not theme.
+
+Operating surface tokens (light → dark):
+| Token | Light | Dark | Purpose |
+|---|---|---|---|
+| `op.bg` | `#F7F5F0` | `#161310` | Page background |
+| `op.panel` | `#EFEAE0` | `#1F1B16` | Section panel — one step off bg |
+| `op.card` | `#FFFFFF` | `#28231D` | Card — one step off panel (always lifts) |
+| `op.ink` | `#1A1A1A` | `#F2EBDE` | Primary text |
+| `op.muted` | `#5A5550` | `#AAA094` | Secondary text |
+| `op.accent` | `#B55A30` | `#E08259` | Terracotta — brightened in dark for AA |
+| `op.line` | `#E5E0D8` | `#38322C` | Hairlines |
+
+Hierarchy: `bg → panel → card` always reads as a lift in both modes. Don't mix `op.bg` and `op.card` on adjacent surfaces — you'll invert the hierarchy in one mode.
+
+### Typography
+- **Display:** Fraunces (serif) — `.font-display` / `font-display:`. Stylistic sets 01/02/03 enabled in globals.css.
+- **Body:** Figtree (sans) — applied via `font-sans` in Tailwind (default). `ss01` + `cv11` feature sets enabled. `letter-spacing: -0.005em` + `optimizeLegibility`.
+- **Labels:** system monospace (`font-mono`) — the small uppercase `tracking-[0.2em]` kicker pattern used throughout.
 
 ## Commands
 ```bash
-npm run dev        # Start dev server (Turbopack, port 3000)
+npm run dev        # Dev server (Turbopack, port 3000)
 npm run build      # Production build
-npm test           # Run all tests (24 tests across 2 suites)
+npm test           # Jest — 66 tests across 6 suites, must pass before push
 npm run lint       # ESLint
+npx tsc --noEmit   # Typecheck
 ```
+
+## Commit Convention
+```
+<type>(<scope>): <imperative description>
+```
+Types: `feat`, `fix`, `refactor`, `docs`, `test`, `chore`. Author commits as `Matthew Dinh <matthew.dinh@gpsl-ubo.com>`.
 
 ## Key Patterns
-- All pages are `"use client"` for Framer Motion animations
-- `FadeIn` component wraps sections for scroll-triggered entrance animations
-- Nav uses `layoutId="nav-underline"` for animated active indicator
-- Contact form uses `mailto:` — no backend API route needed
-- All data is static (team members, projects defined inline in page components)
-- Footer is in layout.tsx, renders on every page
-
-## Adding a New Project
-Edit `src/app/projects/page.tsx` — add to the `projects` array:
-```ts
-{
-  icon: SomeLucideIcon,   // import from "lucide-react"
-  title: "Product Name",
-  subtitle: "Short tagline for the product",
-  description: "1-2 sentence description of what it does.",
-  tags: ["Tag1", "Tag2"],
-  url: "https://example.com",
-}
-```
-
-## Adding a Team Member
-Edit `src/app/team/page.tsx` — add to the `team` array:
-```ts
-{
-  name: "Full Name",
-  role: "Role | Specialties",
-  bio: "Description...",
-}
-```
+- Client components (`"use client"`) only where needed — Nav, ThemeToggle, FadeIn. Pages are server components.
+- `FadeIn` wraps sections for scroll-triggered entrance animations.
+- Nav active indicator uses Framer Motion `layoutId="nav-underline"`.
+- All page data (ventures, products, team) lives inline in page components — no CMS.
+- Technology page and the Portfolio `/tech` island intentionally live in different surface languages; the Portfolio island uses soft tonal inset (`bg-op-panel` + `bg-op-card`) rather than full dark to avoid the harsh contrast break on the operating surface.
 
 ## Testing
-- Tests mock `framer-motion`, `next/link`, and `next/navigation`
-- Run `npm test` before pushing — all 24 tests must pass
-- Jest config: `jest.config.ts`, setup: `jest.setup.ts`
+- Jest mocks `next/font/google` (both `Fraunces` and `Figtree`), `framer-motion`, `next/link`, `next/navigation`.
+- Tests check structure + content, NOT color classes — safe to restyle without breaking tests.
+- Pre-push: `npm test && npm run build`.
 
 ## Troubleshooting
-- **Build fails on types:** Run `npx tsc --noEmit` to see type errors
-- **Dev server port in use:** `npx kill-port 3000` or change port with `npm run dev -- -p 3001`
-- **Test failures after framer-motion update:** Check the mock in test files matches the API
-- **Tailwind classes not working:** Verify `content` paths in `tailwind.config.ts`
-- **ESLint version mismatch:** ESLint 9 + eslint-config-next 15 are compatible
+- **Colors don't change on theme toggle:** You likely hardcoded a hex in a component instead of using an `op.*` Tailwind class. Replace with a token.
+- **New color needed:** Add RGB triplet to both `:root` and `:root[data-theme="dark"]` in `globals.css`, then add the key under `op` in `tailwind.config.ts` with `rgb(var(--op-name) / <alpha-value>)`.
+- **FOUC on first paint:** Check that the inline theme-init script in `layout.tsx` still runs in `<head>` and that `<html>` has `suppressHydrationWarning`.
+- **Build fails on types:** `npx tsc --noEmit`.
+- **Tailwind classes not working:** Verify `content` paths in `tailwind.config.ts`.
