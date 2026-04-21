@@ -35,4 +35,21 @@ describe("TechnologyPage", () => {
     const engage = screen.getByRole("link", { name: /engage the team/i });
     expect(engage).toHaveAttribute("href", "/contact?topic=technology");
   });
+
+  test("Technology flagships section lists three products", () => {
+    render(<TechnologyPage />);
+    expect(screen.getByText(/three products in the water/i)).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /legacycompass/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /meridian ai/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /luxusai/i, level: 3 })).toBeInTheDocument();
+  });
+
+  test("Technology flagships each link to portfolio tech anchor", () => {
+    render(<TechnologyPage />);
+    const portfolioLinks = screen.getAllByRole("link", { name: /view in portfolio/i });
+    expect(portfolioLinks.length).toBe(3);
+    portfolioLinks.forEach((link) => {
+      expect(link).toHaveAttribute("href", "/portfolio#tech");
+    });
+  });
 });
