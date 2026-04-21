@@ -146,27 +146,36 @@ describe("Home page", () => {
 });
 
 describe("Team page", () => {
-  it("renders all team members", () => {
+  it("renders all existing team members", () => {
     render(<Team />);
-    expect(screen.getByText("Matty Dinh")).toBeInTheDocument();
-    expect(screen.getByText("Cliff Wu")).toBeInTheDocument();
-    expect(screen.getByText("Nate Sou")).toBeInTheDocument();
-    expect(screen.getByText("Martin Leung")).toBeInTheDocument();
-    expect(screen.getByText("Bernie Chan")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /matty dinh/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /cliff wu/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /nate sou/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /martin leung/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /bernie chan/i, level: 3 })).toBeInTheDocument();
   });
 
-  it("renders team member roles", () => {
+  test("wraps content in operating surface", () => {
+    const { container } = render(<Team />);
+    expect(container.querySelector('[data-surface="operating"]')).not.toBeNull();
+  });
+
+  test("hero introduces the team", () => {
     render(<Team />);
     expect(
-      screen.getByText(/Data Science.*Machine Learning/i)
+      screen.getByRole("heading", { name: /the people behind gpsl/i, level: 1 })
     ).toBeInTheDocument();
   });
 
-  it("renders bios", () => {
+  test("renders both Execution and Technology group headings", () => {
     render(<Team />);
-    expect(
-      screen.getByText(/Designs and deploys end-to-end/i)
-    ).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /operators/i, level: 2 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /engineers/i, level: 2 })).toBeInTheDocument();
+  });
+
+  test("includes Kentory as a team member", () => {
+    render(<Team />);
+    expect(screen.getByRole("heading", { name: /kentory/i, level: 3 })).toBeInTheDocument();
   });
 });
 
