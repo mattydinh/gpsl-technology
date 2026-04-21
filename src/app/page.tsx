@@ -143,6 +143,61 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <section className="py-24 border-t border-op-line">
+        <div className="max-w-6xl mx-auto px-6">
+          <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono">
+            Ventures in motion
+          </p>
+          <h2 className="font-display text-3xl md:text-4xl text-op-ink mt-4 leading-tight max-w-2xl">
+            Real businesses we are building or operating.
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-6 mt-12">
+            <div className="border border-op-line rounded-lg p-6 bg-white">
+              <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">
+                Finance
+              </p>
+              <h3 className="font-display text-xl text-op-ink mt-3">
+                Tribal Bank
+              </h3>
+              <p className="text-sm text-op-muted mt-3 leading-relaxed">
+                A federally chartered tribal bank focused on self-determination, small business credit, and reinvestment in tribal communities.
+              </p>
+            </div>
+
+            <div className="border border-op-line rounded-lg p-6 bg-white">
+              <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">
+                Trade &amp; Logistics
+              </p>
+              <h3 className="font-display text-xl text-op-ink mt-3">
+                Tribal Trade
+              </h3>
+              <p className="text-sm text-op-muted mt-3 leading-relaxed">
+                Cross-border commerce and logistics that use tribal sovereignty to move goods on terms our partners cannot get elsewhere.
+              </p>
+            </div>
+
+            <div className="border border-op-line rounded-lg p-6 bg-white">
+              <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">
+                Food &amp; Processing
+              </p>
+              <h3 className="font-display text-xl text-op-ink mt-3">
+                Fishing &amp; Processing
+              </h3>
+              <p className="text-sm text-op-muted mt-3 leading-relaxed">
+                Vertically integrated fisheries operation: harvest, processing, and distribution, anchored in coastal tribal communities.
+              </p>
+            </div>
+          </div>
+
+          <Link
+            href="/portfolio"
+            className="inline-flex items-center gap-2 text-sm font-medium text-op-ink hover:text-op-accent mt-10 transition-colors"
+          >
+            See the full ventures portfolio <span aria-hidden>→</span>
+          </Link>
+        </div>
+      </section>
     </ThemeSurface>
   );
 }

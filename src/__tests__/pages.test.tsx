@@ -98,6 +98,16 @@ describe("Home page", () => {
       expect(screen.getByRole("heading", { name: step, level: 3 })).toBeInTheDocument();
     });
   });
+
+  test("Home ventures teaser renders three flagship ventures + portfolio CTA", () => {
+    render(<Home />);
+    expect(screen.getByText(/ventures in motion/i)).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /tribal bank/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /tribal trade/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /fishing & processing/i, level: 3 })).toBeInTheDocument();
+    const cta = screen.getByRole("link", { name: /see the full ventures portfolio/i });
+    expect(cta).toHaveAttribute("href", "/portfolio");
+  });
 });
 
 describe("Team page", () => {
