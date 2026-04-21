@@ -2,31 +2,96 @@
 @tailwind components;
 @tailwind utilities;
 
-[data-surface="operating"] {
-  background-color: theme("colors.op.bg");
-  color: theme("colors.op.ink");
-}
-
-[data-surface="technology"] {
-  background-color: #ffffff;
-  color: theme("colors.zinc.900");
-}
+/* ------------------------------------------------------------------
+ * Theme tokens
+ * ------------------------------------------------------------------
+ * `data-theme` lives on <html>. `data-surface` lives on the
+ * ThemeSurface wrapper per-page. Tokens are RGB triplets so Tailwind's
+ * `/<alpha>` opacity modifiers continue to work.
+ * ------------------------------------------------------------------ */
 
 :root {
-  --foreground: #18181b;
-  --background: #fafafa;
-  --surface-dark: #0a0a0b;
-  --accent: #22d3ee;
-  --accent-hover: #06b6d4;
-  --muted: #71717a;
+  color-scheme: light;
+
+  /* App-level (body, footer, chrome outside ThemeSurface) */
+  --app-bg: 247 245 240;
+  --app-ink: 26 26 26;
+
+  /* Operating surface — warm paper */
+  --op-bg: 247 245 240;       /* #F7F5F0 */
+  --op-panel: 239 234 224;    /* #EFEAE0 — deeper warm stone */
+  --op-card: 255 255 255;     /* #FFFFFF — ivory lift */
+  --op-ink: 26 26 26;         /* #1A1A1A */
+  --op-muted: 90 85 80;       /* #5A5550 */
+  --op-accent: 181 90 48;     /* #B55A30 — terracotta */
+  --op-line: 229 224 216;     /* #E5E0D8 */
 }
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --app-bg: 22 19 16;
+  --app-ink: 242 235 222;
+
+  /* Operating surface — dark (warm near-black, not slate) */
+  --op-bg: 22 19 16;          /* #161310 — warm near-black */
+  --op-panel: 31 27 22;       /* #1F1B16 — panel lift */
+  --op-card: 40 35 29;        /* #28231D — card lift */
+  --op-ink: 242 235 222;      /* #F2EBDE — warm ivory */
+  --op-muted: 170 160 148;    /* #AAA094 — legible at body sizes */
+  --op-accent: 224 130 89;    /* #E08259 — warmed terracotta (AA on dark) */
+  --op-line: 56 50 44;        /* #38322C — soft hairline */
+}
+
+/* Technology surface — brand-locked dark (does not follow theme toggle) */
+[data-surface="technology"] {
+  background-color: #0a0a0b;
+  color: #fafafa;
+}
+
+[data-surface="operating"] {
+  background-color: rgb(var(--op-bg));
+  color: rgb(var(--op-ink));
+}
+
+/* ------------------------------------------------------------------
+ * Body & typography
+ * ------------------------------------------------------------------ */
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  background-color: rgb(var(--app-bg));
+  color: rgb(var(--app-ink));
+  font-family: var(--font-figtree), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-feature-settings: "ss01", "cv11";
+  font-optical-sizing: auto;
+  letter-spacing: -0.005em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-/* Subtle grid background for techie feel */
+/* Display-serif refinements — Fraunces reads better with tightened tracking */
+.font-display {
+  font-optical-sizing: auto;
+  font-feature-settings: "ss01", "ss02", "ss03";
+}
+
+/* Mono label refinements — the uppercase kicker pattern used throughout */
+.font-mono {
+  font-feature-settings: "ss01", "calt";
+}
+
+/* Ensure transitions animate smoothly across theme flips */
+html {
+  transition: background-color 0.28s ease, color 0.28s ease;
+}
+html,
+body,
+[data-surface] {
+  transition: background-color 0.28s ease, color 0.28s ease, border-color 0.28s ease;
+}
+
+/* Subtle grid background for the technology surface */
 .bg-grid {
   background-image:
     linear-gradient(to right, rgb(228 228 231 / 0.4) 1px, transparent 1px),

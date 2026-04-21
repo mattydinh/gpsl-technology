@@ -5,6 +5,7 @@ import RootLayout from "@/app/layout";
 
 jest.mock("next/font/google", () => ({
   Fraunces: () => ({ variable: "--font-fraunces", className: "mock-fraunces" }),
+  Figtree: () => ({ variable: "--font-figtree", className: "mock-figtree" }),
 }));
 
 jest.mock("@vercel/analytics/react", () => ({ Analytics: () => null }));

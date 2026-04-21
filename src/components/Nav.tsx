@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X, Home, Compass, Cpu, FolderKanban, Users, Mail } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const navItems = [
   { href: "/", label: "Home", icon: Home },
@@ -56,40 +57,46 @@ export default function Nav() {
         </Link>
 
         {/* Desktop nav */}
-        <ul className="hidden md:flex items-center gap-8">
-          {navItems.map(({ href, label, icon: Icon }) => {
-            const isActive =
-              pathname === href || (href !== "/" && pathname.startsWith(href));
-            return (
-              <li key={href}>
-                <Link
-                  href={href}
-                  className={`relative flex items-center gap-1.5 text-sm font-medium transition-colors ${
-                    isActive ? chrome.active : chrome.inactive
-                  }`}
-                >
-                  <Icon size={14} />
-                  {label}
-                  {isActive && (
-                    <motion.span
-                      layoutId="nav-underline"
-                      className={`absolute -bottom-[21px] left-0 right-0 h-px ${chrome.underline}`}
-                    />
-                  )}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+        <div className="hidden md:flex items-center gap-8">
+          <ul className="flex items-center gap-8">
+            {navItems.map(({ href, label, icon: Icon }) => {
+              const isActive =
+                pathname === href || (href !== "/" && pathname.startsWith(href));
+              return (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className={`relative flex items-center gap-1.5 text-sm font-medium transition-colors ${
+                      isActive ? chrome.active : chrome.inactive
+                    }`}
+                  >
+                    <Icon size={14} />
+                    {label}
+                    {isActive && (
+                      <motion.span
+                        layoutId="nav-underline"
+                        className={`absolute -bottom-[21px] left-0 right-0 h-px ${chrome.underline}`}
+                      />
+                    )}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+          <ThemeToggle />
+        </div>
 
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className={`md:hidden ${chrome.mobileBtn} transition-colors`}
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
-        >
-          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        {/* Mobile controls */}
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className={`${chrome.mobileBtn} transition-colors`}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          >
+            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile menu */}

@@ -110,35 +110,41 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      <section id="tech" className="border-t border-op-line">
+      <section id="tech" className="border-t border-op-line bg-op-panel">
         <div className="max-w-6xl mx-auto px-6 py-24">
-          <div className="rounded-lg bg-zinc-950 text-zinc-50 p-8 md:p-12 border border-zinc-800">
-            <p className="text-xs uppercase tracking-[0.2em] text-cyan-400 font-mono">Technology portfolio</p>
-            <h2 className="font-display text-3xl md:text-4xl text-zinc-50 mt-4 leading-tight max-w-3xl">
-              Software shipped into real operations.
-            </h2>
-            <p className="text-zinc-400 mt-4 max-w-2xl leading-relaxed">
-              Four products built by the Technology division — three of our own, one a representative client engagement. Each runs in production today.
+          <div className="flex items-center gap-3">
+            <span aria-hidden className="h-px w-10 bg-op-accent" />
+            <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">
+              Technology division · Live in production
             </p>
+          </div>
+          <h2 className="font-display text-3xl md:text-4xl text-op-ink mt-5 leading-tight max-w-3xl">
+            Software shipped into real operations.
+          </h2>
+          <p className="text-op-muted mt-4 max-w-2xl leading-relaxed">
+            Four products built by the Technology division — three of our own, one a representative client engagement. Each runs in production today.
+          </p>
 
-            <div className="mt-10 grid md:grid-cols-2 gap-6">
-              {techProducts.map((product) => (
-                <div key={product.name} className="rounded-lg border border-zinc-800 bg-zinc-900/50 p-6">
-                  <p className="text-xs uppercase tracking-[0.2em] text-cyan-400 font-mono">{product.category}</p>
-                  <h3 className="font-display text-xl text-zinc-50 mt-3">{product.name}</h3>
-                  <p className="text-sm text-zinc-400 mt-3 leading-relaxed">{product.body}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-10">
-              <Link
-                href="/technology"
-                className="inline-flex items-center gap-2 text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors"
+          <div className="mt-12 grid md:grid-cols-2 gap-6">
+            {techProducts.map((product) => (
+              <div
+                key={product.name}
+                className="rounded-lg border border-op-line bg-op-card p-6 transition-colors hover:border-op-accent"
               >
-                Go deeper on the Technology division <span aria-hidden>→</span>
-              </Link>
-            </div>
+                <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">{product.category}</p>
+                <h3 className="font-display text-xl text-op-ink mt-3">{product.name}</h3>
+                <p className="text-sm text-op-muted mt-3 leading-relaxed">{product.body}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12">
+            <Link
+              href="/technology"
+              className="inline-flex items-center gap-2 text-sm font-medium text-op-accent hover:opacity-75 transition-opacity"
+            >
+              Go deeper on the Technology division <span aria-hidden>→</span>
+            </Link>
           </div>
         </div>
       </section>
