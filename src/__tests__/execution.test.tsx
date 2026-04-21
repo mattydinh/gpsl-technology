@@ -71,6 +71,24 @@ describe("ExecutionPage", () => {
     expect(links[0]).toHaveAttribute("href", "/contact?topic=execution");
   });
 
+  test("Execution sectors section lists operating sectors", () => {
+    render(<ExecutionPage />);
+    expect(screen.getByText(/where we operate/i)).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /tribal finance/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /trade & logistics/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /food & processing/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /housing & land/i, level: 3 })).toBeInTheDocument();
+  });
+
+  test("Execution final CTA has both contact and portfolio links", () => {
+    render(<ExecutionPage />);
+    expect(screen.getByText(/tell us about the deal/i)).toBeInTheDocument();
+    const contact = screen.getByRole("link", { name: /start the conversation/i });
+    expect(contact).toHaveAttribute("href", "/contact?topic=execution");
+    const portfolio = screen.getByRole("link", { name: /see our ventures/i });
+    expect(portfolio).toHaveAttribute("href", "/portfolio");
+  });
+
   test("Execution page contains NO priced packages, dollar amounts, or tier names", () => {
     const { container } = render(<ExecutionPage />);
     const text = container.textContent ?? "";

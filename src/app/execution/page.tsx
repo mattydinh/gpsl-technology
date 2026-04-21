@@ -1,6 +1,33 @@
 import Link from "next/link";
 import ThemeSurface from "@/components/ThemeSurface";
 
+const SECTORS = [
+  {
+    name: "Tribal finance",
+    body: "Tribal lending, credit, and capital allocation rooted in sovereignty and long-horizon capital.",
+  },
+  {
+    name: "Trade & logistics",
+    body: "Cross-border commerce and distribution powered by tribal jurisdiction and operator-grade logistics.",
+  },
+  {
+    name: "Food & processing",
+    body: "Vertically integrated fisheries and processing, close to the communities we operate in.",
+  },
+  {
+    name: "Housing & land",
+    body: "Residential and commercial real estate for tribal economic development and long-horizon holding.",
+  },
+  {
+    name: "Energy & infrastructure",
+    body: "Selective positions in energy transition and regional infrastructure where tribal footprint is an advantage.",
+  },
+  {
+    name: "Forward-deployed operations",
+    body: "Embedded operating teams for other companies, institutions, or tribes that need GPSL operator capacity.",
+  },
+];
+
 const SERVICES = [
   {
     label: "ORIGINATION",
@@ -241,6 +268,57 @@ export default function ExecutionPage() {
             >
               Talk to us about an engagement <span aria-hidden>→</span>
             </Link>
+          </div>
+        </div>
+      </section>
+      {/* Sectors */}
+      <section className="border-t border-op-line bg-white">
+        <div className="max-w-6xl mx-auto px-6 py-24">
+          <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono">
+            Where we operate
+          </p>
+          <h2 className="font-display text-3xl md:text-4xl text-op-ink mt-4 leading-tight max-w-2xl">
+            Sectors we are active in.
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8 mt-12">
+            {SECTORS.map((sector) => (
+              <div key={sector.name} className="border-t border-op-line pt-6">
+                <h3 className="font-display text-xl text-op-ink">{sector.name}</h3>
+                <p className="text-sm text-op-muted mt-3 leading-relaxed">{sector.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA band */}
+      <section className="border-t border-op-line">
+        <div className="max-w-6xl mx-auto px-6 py-24">
+          <div className="rounded-lg bg-op-ink text-op-bg p-10 md:p-16">
+            <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">
+              Work with Execution
+            </p>
+            <h2 className="font-display text-3xl md:text-4xl mt-4 leading-tight max-w-3xl">
+              Tell us about the deal, the venture, or the operation.
+            </h2>
+            <p className="mt-6 text-base leading-relaxed max-w-2xl text-op-bg/80">
+              Every engagement starts on a call. We would rather talk through
+              what you need than pitch you out of a brochure.
+            </p>
+            <div className="mt-10 flex flex-wrap gap-3">
+              <Link
+                href="/contact?topic=execution"
+                className="inline-flex items-center gap-2 rounded-md bg-op-accent px-5 py-3 text-sm font-medium text-white hover:opacity-90 transition-opacity"
+              >
+                Start the conversation <span aria-hidden>→</span>
+              </Link>
+              <Link
+                href="/portfolio"
+                className="inline-flex items-center gap-2 rounded-md border border-op-bg/30 px-5 py-3 text-sm font-medium text-op-bg hover:border-op-accent transition-colors"
+              >
+                See our ventures
+              </Link>
+            </div>
           </div>
         </div>
       </section>
