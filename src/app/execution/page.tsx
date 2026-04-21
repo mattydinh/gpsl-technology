@@ -1,6 +1,53 @@
 import Link from "next/link";
 import ThemeSurface from "@/components/ThemeSurface";
 
+const SERVICES = [
+  {
+    label: "ORIGINATION",
+    title: "Deal & opportunity origination",
+    body: "We source opportunities in tribal finance, trade, and adjacent industries — then do the early legwork to turn them into something you can act on.",
+    deliverables: [
+      "A shortlist of qualified opportunities in your sector",
+      "Background diligence on counterparties, sponsors, or assets",
+      "Structuring ideas for how we'd approach the deal together",
+      "Introductions into tribal and institutional networks",
+    ],
+  },
+  {
+    label: "STRUCTURING",
+    title: "Deal structuring & governance",
+    body: "Once there is a live deal, we work the structure until it holds up — cap table, governance, legal jurisdiction, and alignment with tribal or institutional stakeholders.",
+    deliverables: [
+      "Cap table and ownership design",
+      "Governance model and decision rights",
+      "Legal structuring under tribal jurisdiction where relevant",
+      "Stakeholder alignment before close",
+    ],
+  },
+  {
+    label: "OPERATING",
+    title: "Stand-up & operate",
+    body: "We hire the operator, set up the first 12–24 months of operations, and stay inside the business until it runs without us.",
+    deliverables: [
+      "Operator hiring and core team build-out",
+      "Day-one operating plan with milestones and KPIs",
+      "Deployment of the Technology division's agentic software where it helps",
+      "Hands-on involvement through early operating cycles",
+    ],
+  },
+  {
+    label: "LONG-HORIZON HOLDING",
+    title: "Hold, reinvest, compound",
+    body: "Some ventures we keep. For those, we act as a long-horizon holder — reinvesting, rebuilding governance as the asset matures, and keeping the operation close to the people it serves.",
+    deliverables: [
+      "Quarterly operating reviews on long-horizon KPIs",
+      "Reinvestment and capital allocation decisions",
+      "Succession planning toward tribal or operator ownership",
+      "Stewardship across multi-decade horizons",
+    ],
+  },
+];
+
 const STEPS = [
   {
     number: "01",
@@ -144,6 +191,56 @@ export default function ExecutionPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+      {/* Services */}
+      <section id="services" className="border-t border-op-line">
+        <div className="max-w-6xl mx-auto px-6 py-24">
+          <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono">
+            How we engage
+          </p>
+          <h2 className="font-display text-3xl md:text-4xl text-op-ink mt-4 leading-tight max-w-2xl">
+            Four ways Execution works with you.
+          </h2>
+          <p className="text-op-muted mt-4 max-w-2xl leading-relaxed">
+            Every engagement is scoped on a conversation. We do not list fixed
+            packages here — the shape of the work, the horizon, and the
+            governance all change what a durable partnership looks like.
+          </p>
+          <div className="grid md:grid-cols-2 gap-6 mt-12">
+            {SERVICES.map((service) => (
+              <div
+                key={service.label}
+                className="bg-white rounded-lg border border-op-line p-8 flex flex-col"
+              >
+                <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">
+                  {service.label}
+                </p>
+                <h3 className="font-display text-2xl text-op-ink mt-3">
+                  {service.title}
+                </h3>
+                <p className="text-op-muted text-base mt-3 leading-relaxed">
+                  {service.body}
+                </p>
+                <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono mt-6">
+                  What you get
+                </p>
+                <ul className="text-sm text-op-muted mt-3 space-y-2 list-disc pl-5">
+                  {service.deliverables.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10">
+            <Link
+              href="/contact?topic=execution"
+              className="inline-flex items-center gap-2 text-sm font-medium text-op-ink hover:text-op-accent transition-colors"
+            >
+              Talk to us about an engagement <span aria-hidden>→</span>
+            </Link>
           </div>
         </div>
       </section>

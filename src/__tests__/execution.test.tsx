@@ -55,4 +55,47 @@ describe("ExecutionPage", () => {
     expect(screen.getByText(/tribal finance and lending origination/i)).toBeInTheDocument();
     expect(screen.getByText(/hiring the operator and core team/i)).toBeInTheDocument();
   });
+
+  test("Execution services section describes four engagement types", () => {
+    render(<ExecutionPage />);
+    expect(screen.getByText(/how we engage/i)).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /deal & opportunity origination/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /deal structuring & governance/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /stand-up & operate/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /hold, reinvest, compound/i, level: 3 })).toBeInTheDocument();
+  });
+
+  test("Execution services section links to contact with execution topic", () => {
+    render(<ExecutionPage />);
+    const links = screen.getAllByRole("link", { name: /talk to us about an engagement/i });
+    expect(links[0]).toHaveAttribute("href", "/contact?topic=execution");
+  });
+
+  test("Execution page contains NO priced packages, dollar amounts, or tier names", () => {
+    const { container } = render(<ExecutionPage />);
+    const text = container.textContent ?? "";
+    // Dollar sign / currency digits
+    expect(text).not.toMatch(/\$/);
+    expect(text).not.toMatch(/\b\d+\s?(k|K|M|million|thousand)\b/);
+    // Tier / package / pricing vocabulary
+    const forbidden = [
+      /\bpricing\b/i,
+      /\bprice\b/i,
+      /\btier\b/i,
+      /\bpackage\b/i,
+      /\bstarter\b/i,
+      /\bgrowth plan\b/i,
+      /\benterprise plan\b/i,
+      /\bsubscription\b/i,
+      /\bmonthly\b/i,
+      /\bannual fee\b/i,
+      /\bstarting at\b/i,
+      /\bas low as\b/i,
+      /\bfrom \$/i,
+      /\bget a quote\b/i,
+    ];
+    forbidden.forEach((pattern) => {
+      expect(text).not.toMatch(pattern);
+    });
+  });
 });
