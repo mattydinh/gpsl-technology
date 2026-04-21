@@ -1,8 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import Home from "@/app/page";
 import Team from "@/app/team/page";
-import Projects from "@/app/projects/page";
-import AI from "@/app/ai/page";
 import Contact from "@/app/contact/page";
 
 // Mock framer-motion to avoid animation issues in tests
@@ -49,6 +47,7 @@ jest.mock("next/link", () => {
 // Mock next/navigation
 jest.mock("next/navigation", () => ({
   usePathname: () => "/",
+  useSearchParams: () => ({ get: () => null }),
 }));
 
 describe("Home page", () => {
@@ -59,125 +58,141 @@ describe("Home page", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders capability cards", () => {
+  test("Home hero mentions 'operating group' and has two primary CTAs", () => {
     render(<Home />);
-    expect(screen.getByText("Team")).toBeInTheDocument();
-    expect(screen.getByText("Projects")).toBeInTheDocument();
-    expect(screen.getByText("AI")).toBeInTheDocument();
+    expect(screen.getByText(/GPSL.*Operating Group/i)).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: /Explore our ventures/i })
+    ).toHaveAttribute("href", "/portfolio");
+    expect(
+      screen.getByRole("link", { name: /How we execute/i })
+    ).toHaveAttribute("href", "/execution");
   });
 
-  it("renders CTA section", () => {
+  test("Home hero H1 says 'We build, operate, and scale ventures.'", () => {
     render(<Home />);
-    expect(screen.getByText("Let's talk")).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { level: 1, name: /build, operate, and scale ventures/i })
+    ).toBeInTheDocument();
   });
 
-  it("has navigation links to key pages", () => {
+  test("Home wraps content in data-surface='operating'", () => {
+    const { container } = render(<Home />);
+    expect(container.querySelector('[data-surface="operating"]')).not.toBeNull();
+  });
+
+  test("Home Two Engines section renders Execution + Technology cards", () => {
     render(<Home />);
-    const teamLink = screen.getAllByRole("link").find(
-      (el) => el.getAttribute("href") === "/team"
+    expect(screen.getByText(/one operating group, two engines/i)).toBeInTheDocument();
+    // Find the Two Engines division card (href="/execution", contains "Division 01")
+    const execLinks = screen.getAllByRole("link").filter(
+      (el) => el.getAttribute("href") === "/execution"
     );
-    expect(teamLink).toBeInTheDocument();
+    expect(execLinks.length).toBeGreaterThanOrEqual(1);
+    expect(execLinks.some((el) => /division 01/i.test(el.textContent ?? ""))).toBe(true);
+    // Multiple links go to /technology; confirm at least one is a division card (contains "Division 02" text)
+    const techLinks = screen.getAllByRole("link").filter(
+      (el) => el.getAttribute("href") === "/technology"
+    );
+    expect(techLinks.length).toBeGreaterThanOrEqual(1);
+    expect(techLinks.some((el) => /division 02/i.test(el.textContent ?? ""))).toBe(true);
+  });
+
+  test("Home operating model section renders all four steps", () => {
+    render(<Home />);
+    expect(screen.getByText(/our operating model/i)).toBeInTheDocument();
+    ["Discover", "Align", "Execute", "Sustain"].forEach((step) => {
+      expect(screen.getByRole("heading", { name: step, level: 3 })).toBeInTheDocument();
+    });
+  });
+
+  test("Home ventures teaser renders three flagship ventures + portfolio CTA", () => {
+    render(<Home />);
+    expect(screen.getByText(/ventures in motion/i)).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /tribal bank/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /tribal trade/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /fishing & processing/i, level: 3 })).toBeInTheDocument();
+    const cta = screen.getByRole("link", { name: /see the full ventures portfolio/i });
+    expect(cta).toHaveAttribute("href", "/portfolio");
+  });
+
+  test("Home technology spotlight renders three flagship products + tech CTA", () => {
+    render(<Home />);
+    expect(screen.getByText(/technology spotlight/i)).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /legacycompass/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /meridian ai/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /luxusai/i, level: 3 })).toBeInTheDocument();
+    const cta = screen.getByRole("link", { name: /explore the technology division/i });
+    expect(cta).toHaveAttribute("href", "/technology");
+  });
+
+  test("Home trust tiles render three differentiators", () => {
+    render(<Home />);
+    expect(screen.getByText(/why gpsl/i)).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /tribal sovereignty as advantage/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /long-horizon holder posture/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /in-house ai, not outsourced/i, level: 3 })).toBeInTheDocument();
+  });
+
+  test("Home engagement routing exposes three topic-routed contact doors", () => {
+    render(<Home />);
+    expect(screen.getByText(/three doors into gpsl/i)).toBeInTheDocument();
+    const allLinks = screen.getAllByRole("link");
+    const topics = ["execution", "technology", "partnerships"];
+    topics.forEach((topic) => {
+      const match = allLinks.find((l) => l.getAttribute("href") === `/contact?topic=${topic}`);
+      expect(match).toBeDefined();
+    });
   });
 });
 
 describe("Team page", () => {
-  it("renders all team members", () => {
+  it("renders all existing team members", () => {
     render(<Team />);
-    expect(screen.getByText("Matty Dinh")).toBeInTheDocument();
-    expect(screen.getByText("Cliff Wu")).toBeInTheDocument();
-    expect(screen.getByText("Nate Sou")).toBeInTheDocument();
-    expect(screen.getByText("Martin Leung")).toBeInTheDocument();
-    expect(screen.getByText("Bernie Chan")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /matty dinh/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /cliff wu/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /nate sou/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /martin leung/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /bernie chan/i, level: 3 })).toBeInTheDocument();
   });
 
-  it("renders team member roles", () => {
-    render(<Team />);
-    expect(
-      screen.getByText(/Data Science.*Machine Learning/i)
-    ).toBeInTheDocument();
+  test("wraps content in operating surface", () => {
+    const { container } = render(<Team />);
+    expect(container.querySelector('[data-surface="operating"]')).not.toBeNull();
   });
 
-  it("renders bios", () => {
+  test("hero introduces the team", () => {
     render(<Team />);
     expect(
-      screen.getByText(/Designs and deploys end-to-end/i)
+      screen.getByRole("heading", { name: /the people behind gpsl/i, level: 1 })
     ).toBeInTheDocument();
   });
-});
 
-describe("Projects page", () => {
-  it("renders all projects", () => {
-    render(<Projects />);
-    expect(screen.getByText("Civic Sentinel")).toBeInTheDocument();
-    expect(screen.getByText("HelixBridge")).toBeInTheDocument();
-    expect(screen.getByText("Grantbridge")).toBeInTheDocument();
-    expect(screen.getByText("Meridian AI")).toBeInTheDocument();
-    expect(screen.getByText("LegacyCompass")).toBeInTheDocument();
-    expect(screen.getByText("LuxusAI")).toBeInTheDocument();
-    expect(screen.getByText("InvenioAI")).toBeInTheDocument();
+  test("renders both Execution and Technology group headings", () => {
+    render(<Team />);
+    expect(screen.getByRole("heading", { name: /operators/i, level: 2 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /engineers/i, level: 2 })).toBeInTheDocument();
   });
 
-  it("renders tags for the political intelligence project", () => {
-    render(<Projects />);
-    expect(
-      screen.getByText("Multi-Agent Orchestration")
-    ).toBeInTheDocument();
-    expect(screen.getByText("LLM Pipelines")).toBeInTheDocument();
-    expect(screen.getByText("Political Data")).toBeInTheDocument();
-    expect(screen.getByText("RAG")).toBeInTheDocument();
-  });
-
-  it("renders project descriptions", () => {
-    render(<Projects />);
-    expect(
-      screen.getByText(/aggregates and analyzes political data/i)
-    ).toBeInTheDocument();
-  });
-});
-
-describe("AI page", () => {
-  it("renders page heading", () => {
-    render(<AI />);
-    expect(screen.getByText("AI applications")).toBeInTheDocument();
-  });
-
-  it("renders philosophy section", () => {
-    render(<AI />);
-    expect(screen.getByText("Philosophy")).toBeInTheDocument();
-  });
-
-  it("renders stack section", () => {
-    render(<AI />);
-    expect(screen.getByText("Our stack")).toBeInTheDocument();
-  });
-
-  it("mentions key technologies", () => {
-    render(<AI />);
-    expect(
-      screen.getByText(/Next\.js, Supabase, Git, Cursor, and Claude Code/i)
-    ).toBeInTheDocument();
+  test("includes Kentory as a team member", () => {
+    render(<Team />);
+    expect(screen.getByRole("heading", { name: /kentory/i, level: 3 })).toBeInTheDocument();
   });
 });
 
 describe("Contact page", () => {
-  it("renders the contact form", () => {
+  it("renders the Let's talk headline", () => {
     render(<Contact />);
-    expect(screen.getByLabelText(/name/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/message/i)).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /let's talk/i, level: 1 })).toBeInTheDocument();
   });
 
-  it("renders the submit button", () => {
-    render(<Contact />);
-    expect(
-      screen.getByRole("button", { name: /send message/i })
-    ).toBeInTheDocument();
+  it("wraps content in operating surface", () => {
+    const { container } = render(<Contact />);
+    expect(container.querySelector('[data-surface="operating"]')).not.toBeNull();
   });
 
-  it("has required fields", () => {
+  it("shows the GPSL email as a mailto link", () => {
     render(<Contact />);
-    expect(screen.getByLabelText(/name/i)).toBeRequired();
-    expect(screen.getByLabelText(/email/i)).toBeRequired();
-    expect(screen.getByLabelText(/message/i)).toBeRequired();
+    expect(screen.getByRole("link", { name: /matthew\.dinh@gpsl-ubo\.com/i })).toBeInTheDocument();
   });
 });

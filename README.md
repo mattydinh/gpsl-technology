@@ -1,12 +1,12 @@
-# GPSL – Technology
+# GPSL
 
-A minimal, professional web app showcasing company overview, team, technology projects, AI applications, and contact. Built for sharing with partners and investors.
+GPSL is a diversified operating group with two divisions: Execution and Technology. The Execution division is the operating engine — it builds and runs ventures across deals, logistics, housing, fishing and processing, and tribal economic development. The Technology division is the AI and engineering engine — it powers internal tools and delivers AI/ML work for clients, including through the Claude Partner Network relationship with Anthropic. This site serves as the public face for both divisions.
 
 **Live site:** [https://gpsl-technology.vercel.app](https://gpsl-technology.vercel.app)
 
 ## Tech stack
 
-- **Next.js 14** (App Router)
+- **Next.js 15** (App Router)
 - **React** + **TypeScript**
 - **Tailwind CSS**
 - Ready for **Vercel** deployment

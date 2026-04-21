@@ -20,9 +20,17 @@ const config: Config = {
           hover: "#06b6d4",
           muted: "rgba(34, 211, 238, 0.15)",
         },
+        op: {
+          bg: "#F7F5F0",
+          ink: "#1A1A1A",
+          muted: "#5A5550",
+          accent: "#B55A30",
+          line: "#E5E0D8",
+        },
       },
       fontFamily: {
         mono: ["ui-monospace", "SF Mono", "Monaco", "Consolas", "monospace"],
+        display: ["var(--font-fraunces)", "Georgia", "serif"],
       },
       boxShadow: {
         glow: "0 0 20px -5px rgba(34, 211, 238, 0.35)",

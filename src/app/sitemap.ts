@@ -1,13 +1,14 @@
 import type { MetadataRoute } from "next";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://gpsl-technology.vercel.app";
+const BASE_URL = "https://www.gpsl-ubo.com";
 
-  return [
-    { url: base, lastModified: new Date(), changeFrequency: "weekly", priority: 1 },
-    { url: `${base}/team`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
-    { url: `${base}/projects`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
-    { url: `${base}/ai`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
-    { url: `${base}/contact`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.6 },
-  ];
+export default function sitemap(): MetadataRoute.Sitemap {
+  const routes = ["", "/execution", "/technology", "/portfolio", "/team", "/contact"];
+  const now = new Date();
+  return routes.map((path) => ({
+    url: `${BASE_URL}${path}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: path === "" ? 1.0 : 0.8,
+  }));
 }

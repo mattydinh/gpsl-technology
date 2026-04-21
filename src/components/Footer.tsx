@@ -1,49 +1,37 @@
 import Link from "next/link";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 
 const navLinks = [
-  { href: "/", label: "Overview" },
+  { href: "/", label: "Home" },
+  { href: "/execution", label: "Execution" },
+  { href: "/technology", label: "Technology" },
+  { href: "/portfolio", label: "Portfolio" },
   { href: "/team", label: "Team" },
-  { href: "/projects", label: "Projects" },
-  { href: "/ai", label: "AI" },
   { href: "/contact", label: "Contact" },
-];
-
-const socials = [
-  { href: "https://github.com", label: "GitHub", icon: Github },
-  { href: "https://linkedin.com", label: "LinkedIn", icon: Linkedin },
-  { href: "/contact", label: "Email", icon: Mail },
 ];
 
 export default function Footer() {
   return (
-    <footer className="border-t border-zinc-800 bg-zinc-950">
-      <div className="mx-auto max-w-6xl px-6 py-12">
-        <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
-          {/* Brand */}
-          <div className="space-y-3">
-            <Link
-              href="/"
-              className="font-mono text-sm font-medium tracking-tight text-white"
-            >
-              GPSL &ndash; Technology
-            </Link>
-            <p className="max-w-xs text-sm text-zinc-500">
-              Modern technology and AI solutions for real business problems.
+    <footer className="border-t border-op-line bg-op-bg/50 mt-20">
+      <div className="max-w-6xl mx-auto px-6 py-16">
+        <div className="grid md:grid-cols-3 gap-12">
+          {/* Column 1 — Brand */}
+          <div>
+            <p className="font-display text-2xl text-op-ink">GPSL</p>
+            <p className="text-sm text-op-muted mt-2 leading-relaxed">
+              A diversified operating group. Ventures and software, held for the long horizon.
             </p>
           </div>
 
-          {/* Nav links */}
+          {/* Column 2 — Navigation */}
           <div>
-            <h3 className="font-mono text-xs font-semibold uppercase tracking-widest text-zinc-500">
-              Pages
-            </h3>
-            <ul className="mt-3 space-y-2">
+            <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono">Navigate</p>
+            <ul className="mt-4 space-y-2 text-sm">
               {navLinks.map(({ href, label }) => (
                 <li key={href}>
                   <Link
                     href={href}
-                    className="text-sm text-zinc-400 transition-colors hover:text-white"
+                    className="text-op-ink hover:text-op-accent transition-colors"
                   >
                     {label}
                   </Link>
@@ -52,34 +40,38 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Socials */}
+          {/* Column 3 — Contact */}
           <div>
-            <h3 className="font-mono text-xs font-semibold uppercase tracking-widest text-zinc-500">
-              Connect
-            </h3>
-            <ul className="mt-3 flex gap-4">
-              {socials.map(({ href, label, icon: Icon }) => (
-                <li key={label}>
-                  <Link
-                    href={href}
-                    target={href.startsWith("http") ? "_blank" : undefined}
-                    rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="text-zinc-400 transition-colors hover:text-cyan-400"
-                    aria-label={label}
-                  >
-                    <Icon size={18} />
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono">Contact</p>
+            <a
+              href="mailto:matthew.dinh@gpsl-ubo.com"
+              className="block mt-4 text-sm text-op-ink hover:text-op-accent transition-colors"
+            >
+              matthew.dinh@gpsl-ubo.com
+            </a>
+            <a
+              href="tel:+19044399174"
+              className="block mt-2 text-sm text-op-ink hover:text-op-accent transition-colors"
+            >
+              (904) 439-9174
+            </a>
           </div>
         </div>
 
-        <div className="mt-10 border-t border-zinc-800 pt-6 text-center">
-          <p className="font-mono text-xs text-zinc-600">
-            &copy; {new Date().getFullYear()} GPSL Technology. All rights
-            reserved.
+        {/* Bottom strip */}
+        <div className="border-t border-op-line mt-12 pt-6 flex flex-wrap items-center justify-between gap-4">
+          <p className="text-xs text-op-muted">
+            &copy; 2026 GPSL. All rights reserved.
           </p>
+          <div className="flex gap-4">
+            <Link
+              href="/contact"
+              className="text-op-muted hover:text-op-accent transition-colors"
+              aria-label="Email"
+            >
+              <Mail size={18} />
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

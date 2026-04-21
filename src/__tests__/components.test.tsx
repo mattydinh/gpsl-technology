@@ -1,6 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
+import RootLayout from "@/app/layout";
+
+jest.mock("next/font/google", () => ({
+  Fraunces: () => ({ variable: "--font-fraunces", className: "mock-fraunces" }),
+}));
+
+jest.mock("@vercel/analytics/react", () => ({ Analytics: () => null }));
+jest.mock("@vercel/speed-insights/next", () => ({ SpeedInsights: () => null }));
 
 jest.mock("framer-motion", () => ({
   motion: {
@@ -46,33 +54,48 @@ jest.mock("next/navigation", () => ({
 }));
 
 describe("Footer", () => {
-  it("renders brand name", () => {
+  it("renders brand name and tagline", () => {
     render(<Footer />);
-    const brandElements = screen.getAllByText(/GPSL/);
-    expect(brandElements.length).toBeGreaterThan(0);
+    expect(screen.getByText("GPSL")).toBeInTheDocument();
+    expect(screen.getByText(/a diversified operating group/i)).toBeInTheDocument();
   });
 
-  it("renders all page links", () => {
+  it("renders all six nav links with correct hrefs", () => {
     render(<Footer />);
-    expect(screen.getByText("Overview")).toBeInTheDocument();
-    expect(screen.getByText("Team")).toBeInTheDocument();
-    expect(screen.getByText("Projects")).toBeInTheDocument();
-    expect(screen.getByText("AI")).toBeInTheDocument();
-    expect(screen.getByText("Contact")).toBeInTheDocument();
+    const expected: [string, string][] = [
+      ["Home", "/"],
+      ["Execution", "/execution"],
+      ["Technology", "/technology"],
+      ["Portfolio", "/portfolio"],
+      ["Team", "/team"],
+      ["Contact", "/contact"],
+    ];
+    expected.forEach(([label, href]) => {
+      const link = screen.getByRole("link", { name: label });
+      expect(link).toHaveAttribute("href", href);
+    });
   });
 
-  it("renders social links with aria labels", () => {
+  it("renders email link", () => {
     render(<Footer />);
-    expect(screen.getByLabelText("GitHub")).toBeInTheDocument();
-    expect(screen.getByLabelText("LinkedIn")).toBeInTheDocument();
+    const email = screen.getByRole("link", { name: /matthew\.dinh@gpsl-ubo\.com/i });
+    expect(email).toHaveAttribute("href", "mailto:matthew.dinh@gpsl-ubo.com");
+  });
+
+  it("renders phone link", () => {
+    render(<Footer />);
+    const phone = screen.getByRole("link", { name: /\(904\)\s?439-9174/i });
+    expect(phone).toHaveAttribute("href", "tel:+19044399174");
+  });
+
+  it("renders copyright", () => {
+    render(<Footer />);
+    expect(screen.getByText(/© 2026 GPSL\. All rights reserved/i)).toBeInTheDocument();
+  });
+
+  it("renders email social icon link", () => {
+    render(<Footer />);
     expect(screen.getByLabelText("Email")).toBeInTheDocument();
-  });
-
-  it("renders copyright text", () => {
-    render(<Footer />);
-    expect(
-      screen.getByText(/GPSL Technology\. All rights reserved/i)
-    ).toBeInTheDocument();
   });
 });
 
@@ -83,19 +106,57 @@ describe("Nav", () => {
     expect(brandLinks.length).toBeGreaterThan(0);
   });
 
-  it("renders all nav links in desktop view", () => {
+  it("renders the 6 top-level items", () => {
     render(<Nav />);
-    expect(screen.getByText("Overview")).toBeInTheDocument();
-    expect(screen.getByText("Team")).toBeInTheDocument();
-    expect(screen.getByText("Projects")).toBeInTheDocument();
-    expect(screen.getByText("AI")).toBeInTheDocument();
-    expect(screen.getByText("Contact")).toBeInTheDocument();
+    ["Home", "Execution", "Technology", "Portfolio", "Team", "Contact"].forEach((label) => {
+      expect(screen.getByText(label)).toBeInTheDocument();
+    });
+  });
+
+  it("does not render the old AI/Projects/Overview items", () => {
+    render(<Nav />);
+    expect(screen.queryByText("AI")).not.toBeInTheDocument();
+    expect(screen.queryByText("Projects")).not.toBeInTheDocument();
+    expect(screen.queryByText("Overview")).not.toBeInTheDocument();
   });
 
   it("renders mobile menu toggle button", () => {
     render(<Nav />);
-    expect(
-      screen.getByRole("button", { name: /open menu/i })
-    ).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /open menu/i })).toBeInTheDocument();
+  });
+});
+
+test("layout applies Fraunces serif font variable", () => {
+  const errorSpy = jest.spyOn(console, "error").mockImplementation(() => {});
+  try {
+    render(<RootLayout>{null}</RootLayout>);
+    expect(document.body.className).toMatch(/--font-fraunces/);
+  } finally {
+    errorSpy.mockRestore();
+  }
+});
+
+import ThemeSurface from "@/components/ThemeSurface";
+
+describe("ThemeSurface", () => {
+  test("sets data-surface='operating' on root div", () => {
+    const { container } = render(
+      <ThemeSurface surface="operating">content</ThemeSurface>
+    );
+    expect(container.firstChild).toHaveAttribute("data-surface", "operating");
+  });
+
+  test("sets data-surface='technology' on root div", () => {
+    const { container } = render(
+      <ThemeSurface surface="technology">content</ThemeSurface>
+    );
+    expect(container.firstChild).toHaveAttribute("data-surface", "technology");
+  });
+
+  test("renders children", () => {
+    const { getByText } = render(
+      <ThemeSurface surface="operating">hello world</ThemeSurface>
+    );
+    expect(getByText("hello world")).toBeInTheDocument();
   });
 });

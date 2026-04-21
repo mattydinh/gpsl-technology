@@ -1,32 +1,33 @@
 import type { Metadata } from "next";
+import { Fraunces } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-fraunces",
+  display: "swap",
+  weight: ["500", "600", "700"],
+});
 
 export const metadata: Metadata = {
   title: {
-    default: "GPSL – Technology",
-    template: "%s | GPSL Technology",
+    default: "GPSL — A diversified operating group.",
+    template: "%s | GPSL",
   },
   description:
-    "GPSL Technology builds modern, scalable business applications powered by AI. Explore our team, projects, and technology stack.",
+    "GPSL is a diversified operating group. We build, operate, and hold ventures across finance, trade, and food — and we ship the agentic software those ventures run on.",
+  metadataBase: new URL("https://www.gpsl-ubo.com"),
   openGraph: {
-    title: "GPSL – Technology",
+    title: "GPSL — A diversified operating group.",
     description:
-      "Modern technology and AI solutions for real business problems.",
-    siteName: "GPSL Technology",
-    locale: "en_US",
+      "Operators and engineers, working on ventures we plan to hold for a long time.",
+    url: "https://www.gpsl-ubo.com",
+    siteName: "GPSL",
     type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "GPSL – Technology",
-    description:
-      "Modern technology and AI solutions for real business problems.",
-  },
-  robots: {
-    index: true,
-    follow: true,
   },
 };
 
@@ -37,10 +38,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="min-h-screen antialiased bg-surface flex flex-col">
+      <body className={`${fraunces.variable} min-h-screen antialiased bg-surface flex flex-col`}>
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
