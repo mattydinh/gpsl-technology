@@ -39,4 +39,20 @@ describe("ExecutionPage", () => {
     const contact = screen.getByRole("link", { name: /start a conversation/i });
     expect(contact).toHaveAttribute("href", "/contact?topic=execution");
   });
+
+  test("Execution positioning section describes the division", () => {
+    render(<ExecutionPage />);
+    expect(screen.getByText(/what execution is/i)).toBeInTheDocument();
+    expect(screen.getByText(/we are not a consultancy/i)).toBeInTheDocument();
+  });
+
+  test("Execution operating model shows all four steps with activity bullets", () => {
+    render(<ExecutionPage />);
+    expect(screen.getByText(/how we actually run it/i)).toBeInTheDocument();
+    ["Discover", "Align", "Execute", "Sustain"].forEach((step) => {
+      expect(screen.getByRole("heading", { name: step, level: 3 })).toBeInTheDocument();
+    });
+    expect(screen.getByText(/tribal finance and lending origination/i)).toBeInTheDocument();
+    expect(screen.getByText(/hiring the operator and core team/i)).toBeInTheDocument();
+  });
 });
