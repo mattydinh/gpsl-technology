@@ -24,15 +24,15 @@ export default function Nav() {
 
   const chrome = isTech
     ? {
-        header: "border-zinc-800 bg-zinc-950/95",
-        brand: "text-white hover:text-zinc-200",
-        inactive: "text-zinc-400 hover:text-white",
-        active: "text-cyan-400",
-        underline: "bg-cyan-400",
-        mobileBtn: "text-zinc-400 hover:text-white",
-        mobileBar: "border-zinc-800 bg-zinc-950",
-        mobileActive: "bg-cyan-400/10 text-cyan-400",
-        mobileInactive: "text-zinc-400 hover:bg-zinc-900 hover:text-white",
+        header: "border-tech-line bg-tech-bg/90",
+        brand: "text-tech-ink hover:text-tech-accent",
+        inactive: "text-tech-muted hover:text-tech-ink",
+        active: "text-tech-accent",
+        underline: "bg-tech-accent",
+        mobileBtn: "text-tech-muted hover:text-tech-ink",
+        mobileBar: "border-tech-line bg-tech-bg",
+        mobileActive: "bg-tech-accent/10 text-tech-accent",
+        mobileInactive: "text-tech-muted hover:bg-tech-line/40 hover:text-tech-ink",
       }
     : {
         header: "border-op-line bg-op-bg/90",

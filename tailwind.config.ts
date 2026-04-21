@@ -29,6 +29,15 @@ const config: Config = {
           accent: "rgb(var(--op-accent) / <alpha-value>)",
           line: "rgb(var(--op-line) / <alpha-value>)",
         },
+        tech: {
+          bg: "rgb(var(--tech-bg) / <alpha-value>)",
+          panel: "rgb(var(--tech-panel) / <alpha-value>)",
+          card: "rgb(var(--tech-card) / <alpha-value>)",
+          ink: "rgb(var(--tech-ink) / <alpha-value>)",
+          muted: "rgb(var(--tech-muted) / <alpha-value>)",
+          accent: "rgb(var(--tech-accent) / <alpha-value>)",
+          line: "rgb(var(--tech-line) / <alpha-value>)",
+        },
       },
       fontFamily: {
         sans: ["var(--font-figtree)", "ui-sans-serif", "system-ui", "-apple-system", "sans-serif"],
