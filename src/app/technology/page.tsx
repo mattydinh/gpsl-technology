@@ -127,7 +127,7 @@ export default function TechnologyPage() {
                     Engineering philosophy
                   </h3>
                   <p className="text-zinc-400 leading-relaxed">
-                    GPSL Technology builds modern, scalable business applications
+                    GPSL&apos;s Technology division builds modern, scalable business applications
                     powered by leading technologies and artificial intelligence. We
                     operate with the belief that technology — when thoughtfully
                     applied — can improve any business by increasing efficiency,
@@ -214,7 +214,7 @@ export default function TechnologyPage() {
                     Claude Partner Network
                   </h3>
                   <p className="text-zinc-400 leading-relaxed">
-                    GPSL Technology is an official member of the{" "}
+                    GPSL&apos;s Technology division is an official member of the{" "}
                     <span className="font-semibold text-[#D97757]">
                       Claude Partner Network
                     </span>

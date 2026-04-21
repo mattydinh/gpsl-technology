@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -8,12 +8,6 @@ const navLinks = [
   { href: "/portfolio", label: "Portfolio" },
   { href: "/team", label: "Team" },
   { href: "/contact", label: "Contact" },
-];
-
-const socials = [
-  { href: "https://github.com", label: "GitHub", icon: Github },
-  { href: "https://linkedin.com", label: "LinkedIn", icon: Linkedin },
-  { href: "/contact", label: "Email", icon: Mail },
 ];
 
 export default function Footer() {
@@ -67,21 +61,16 @@ export default function Footer() {
         {/* Bottom strip */}
         <div className="border-t border-op-line mt-12 pt-6 flex flex-wrap items-center justify-between gap-4">
           <p className="text-xs text-op-muted">
-            &copy; 2026 GPSL Technology. All rights reserved.
+            &copy; 2026 GPSL. All rights reserved.
           </p>
           <div className="flex gap-4">
-            {socials.map(({ href, label, icon: Icon }) => (
-              <Link
-                key={label}
-                href={href}
-                target={href.startsWith("http") ? "_blank" : undefined}
-                rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="text-op-muted hover:text-op-accent transition-colors"
-                aria-label={label}
-              >
-                <Icon size={18} />
-              </Link>
-            ))}
+            <Link
+              href="/contact"
+              className="text-op-muted hover:text-op-accent transition-colors"
+              aria-label="Email"
+            >
+              <Mail size={18} />
+            </Link>
           </div>
         </div>
       </div>

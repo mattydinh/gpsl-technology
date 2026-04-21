@@ -90,13 +90,11 @@ describe("Footer", () => {
 
   it("renders copyright", () => {
     render(<Footer />);
-    expect(screen.getByText(/© 2026 GPSL Technology\. All rights reserved/i)).toBeInTheDocument();
+    expect(screen.getByText(/© 2026 GPSL\. All rights reserved/i)).toBeInTheDocument();
   });
 
-  it("renders social links with aria labels", () => {
+  it("renders email social icon link", () => {
     render(<Footer />);
-    expect(screen.getByLabelText("GitHub")).toBeInTheDocument();
-    expect(screen.getByLabelText("LinkedIn")).toBeInTheDocument();
     expect(screen.getByLabelText("Email")).toBeInTheDocument();
   });
 });
