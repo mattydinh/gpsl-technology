@@ -71,7 +71,7 @@ export default function PortfolioPage() {
     <ThemeSurface surface="operating">
       <section className="max-w-6xl mx-auto px-6 pt-24 pb-16">
         <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono">Portfolio</p>
-        <h1 className="font-display text-5xl md:text-6xl lg:text-7xl text-op-ink mt-6 leading-[1.05] tracking-[-0.02em] max-w-4xl">
+        <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold text-op-ink mt-6 leading-[1.05] tracking-[-0.02em] max-w-4xl">
           What we are building, operating, and shipping.
         </h1>
         <p className="text-lg text-op-muted mt-6 max-w-2xl leading-relaxed">
@@ -82,7 +82,7 @@ export default function PortfolioPage() {
       <section id="ventures" className="border-t border-op-line">
         <div className="max-w-6xl mx-auto px-6 py-24">
           <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono">Ventures</p>
-          <h2 className="font-display text-3xl md:text-4xl text-op-ink mt-4 leading-tight max-w-3xl">
+          <h2 className="font-display text-3xl md:text-4xl font-semibold text-op-ink mt-4 leading-tight tracking-[-0.01em] max-w-3xl">
             Businesses we are standing up and operating.
           </h2>
 
@@ -96,7 +96,7 @@ export default function PortfolioPage() {
                   </p>
                 </div>
                 <div>
-                  <h3 className="font-display text-2xl md:text-3xl text-op-ink">{venture.name}</h3>
+                  <h3 className="font-display text-2xl md:text-3xl font-semibold text-op-ink tracking-[-0.01em]">{venture.name}</h3>
                   <p className="text-op-muted text-base mt-4 leading-relaxed">{venture.body}</p>
                   <ul className="text-sm text-op-muted mt-4 space-y-2 list-disc pl-5">
                     {venture.activities.map((activity) => (
@@ -118,7 +118,7 @@ export default function PortfolioPage() {
               Technology division · Live in production
             </p>
           </div>
-          <h2 className="font-display text-3xl md:text-4xl text-op-ink mt-5 leading-tight max-w-3xl">
+          <h2 className="font-display text-3xl md:text-4xl font-semibold text-op-ink mt-5 leading-tight tracking-[-0.01em] max-w-3xl">
             Software shipped into real operations.
           </h2>
           <p className="text-op-muted mt-4 max-w-2xl leading-relaxed">
@@ -132,7 +132,7 @@ export default function PortfolioPage() {
                 className="rounded-lg border border-op-line bg-op-card p-6 transition-colors hover:border-op-accent"
               >
                 <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">{product.category}</p>
-                <h3 className="font-display text-xl text-op-ink mt-3">{product.name}</h3>
+                <h3 className="font-display text-xl font-semibold text-op-ink mt-3 tracking-[-0.01em]">{product.name}</h3>
                 <p className="text-sm text-op-muted mt-3 leading-relaxed">{product.body}</p>
               </div>
             ))}

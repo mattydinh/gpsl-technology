@@ -17,7 +17,7 @@ export default function TechnologyPage() {
           <p className="text-xs uppercase tracking-[0.2em] text-cyan-400 font-mono">
             Division 02 — Technology
           </p>
-          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl text-zinc-50 mt-6 leading-[1.05] tracking-[-0.02em] max-w-4xl">
+          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold text-zinc-50 mt-6 leading-[1.05] tracking-[-0.02em] max-w-4xl">
             Agentic software, shipped.
           </h1>
           <p className="text-lg text-zinc-400 mt-6 max-w-2xl leading-relaxed">
@@ -45,7 +45,7 @@ export default function TechnologyPage() {
         <section id="flagships" className="border-t border-zinc-900">
           <div className="max-w-6xl mx-auto px-6 py-24">
             <p className="text-xs uppercase tracking-[0.2em] text-cyan-400 font-mono">Flagships</p>
-            <h2 className="font-display text-3xl md:text-4xl text-zinc-50 mt-4 leading-tight max-w-3xl">
+            <h2 className="font-display text-3xl md:text-4xl font-semibold text-zinc-50 mt-4 leading-tight tracking-[-0.01em] max-w-3xl">
               Three products in the water.
             </h2>
             <p className="text-zinc-400 mt-4 max-w-2xl leading-relaxed">
@@ -56,7 +56,7 @@ export default function TechnologyPage() {
               {/* LegacyCompass */}
               <div className="flex flex-col rounded-lg border border-zinc-800 bg-zinc-900/50 p-6 transition-colors hover:border-cyan-500">
                 <p className="text-xs uppercase tracking-[0.2em] text-cyan-400 font-mono">CRM</p>
-                <h3 className="font-display text-2xl text-zinc-50 mt-3">LegacyCompass</h3>
+                <h3 className="font-display text-2xl font-semibold text-zinc-50 mt-3 tracking-[-0.01em]">LegacyCompass</h3>
                 <p className="font-display text-base italic text-zinc-300 mt-2">The CRM we wish we had, so we built it.</p>
                 <p className="text-sm text-zinc-400 mt-4 leading-relaxed">
                   Tribally owned CRM purpose-built for operating groups. Native agentic workflows, deal-flow pipelines that understand deal structure, and data ownership that stays with the operator — not the SaaS vendor.
@@ -74,7 +74,7 @@ export default function TechnologyPage() {
               {/* Meridian AI */}
               <div className="flex flex-col rounded-lg border border-zinc-800 bg-zinc-900/50 p-6 transition-colors hover:border-cyan-500">
                 <p className="text-xs uppercase tracking-[0.2em] text-cyan-400 font-mono">Financial Intelligence</p>
-                <h3 className="font-display text-2xl text-zinc-50 mt-3">Meridian AI</h3>
+                <h3 className="font-display text-2xl font-semibold text-zinc-50 mt-3 tracking-[-0.01em]">Meridian AI</h3>
                 <p className="font-display text-base italic text-zinc-300 mt-2">An analyst that reads every 10-K before you get out of bed.</p>
                 <p className="text-sm text-zinc-400 mt-4 leading-relaxed">
                   Agentic financial analyst for investment and corporate development teams. Pulls filings, earnings, and market signal, then writes the memo in the voice your team already uses. Built to live inside the analyst&apos;s workflow, not replace it.
@@ -92,7 +92,7 @@ export default function TechnologyPage() {
               {/* LuxusAI */}
               <div className="flex flex-col rounded-lg border border-zinc-800 bg-zinc-900/50 p-6 transition-colors hover:border-cyan-500">
                 <p className="text-xs uppercase tracking-[0.2em] text-cyan-400 font-mono">Luxury Commerce</p>
-                <h3 className="font-display text-2xl text-zinc-50 mt-3">LuxusAI</h3>
+                <h3 className="font-display text-2xl font-semibold text-zinc-50 mt-3 tracking-[-0.01em]">LuxusAI</h3>
                 <p className="font-display text-base italic text-zinc-300 mt-2">High-touch sales at machine scale, without losing the clienteling craft.</p>
                 <p className="text-sm text-zinc-400 mt-4 leading-relaxed">
                   Multi-agent platform for luxury commerce operations. Clienteling, post-purchase relationship management, and VIP concierge flows — automated without losing the hand-sold feel luxury brands depend on.
@@ -113,7 +113,7 @@ export default function TechnologyPage() {
         <section id="philosophy" className="border-t border-zinc-900">
           <div className="max-w-6xl mx-auto px-6 py-24">
             <p className="text-xs uppercase tracking-[0.2em] text-cyan-400 font-mono">Philosophy</p>
-            <h2 className="font-display text-3xl md:text-4xl text-zinc-50 mt-4 leading-tight max-w-3xl">
+            <h2 className="font-display text-3xl md:text-4xl font-semibold text-zinc-50 mt-4 leading-tight tracking-[-0.01em] max-w-3xl">
               Technology applied with intent.
             </h2>
 
@@ -158,7 +158,7 @@ export default function TechnologyPage() {
         <section className="border-t border-zinc-900">
           <div className="max-w-6xl mx-auto px-6 py-24">
             <p className="text-xs uppercase tracking-[0.2em] text-cyan-400 font-mono">Stack</p>
-            <h2 className="font-display text-3xl md:text-4xl text-zinc-50 mt-4 leading-tight max-w-3xl">
+            <h2 className="font-display text-3xl md:text-4xl font-semibold text-zinc-50 mt-4 leading-tight tracking-[-0.01em] max-w-3xl">
               Built on the right tools.
             </h2>
 
@@ -200,7 +200,7 @@ export default function TechnologyPage() {
         <section id="claude-partner" className="border-t border-zinc-900">
           <div className="max-w-6xl mx-auto px-6 py-24">
             <p className="text-xs uppercase tracking-[0.2em] text-cyan-400 font-mono">Partnership</p>
-            <h2 className="font-display text-3xl md:text-4xl text-zinc-50 mt-4 leading-tight max-w-3xl">
+            <h2 className="font-display text-3xl md:text-4xl font-semibold text-zinc-50 mt-4 leading-tight tracking-[-0.01em] max-w-3xl">
               Claude Partner Network.
             </h2>
 
@@ -238,7 +238,7 @@ export default function TechnologyPage() {
         <section className="border-t border-zinc-900">
           <div className="max-w-6xl mx-auto px-6 py-24">
             <p className="text-xs uppercase tracking-[0.2em] text-cyan-400 font-mono">How we work with clients</p>
-            <h2 className="font-display text-3xl md:text-4xl text-zinc-50 mt-4 leading-tight max-w-3xl">
+            <h2 className="font-display text-3xl md:text-4xl font-semibold text-zinc-50 mt-4 leading-tight tracking-[-0.01em] max-w-3xl">
               Forward-deployed engineering, not billable hours.
             </h2>
             <p className="text-zinc-400 mt-6 max-w-2xl leading-relaxed">
@@ -247,18 +247,18 @@ export default function TechnologyPage() {
 
             <div className="mt-12 grid md:grid-cols-3 gap-6">
               <div className="rounded-lg border border-zinc-800 bg-zinc-900/50 p-6">
-                <p className="font-display text-4xl text-cyan-400">01</p>
-                <h3 className="font-display text-xl text-zinc-50 mt-3">Embedded engineers</h3>
+                <p className="font-display text-4xl font-semibold text-cyan-400">01</p>
+                <h3 className="font-display text-xl font-semibold text-zinc-50 mt-3 tracking-[-0.01em]">Embedded engineers</h3>
                 <p className="text-sm text-zinc-400 mt-3 leading-relaxed">Our engineers sit inside your team, not across a ticket queue. They learn your codebase, your data, and your culture — and ship into it.</p>
               </div>
               <div className="rounded-lg border border-zinc-800 bg-zinc-900/50 p-6">
-                <p className="font-display text-4xl text-cyan-400">02</p>
-                <h3 className="font-display text-xl text-zinc-50 mt-3">Claude-grade agents</h3>
+                <p className="font-display text-4xl font-semibold text-cyan-400">02</p>
+                <h3 className="font-display text-xl font-semibold text-zinc-50 mt-3 tracking-[-0.01em]">Claude-grade agents</h3>
                 <p className="text-sm text-zinc-400 mt-3 leading-relaxed">Every engagement uses Claude as the reasoning layer. We bring opinionated tooling and patterns we have built across GPSL ventures, so you skip the first 6 months of experimentation.</p>
               </div>
               <div className="rounded-lg border border-zinc-800 bg-zinc-900/50 p-6">
-                <p className="font-display text-4xl text-cyan-400">03</p>
-                <h3 className="font-display text-xl text-zinc-50 mt-3">Own the outcome</h3>
+                <p className="font-display text-4xl font-semibold text-cyan-400">03</p>
+                <h3 className="font-display text-xl font-semibold text-zinc-50 mt-3 tracking-[-0.01em]">Own the outcome</h3>
                 <p className="text-sm text-zinc-400 mt-3 leading-relaxed">We take commercial ownership of the work. Not &apos;consulted on&apos; — delivered. When the agent goes live, it is because our engineer pressed the button with yours.</p>
               </div>
             </div>
@@ -269,7 +269,7 @@ export default function TechnologyPage() {
           <div className="max-w-6xl mx-auto px-6 py-24">
             <div className="rounded-lg border border-cyan-500/30 bg-gradient-to-br from-zinc-900 to-zinc-950 p-10 md:p-16">
               <p className="text-xs uppercase tracking-[0.2em] text-cyan-400 font-mono">Engage the Technology division</p>
-              <h2 className="font-display text-3xl md:text-4xl text-zinc-50 mt-4 leading-tight max-w-3xl">
+              <h2 className="font-display text-3xl md:text-4xl font-semibold text-zinc-50 mt-4 leading-tight tracking-[-0.01em] max-w-3xl">
                 Tell us what you need built.
               </h2>
               <p className="mt-6 text-base leading-relaxed max-w-2xl text-zinc-400">

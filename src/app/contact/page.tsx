@@ -45,7 +45,7 @@ function ContactInner() {
       {/* Hero */}
       <div className="max-w-6xl mx-auto px-6 pt-24 pb-12">
         <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono">Contact</p>
-        <h1 className="font-display text-5xl md:text-6xl text-op-ink mt-6 leading-[1.05] tracking-[-0.02em] max-w-3xl">
+        <h1 className="font-display text-5xl md:text-6xl font-semibold text-op-ink mt-6 leading-[1.05] tracking-[-0.02em] max-w-3xl">
           {"Let's talk."}
         </h1>
         <p className="text-lg text-op-muted mt-6 max-w-2xl leading-relaxed">
@@ -65,8 +65,8 @@ function ContactInner() {
                 onClick={() => setSelected(topic.id)}
                 className={`text-left rounded-lg border p-6 transition-colors ${
                   isSelected
-                    ? "border-op-accent bg-white"
-                    : "border-op-line bg-white hover:border-op-accent/50"
+                    ? "border-op-accent bg-op-card"
+                    : "border-op-line bg-op-card hover:border-op-accent/50"
                 }`}
               >
                 <span
@@ -78,7 +78,7 @@ function ContactInner() {
                 >
                   Topic 0{i + 1}
                 </span>
-                <h3 className="font-display text-xl text-op-ink mt-2">{topic.label}</h3>
+                <h3 className="font-display text-xl font-semibold text-op-ink mt-2 tracking-[-0.01em]">{topic.label}</h3>
                 <p className="text-sm text-op-muted mt-2 leading-relaxed">{topic.body}</p>
               </button>
             );
@@ -90,7 +90,7 @@ function ContactInner() {
       <div className="max-w-6xl mx-auto px-6 pb-24">
         <div className="mt-8 rounded-lg bg-op-ink text-op-bg p-10 md:p-14">
           <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">Get in touch</p>
-          <h2 className="font-display text-3xl md:text-4xl mt-4 leading-tight max-w-3xl">
+          <h2 className="font-display text-3xl md:text-4xl font-semibold mt-4 leading-tight tracking-[-0.01em] max-w-3xl">
             {HEADINGS[selected]}
           </h2>
 

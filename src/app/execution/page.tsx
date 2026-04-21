@@ -137,7 +137,7 @@ export default function ExecutionPage() {
         <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">
           Division 01 — Execution
         </p>
-        <h1 className="font-display text-5xl md:text-6xl lg:text-7xl text-op-ink mt-6 leading-[1.05] tracking-[-0.02em] max-w-4xl">
+        <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold text-op-ink mt-6 leading-[1.05] tracking-[-0.02em] max-w-4xl">
           The operating arm of GPSL.
         </h1>
         <p className="text-lg text-op-muted mt-6 max-w-2xl leading-relaxed">
@@ -173,7 +173,7 @@ export default function ExecutionPage() {
               </p>
             </div>
             <div className="space-y-6">
-              <p className="font-display text-2xl text-op-ink leading-snug">
+              <p className="font-display text-2xl font-semibold text-op-ink leading-snug tracking-[-0.01em]">
                 Execution is where opportunity becomes a business. Where the
                 deal gets closed, the team gets hired, the operation actually
                 runs.
@@ -195,12 +195,12 @@ export default function ExecutionPage() {
       </section>
 
       {/* Operating model detailed */}
-      <section className="border-t border-op-line bg-white">
+      <section className="border-t border-op-line bg-op-panel">
         <div className="max-w-6xl mx-auto px-6 py-24">
           <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono">
             Operating model
           </p>
-          <h2 className="font-display text-3xl md:text-4xl text-op-ink mt-4 leading-tight max-w-2xl">
+          <h2 className="font-display text-3xl md:text-4xl font-semibold text-op-ink mt-4 leading-tight tracking-[-0.01em] max-w-2xl">
             How we actually run it.
           </h2>
           <div className="mt-12 divide-y divide-op-line border-t border-op-line">
@@ -209,10 +209,10 @@ export default function ExecutionPage() {
                 key={step.number}
                 className="py-10 grid md:grid-cols-[auto_1fr_2fr] gap-8 items-start"
               >
-                <p className="font-display text-4xl text-op-accent">
+                <p className="font-display text-4xl font-semibold text-op-accent">
                   {step.number}
                 </p>
-                <h3 className="font-display text-xl text-op-ink">{step.name}</h3>
+                <h3 className="font-display text-xl font-semibold text-op-ink tracking-[-0.01em]">{step.name}</h3>
                 <div>
                   <p className="text-op-muted text-base leading-relaxed">
                     {step.description}
@@ -234,7 +234,7 @@ export default function ExecutionPage() {
           <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono">
             How we engage
           </p>
-          <h2 className="font-display text-3xl md:text-4xl text-op-ink mt-4 leading-tight max-w-2xl">
+          <h2 className="font-display text-3xl md:text-4xl font-semibold text-op-ink mt-4 leading-tight tracking-[-0.01em] max-w-2xl">
             Four ways Execution works with you.
           </h2>
           <p className="text-op-muted mt-4 max-w-2xl leading-relaxed">
@@ -246,12 +246,12 @@ export default function ExecutionPage() {
             {SERVICES.map((service) => (
               <div
                 key={service.label}
-                className="bg-white rounded-lg border border-op-line p-8 flex flex-col"
+                className="bg-op-card rounded-lg border border-op-line p-8 flex flex-col"
               >
                 <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">
                   {service.label}
                 </p>
-                <h3 className="font-display text-2xl text-op-ink mt-3">
+                <h3 className="font-display text-2xl font-semibold text-op-ink mt-3 tracking-[-0.01em]">
                   {service.title}
                 </h3>
                 <p className="text-op-muted text-base mt-3 leading-relaxed">
@@ -279,18 +279,18 @@ export default function ExecutionPage() {
         </div>
       </section>
       {/* Sectors */}
-      <section className="border-t border-op-line bg-white">
+      <section className="border-t border-op-line bg-op-panel">
         <div className="max-w-6xl mx-auto px-6 py-24">
           <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono">
             Where we operate
           </p>
-          <h2 className="font-display text-3xl md:text-4xl text-op-ink mt-4 leading-tight max-w-2xl">
+          <h2 className="font-display text-3xl md:text-4xl font-semibold text-op-ink mt-4 leading-tight tracking-[-0.01em] max-w-2xl">
             Sectors we are active in.
           </h2>
           <div className="grid md:grid-cols-3 gap-8 mt-12">
             {SECTORS.map((sector) => (
               <div key={sector.name} className="border-t border-op-line pt-6">
-                <h3 className="font-display text-xl text-op-ink">{sector.name}</h3>
+                <h3 className="font-display text-xl font-semibold text-op-ink tracking-[-0.01em]">{sector.name}</h3>
                 <p className="text-sm text-op-muted mt-3 leading-relaxed">{sector.body}</p>
               </div>
             ))}
@@ -305,7 +305,7 @@ export default function ExecutionPage() {
             <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">
               Work with Execution
             </p>
-            <h2 className="font-display text-3xl md:text-4xl mt-4 leading-tight max-w-3xl">
+            <h2 className="font-display text-3xl md:text-4xl font-semibold mt-4 leading-tight tracking-[-0.01em] max-w-3xl">
               Tell us about the deal, the venture, or the operation.
             </h2>
             <p className="mt-6 text-base leading-relaxed max-w-2xl text-op-bg/80">

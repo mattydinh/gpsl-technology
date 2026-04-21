@@ -53,19 +53,19 @@ export default function Home() {
           <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono">
             One operating group, two engines.
           </p>
-          <h2 className="font-display text-3xl md:text-4xl text-op-ink mt-4 leading-tight">
+          <h2 className="font-display text-3xl md:text-4xl font-semibold text-op-ink mt-4 leading-tight tracking-[-0.01em]">
             How GPSL is organized.
           </h2>
 
           <div className="grid md:grid-cols-2 gap-6 mt-12">
             <Link
               href="/execution"
-              className="block group rounded-lg border border-op-line bg-white p-8 transition-colors hover:border-op-accent"
+              className="block group rounded-lg border border-op-line bg-op-card p-8 transition-colors hover:border-op-accent"
             >
               <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">
                 Division 01
               </p>
-              <h3 className="font-display text-2xl md:text-3xl text-op-ink mt-3">
+              <h3 className="font-display text-2xl md:text-3xl font-semibold text-op-ink mt-3 tracking-[-0.01em]">
                 Execution
               </h3>
               <p className="text-op-muted text-base leading-relaxed mt-3">
@@ -80,12 +80,12 @@ export default function Home() {
 
             <Link
               href="/technology"
-              className="block group rounded-lg border border-op-line bg-white p-8 transition-colors hover:border-op-accent"
+              className="block group rounded-lg border border-op-line bg-op-card p-8 transition-colors hover:border-op-accent"
             >
               <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">
                 Division 02
               </p>
-              <h3 className="font-display text-2xl md:text-3xl text-op-ink mt-3">
+              <h3 className="font-display text-2xl md:text-3xl font-semibold text-op-ink mt-3 tracking-[-0.01em]">
                 Technology
               </h3>
               <p className="text-op-muted text-base leading-relaxed mt-3">
@@ -104,14 +104,14 @@ export default function Home() {
           <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono">
             Our operating model
           </p>
-          <h2 className="font-display text-3xl md:text-4xl text-op-ink mt-4 leading-tight max-w-2xl">
+          <h2 className="font-display text-3xl md:text-4xl font-semibold text-op-ink mt-4 leading-tight tracking-[-0.01em] max-w-2xl">
             How we turn opportunity into durable venture.
           </h2>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
             <div className="border-t border-op-line pt-6">
               <p className="text-xs font-mono text-op-accent">01</p>
-              <h3 className="font-display text-xl text-op-ink mt-2">Discover</h3>
+              <h3 className="font-display text-xl font-semibold text-op-ink mt-2 tracking-[-0.01em]">Discover</h3>
               <p className="text-sm text-op-muted mt-3 leading-relaxed">
                 Originate opportunity through our networks in finance, trade, tribal economic development, and forward-deployed engineering.
               </p>
@@ -119,7 +119,7 @@ export default function Home() {
 
             <div className="border-t border-op-line pt-6">
               <p className="text-xs font-mono text-op-accent">02</p>
-              <h3 className="font-display text-xl text-op-ink mt-2">Align</h3>
+              <h3 className="font-display text-xl font-semibold text-op-ink mt-2 tracking-[-0.01em]">Align</h3>
               <p className="text-sm text-op-muted mt-3 leading-relaxed">
                 Structure the deal or engagement so the ownership, governance, and incentives hold up at scale.
               </p>
@@ -127,7 +127,7 @@ export default function Home() {
 
             <div className="border-t border-op-line pt-6">
               <p className="text-xs font-mono text-op-accent">03</p>
-              <h3 className="font-display text-xl text-op-ink mt-2">Execute</h3>
+              <h3 className="font-display text-xl font-semibold text-op-ink mt-2 tracking-[-0.01em]">Execute</h3>
               <p className="text-sm text-op-muted mt-3 leading-relaxed">
                 Stand the venture up. Ship the software. Close the deal. Run the operation with the people who will own it.
               </p>
@@ -135,7 +135,7 @@ export default function Home() {
 
             <div className="border-t border-op-line pt-6">
               <p className="text-xs font-mono text-op-accent">04</p>
-              <h3 className="font-display text-xl text-op-ink mt-2">Sustain</h3>
+              <h3 className="font-display text-xl font-semibold text-op-ink mt-2 tracking-[-0.01em]">Sustain</h3>
               <p className="text-sm text-op-muted mt-3 leading-relaxed">
                 Operate as a long-horizon holder. Reinvest, compound, and keep the asset close to the people it serves.
               </p>
@@ -148,16 +148,16 @@ export default function Home() {
           <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono">
             Ventures in motion
           </p>
-          <h2 className="font-display text-3xl md:text-4xl text-op-ink mt-4 leading-tight max-w-2xl">
+          <h2 className="font-display text-3xl md:text-4xl font-semibold text-op-ink mt-4 leading-tight tracking-[-0.01em] max-w-2xl">
             Real businesses we are building or operating.
           </h2>
 
           <div className="grid md:grid-cols-3 gap-6 mt-12">
-            <div className="border border-op-line rounded-lg p-6 bg-white">
+            <div className="border border-op-line rounded-lg p-6 bg-op-card">
               <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">
                 Finance
               </p>
-              <h3 className="font-display text-xl text-op-ink mt-3">
+              <h3 className="font-display text-xl font-semibold text-op-ink mt-3 tracking-[-0.01em]">
                 Tribal Bank
               </h3>
               <p className="text-sm text-op-muted mt-3 leading-relaxed">
@@ -165,11 +165,11 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="border border-op-line rounded-lg p-6 bg-white">
+            <div className="border border-op-line rounded-lg p-6 bg-op-card">
               <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">
                 Trade &amp; Logistics
               </p>
-              <h3 className="font-display text-xl text-op-ink mt-3">
+              <h3 className="font-display text-xl font-semibold text-op-ink mt-3 tracking-[-0.01em]">
                 Tribal Trade
               </h3>
               <p className="text-sm text-op-muted mt-3 leading-relaxed">
@@ -177,11 +177,11 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="border border-op-line rounded-lg p-6 bg-white">
+            <div className="border border-op-line rounded-lg p-6 bg-op-card">
               <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">
                 Food &amp; Processing
               </p>
-              <h3 className="font-display text-xl text-op-ink mt-3">
+              <h3 className="font-display text-xl font-semibold text-op-ink mt-3 tracking-[-0.01em]">
                 Fishing &amp; Processing
               </h3>
               <p className="text-sm text-op-muted mt-3 leading-relaxed">
@@ -203,14 +203,14 @@ export default function Home() {
           <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono">
             Technology spotlight
           </p>
-          <h2 className="font-display text-3xl md:text-4xl text-op-ink mt-4 leading-tight max-w-2xl">
+          <h2 className="font-display text-3xl md:text-4xl font-semibold text-op-ink mt-4 leading-tight tracking-[-0.01em] max-w-2xl">
             Software we ship, for our ventures and for clients.
           </h2>
 
           <div className="grid md:grid-cols-3 gap-6 mt-12">
             <div className="bg-zinc-950 rounded-lg p-6 border border-zinc-900">
               <p className="text-xs uppercase tracking-[0.2em] text-cyan-400 font-mono">CRM</p>
-              <h3 className="font-display text-xl text-zinc-50 mt-3">LegacyCompass</h3>
+              <h3 className="font-display text-xl font-semibold text-zinc-50 mt-3 tracking-[-0.01em]">LegacyCompass</h3>
               <p className="text-sm text-zinc-400 mt-3 leading-relaxed">
                 A tribally owned CRM built for the way operating groups actually run accounts and relationships, not the way legacy SaaS wants us to.
               </p>
@@ -218,7 +218,7 @@ export default function Home() {
 
             <div className="bg-zinc-950 rounded-lg p-6 border border-zinc-900">
               <p className="text-xs uppercase tracking-[0.2em] text-cyan-400 font-mono">Financial Intelligence</p>
-              <h3 className="font-display text-xl text-zinc-50 mt-3">Meridian AI</h3>
+              <h3 className="font-display text-xl font-semibold text-zinc-50 mt-3 tracking-[-0.01em]">Meridian AI</h3>
               <p className="text-sm text-zinc-400 mt-3 leading-relaxed">
                 Agentic analyst for finance and investment teams. Reads the filings, cross-checks the market, and writes the memo.
               </p>
@@ -226,7 +226,7 @@ export default function Home() {
 
             <div className="bg-zinc-950 rounded-lg p-6 border border-zinc-900">
               <p className="text-xs uppercase tracking-[0.2em] text-cyan-400 font-mono">Luxury Commerce</p>
-              <h3 className="font-display text-xl text-zinc-50 mt-3">LuxusAI</h3>
+              <h3 className="font-display text-xl font-semibold text-zinc-50 mt-3 tracking-[-0.01em]">LuxusAI</h3>
               <p className="text-sm text-zinc-400 mt-3 leading-relaxed">
                 Multi-agent luxury commerce platform. Applies Claude-grade reasoning to high-touch sales, clienteling, and post-purchase relationships.
               </p>
@@ -245,30 +245,30 @@ export default function Home() {
       <section className="py-24 border-t border-op-line bg-op-bg">
         <div className="max-w-6xl mx-auto px-6">
           <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono">Why GPSL</p>
-          <h2 className="font-display text-3xl md:text-4xl text-op-ink mt-4 leading-tight max-w-2xl">
+          <h2 className="font-display text-3xl md:text-4xl font-semibold text-op-ink mt-4 leading-tight tracking-[-0.01em] max-w-2xl">
             An operator&apos;s approach, in an owner&apos;s timeframe.
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8 mt-12">
             <div>
-              <p className="font-display text-5xl text-op-accent">01</p>
-              <h3 className="font-display text-xl text-op-ink mt-4">Tribal sovereignty as advantage</h3>
+              <p className="font-display text-5xl font-semibold text-op-accent">01</p>
+              <h3 className="font-display text-xl font-semibold text-op-ink mt-4 tracking-[-0.01em]">Tribal sovereignty as advantage</h3>
               <p className="text-sm text-op-muted mt-3 leading-relaxed">
                 We operate under tribal jurisdiction with a federally recognized nation. That structure unlocks finance, trade, and regulatory positions our peers cannot access.
               </p>
             </div>
 
             <div>
-              <p className="font-display text-5xl text-op-accent">02</p>
-              <h3 className="font-display text-xl text-op-ink mt-4">Long-horizon holder posture</h3>
+              <p className="font-display text-5xl font-semibold text-op-accent">02</p>
+              <h3 className="font-display text-xl font-semibold text-op-ink mt-4 tracking-[-0.01em]">Long-horizon holder posture</h3>
               <p className="text-sm text-op-muted mt-3 leading-relaxed">
                 We are not a fund with a return clock. We buy, build, and hold. Our incentive is the asset compounding, not a five-year exit.
               </p>
             </div>
 
             <div>
-              <p className="font-display text-5xl text-op-accent">03</p>
-              <h3 className="font-display text-xl text-op-ink mt-4">In-house AI, not outsourced</h3>
+              <p className="font-display text-5xl font-semibold text-op-accent">03</p>
+              <h3 className="font-display text-xl font-semibold text-op-ink mt-4 tracking-[-0.01em]">In-house AI, not outsourced</h3>
               <p className="text-sm text-op-muted mt-3 leading-relaxed">
                 Our Technology division is our leverage. Every venture ships with agentic software built by the same team that built the CRM.
               </p>
@@ -280,17 +280,17 @@ export default function Home() {
       <section className="py-24 border-t border-op-line">
         <div className="max-w-6xl mx-auto px-6">
           <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono">Work with us</p>
-          <h2 className="font-display text-3xl md:text-4xl text-op-ink mt-4 leading-tight max-w-2xl">
+          <h2 className="font-display text-3xl md:text-4xl font-semibold text-op-ink mt-4 leading-tight tracking-[-0.01em] max-w-2xl">
             Three doors into GPSL.
           </h2>
 
           <div className="grid md:grid-cols-3 gap-6 mt-12">
             <Link
               href="/contact?topic=execution"
-              className="block group rounded-lg border border-op-line bg-white p-8 transition-colors hover:border-op-accent"
+              className="block group rounded-lg border border-op-line bg-op-card p-8 transition-colors hover:border-op-accent"
             >
               <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">EXECUTION</p>
-              <h3 className="font-display text-xl text-op-ink mt-3">Operators &amp; deal flow</h3>
+              <h3 className="font-display text-xl font-semibold text-op-ink mt-3 tracking-[-0.01em]">Operators &amp; deal flow</h3>
               <p className="text-sm text-op-muted mt-3 leading-relaxed">
                 You have an asset, an operation, or a deal we should be looking at. Come in via Execution.
               </p>
@@ -301,10 +301,10 @@ export default function Home() {
 
             <Link
               href="/contact?topic=technology"
-              className="block group rounded-lg border border-op-line bg-white p-8 transition-colors hover:border-op-accent"
+              className="block group rounded-lg border border-op-line bg-op-card p-8 transition-colors hover:border-op-accent"
             >
               <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">TECHNOLOGY</p>
-              <h3 className="font-display text-xl text-op-ink mt-3">AI agency engagement</h3>
+              <h3 className="font-display text-xl font-semibold text-op-ink mt-3 tracking-[-0.01em]">AI agency engagement</h3>
               <p className="text-sm text-op-muted mt-3 leading-relaxed">
                 You want the Technology division to build or embed with you. Come in via Technology.
               </p>
@@ -315,10 +315,10 @@ export default function Home() {
 
             <Link
               href="/contact?topic=partnerships"
-              className="block group rounded-lg border border-op-line bg-white p-8 transition-colors hover:border-op-accent"
+              className="block group rounded-lg border border-op-line bg-op-card p-8 transition-colors hover:border-op-accent"
             >
               <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">PARTNERSHIPS</p>
-              <h3 className="font-display text-xl text-op-ink mt-3">Tribal &amp; institutional partnerships</h3>
+              <h3 className="font-display text-xl font-semibold text-op-ink mt-3 tracking-[-0.01em]">Tribal &amp; institutional partnerships</h3>
               <p className="text-sm text-op-muted mt-3 leading-relaxed">
                 You represent a tribe, a partner institution, or an investor. Start a partnership conversation.
               </p>

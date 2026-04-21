@@ -57,7 +57,7 @@ export default function Team() {
     <ThemeSurface surface="operating">
       <div className="max-w-6xl mx-auto px-6 pt-24 pb-16">
         <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono">The team</p>
-        <h1 className="font-display text-5xl md:text-6xl lg:text-7xl text-op-ink mt-6 leading-[1.05] tracking-[-0.02em] max-w-4xl">
+        <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold text-op-ink mt-6 leading-[1.05] tracking-[-0.02em] max-w-4xl">
           The people behind GPSL.
         </h1>
         <p className="text-lg text-op-muted mt-6 max-w-2xl leading-relaxed">
@@ -68,7 +68,7 @@ export default function Team() {
       <section id="execution-team" className="border-t border-op-line">
         <div className="max-w-6xl mx-auto px-6 py-20">
           <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">Execution</p>
-          <h2 className="font-display text-3xl md:text-4xl text-op-ink mt-4 leading-tight">Operators.</h2>
+          <h2 className="font-display text-3xl md:text-4xl font-semibold text-op-ink mt-4 leading-tight tracking-[-0.01em]">Operators.</h2>
           <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {executionTeam.map((person) => (
               <PersonCard key={person.name} {...person} />
@@ -80,7 +80,7 @@ export default function Team() {
       <section id="technology-team" className="border-t border-op-line bg-op-panel">
         <div className="max-w-6xl mx-auto px-6 py-20">
           <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">Technology</p>
-          <h2 className="font-display text-3xl md:text-4xl text-op-ink mt-4 leading-tight">Engineers.</h2>
+          <h2 className="font-display text-3xl md:text-4xl font-semibold text-op-ink mt-4 leading-tight tracking-[-0.01em]">Engineers.</h2>
           <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {technologyTeam.map((person) => (
               <PersonCard key={person.name} {...person} />
