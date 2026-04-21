@@ -44,9 +44,9 @@ const technologyTeam = [
 
 function PersonCard({ name, role, bio }: { name: string; role: string; bio: string }) {
   return (
-    <div className="rounded-lg border border-op-line bg-white p-6">
-      <h3 className="font-display text-xl text-op-ink">{name}</h3>
-      <p className="text-sm text-op-accent font-mono uppercase tracking-[0.15em] mt-2">{role}</p>
+    <div className="rounded-lg border border-op-line bg-op-card p-6">
+      <h3 className="font-display text-xl font-semibold tracking-[-0.01em] text-op-ink">{name}</h3>
+      <p className="text-xs text-op-accent font-mono uppercase tracking-[0.15em] mt-2">{role}</p>
       <p className="text-sm text-op-muted mt-4 leading-relaxed">{bio}</p>
     </div>
   );
@@ -77,7 +77,7 @@ export default function Team() {
         </div>
       </section>
 
-      <section id="technology-team" className="border-t border-op-line bg-white">
+      <section id="technology-team" className="border-t border-op-line bg-op-panel">
         <div className="max-w-6xl mx-auto px-6 py-20">
           <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">Technology</p>
           <h2 className="font-display text-3xl md:text-4xl text-op-ink mt-4 leading-tight">Engineers.</h2>
