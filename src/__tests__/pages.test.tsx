@@ -86,9 +86,13 @@ describe("Home page", () => {
     render(<Home />);
     expect(screen.getByText(/one operating group, two engines/i)).toBeInTheDocument();
     const exec = screen.getByRole("link", { name: /Execution/i });
-    const tech = screen.getByRole("link", { name: /Technology/i });
     expect(exec).toHaveAttribute("href", "/execution");
-    expect(tech).toHaveAttribute("href", "/technology");
+    // Multiple links go to /technology; confirm at least one is a division card (contains "Division 02" text)
+    const techLinks = screen.getAllByRole("link").filter(
+      (el) => el.getAttribute("href") === "/technology"
+    );
+    expect(techLinks.length).toBeGreaterThanOrEqual(1);
+    expect(techLinks.some((el) => /division 02/i.test(el.textContent ?? ""))).toBe(true);
   });
 
   test("Home operating model section renders all four steps", () => {
@@ -107,6 +111,16 @@ describe("Home page", () => {
     expect(screen.getByRole("heading", { name: /fishing & processing/i, level: 3 })).toBeInTheDocument();
     const cta = screen.getByRole("link", { name: /see the full ventures portfolio/i });
     expect(cta).toHaveAttribute("href", "/portfolio");
+  });
+
+  test("Home technology spotlight renders three flagship products + tech CTA", () => {
+    render(<Home />);
+    expect(screen.getByText(/technology spotlight/i)).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /legacycompass/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /meridian ai/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /luxusai/i, level: 3 })).toBeInTheDocument();
+    const cta = screen.getByRole("link", { name: /explore the technology division/i });
+    expect(cta).toHaveAttribute("href", "/technology");
   });
 });
 

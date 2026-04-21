@@ -198,6 +198,49 @@ export default function Home() {
           </Link>
         </div>
       </section>
+      <section className="py-24 border-t border-op-line">
+        <div className="max-w-6xl mx-auto px-6">
+          <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono">
+            Technology spotlight
+          </p>
+          <h2 className="font-display text-3xl md:text-4xl text-op-ink mt-4 leading-tight max-w-2xl">
+            Software we ship, for our ventures and for clients.
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-6 mt-12">
+            <div className="bg-zinc-950 rounded-lg p-6 border border-zinc-900">
+              <p className="text-xs uppercase tracking-[0.2em] text-cyan-400 font-mono">CRM</p>
+              <h3 className="font-display text-xl text-zinc-50 mt-3">LegacyCompass</h3>
+              <p className="text-sm text-zinc-400 mt-3 leading-relaxed">
+                A tribally owned CRM built for the way operating groups actually run accounts and relationships, not the way legacy SaaS wants us to.
+              </p>
+            </div>
+
+            <div className="bg-zinc-950 rounded-lg p-6 border border-zinc-900">
+              <p className="text-xs uppercase tracking-[0.2em] text-cyan-400 font-mono">Financial Intelligence</p>
+              <h3 className="font-display text-xl text-zinc-50 mt-3">Meridian AI</h3>
+              <p className="text-sm text-zinc-400 mt-3 leading-relaxed">
+                Agentic analyst for finance and investment teams. Reads the filings, cross-checks the market, and writes the memo.
+              </p>
+            </div>
+
+            <div className="bg-zinc-950 rounded-lg p-6 border border-zinc-900">
+              <p className="text-xs uppercase tracking-[0.2em] text-cyan-400 font-mono">Luxury Commerce</p>
+              <h3 className="font-display text-xl text-zinc-50 mt-3">LuxusAI</h3>
+              <p className="text-sm text-zinc-400 mt-3 leading-relaxed">
+                Multi-agent luxury commerce platform. Applies Claude-grade reasoning to high-touch sales, clienteling, and post-purchase relationships.
+              </p>
+            </div>
+          </div>
+
+          <Link
+            href="/technology"
+            className="inline-flex items-center gap-2 text-sm font-medium text-op-ink hover:text-op-accent mt-10 transition-colors"
+          >
+            Explore the Technology division <span aria-hidden>→</span>
+          </Link>
+        </div>
+      </section>
     </ThemeSurface>
   );
 }
