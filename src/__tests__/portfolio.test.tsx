@@ -41,4 +41,20 @@ describe("PortfolioPage", () => {
     const { container } = render(<PortfolioPage />);
     expect(container.querySelector("#ventures")).not.toBeNull();
   });
+
+  test("Portfolio technology island lists four shipped products", () => {
+    render(<PortfolioPage />);
+    expect(screen.getByText(/software shipped into real operations/i)).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /legacycompass/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /meridian ai/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /luxusai/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /forward-deployed agent builds/i, level: 3 })).toBeInTheDocument();
+  });
+
+  test("Portfolio technology island has #tech anchor and links to /technology", () => {
+    const { container } = render(<PortfolioPage />);
+    expect(container.querySelector("#tech")).not.toBeNull();
+    const techLink = screen.getByRole("link", { name: /go deeper on the technology division/i });
+    expect(techLink).toHaveAttribute("href", "/technology");
+  });
 });
