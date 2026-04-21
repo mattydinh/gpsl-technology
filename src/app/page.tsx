@@ -60,7 +60,6 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-6 mt-12">
             <Link
               href="/execution"
-              aria-label="Execution"
               className="block group rounded-lg border border-op-line bg-white p-8 transition-colors hover:border-op-accent"
             >
               <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">
@@ -81,7 +80,6 @@ export default function Home() {
 
             <Link
               href="/technology"
-              aria-label="Technology"
               className="block group rounded-lg border border-op-line bg-white p-8 transition-colors hover:border-op-accent"
             >
               <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">

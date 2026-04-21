@@ -86,7 +86,7 @@ describe("Home page", () => {
     render(<Home />);
     expect(screen.getByText(/one operating group, two engines/i)).toBeInTheDocument();
     const exec = screen.getByRole("link", { name: /Execution/i });
-    const tech = screen.getByRole("link", { name: /^Technology/ });
+    const tech = screen.getByRole("link", { name: /Technology/i });
     expect(exec).toHaveAttribute("href", "/execution");
     expect(tech).toHaveAttribute("href", "/technology");
   });
