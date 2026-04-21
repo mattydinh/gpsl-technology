@@ -52,4 +52,20 @@ describe("TechnologyPage", () => {
       expect(link).toHaveAttribute("href", "/portfolio#tech");
     });
   });
+
+  test("Technology page has philosophy section anchor", () => {
+    const { container } = render(<TechnologyPage />);
+    expect(container.querySelector("#philosophy")).not.toBeNull();
+  });
+
+  test("Technology page has Claude Partner section anchor", () => {
+    const { container } = render(<TechnologyPage />);
+    expect(container.querySelector("#claude-partner")).not.toBeNull();
+  });
+
+  test("Technology page mentions Claude Partner Network", () => {
+    render(<TechnologyPage />);
+    const matches = screen.getAllByText(/claude partner network/i);
+    expect(matches.length).toBeGreaterThan(0);
+  });
 });

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Cpu, Layers, Sparkles } from "lucide-react";
 import ThemeSurface from "@/components/ThemeSurface";
 
 export default function TechnologyPage() {
@@ -97,6 +98,131 @@ export default function TechnologyPage() {
                 <Link href="/portfolio#tech" className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors">
                   View in portfolio <span aria-hidden>→</span>
                 </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="philosophy" className="border-t border-zinc-900">
+          <div className="max-w-6xl mx-auto px-6 py-24">
+            <p className="text-xs uppercase tracking-[0.2em] text-cyan-400 font-mono">Philosophy</p>
+            <h2 className="font-display text-3xl md:text-4xl text-zinc-50 mt-4 leading-tight max-w-3xl">
+              Technology applied with intent.
+            </h2>
+
+            <div className="mt-12 flex flex-col gap-8">
+              <div className="flex items-start gap-4 rounded-lg border border-zinc-800 bg-zinc-900/50 p-6">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-cyan-500/10 mt-0.5">
+                  <Cpu size={16} className="text-cyan-400" />
+                </div>
+                <div className="space-y-4">
+                  <h3 className="font-mono text-xs font-semibold uppercase tracking-widest text-zinc-500">
+                    Engineering philosophy
+                  </h3>
+                  <p className="text-zinc-400 leading-relaxed">
+                    GPSL Technology builds modern, scalable business applications
+                    powered by leading technologies and artificial intelligence. We
+                    operate with the belief that technology — when thoughtfully
+                    applied — can improve any business by increasing efficiency,
+                    unlocking new insights, and creating entirely new capabilities.
+                  </p>
+                  <p className="text-zinc-400 leading-relaxed">
+                    Our team brings deep expertise across data science, machine
+                    learning, deep learning, computer vision, full-stack software
+                    engineering, and research &amp; development. This cross-functional
+                    versatility allows us to move seamlessly from concept to
+                    production, combining rigorous technical depth with execution
+                    speed.
+                  </p>
+                  <p className="text-zinc-400 leading-relaxed">
+                    We stay at the forefront of emerging AI advancements and
+                    continuously evaluate new tools, models, and infrastructure to
+                    ensure we are applying the most effective and practical
+                    solutions. Our focus is not innovation for its own sake — it is
+                    delivering measurable value to our partners through intelligent
+                    systems that are built to scale.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="border-t border-zinc-900">
+          <div className="max-w-6xl mx-auto px-6 py-24">
+            <p className="text-xs uppercase tracking-[0.2em] text-cyan-400 font-mono">Stack</p>
+            <h2 className="font-display text-3xl md:text-4xl text-zinc-50 mt-4 leading-tight max-w-3xl">
+              Built on the right tools.
+            </h2>
+
+            <div className="mt-12 flex flex-col gap-8">
+              <div className="flex items-start gap-4 rounded-lg border border-zinc-800 bg-zinc-900/50 p-6">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-cyan-500/10 mt-0.5">
+                  <Layers size={16} className="text-cyan-400" />
+                </div>
+                <div className="space-y-4">
+                  <h3 className="font-mono text-xs font-semibold uppercase tracking-widest text-zinc-500">
+                    Our stack
+                  </h3>
+                  <p className="text-zinc-400 leading-relaxed">
+                    Our core stack centers on Next.js, Supabase, Git, Cursor, and
+                    Claude Code, enabling us to build modern, production-grade
+                    applications with speed and precision. This architecture allows
+                    us to deliver scalable, secure systems while maintaining rapid
+                    iteration cycles through AI-assisted development workflows.
+                  </p>
+                  <p className="text-zinc-400 leading-relaxed">
+                    On the AI side, we leverage fastai and other leading machine
+                    learning frameworks to develop deep learning, natural language
+                    processing (NLP), and computer vision (CV) solutions as needed.
+                    This gives us the flexibility to move from applied AI
+                    integrations to fully custom model development, depending on the
+                    complexity of the problem.
+                  </p>
+                  <p className="text-zinc-400 leading-relaxed">
+                    By combining strong engineering foundations with advanced AI
+                    capabilities, we accelerate development without compromising
+                    reliability, performance, or long-term maintainability.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="claude-partner" className="border-t border-zinc-900">
+          <div className="max-w-6xl mx-auto px-6 py-24">
+            <p className="text-xs uppercase tracking-[0.2em] text-cyan-400 font-mono">Partnership</p>
+            <h2 className="font-display text-3xl md:text-4xl text-zinc-50 mt-4 leading-tight max-w-3xl">
+              Claude Partner Network.
+            </h2>
+
+            <div className="mt-12 flex flex-col gap-8">
+              <div className="claude-border-shimmer flex items-start gap-4 rounded-lg border border-zinc-800 bg-zinc-900/50 p-6">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-[#D97757]/10 mt-0.5">
+                  <Sparkles size={16} className="claude-icon-pulse text-[#D97757]" />
+                </div>
+                <div className="space-y-4">
+                  <h3 className="font-mono text-xs font-semibold uppercase tracking-widest text-zinc-500">
+                    Claude Partner Network
+                  </h3>
+                  <p className="text-zinc-400 leading-relaxed">
+                    GPSL Technology is an official member of the{" "}
+                    <span className="font-semibold text-[#D97757]">
+                      Claude Partner Network
+                    </span>
+                    . This partnership gives us direct access to Anthropic&apos;s
+                    Claude models, Claude Code as a core development tool, and
+                    early access to new capabilities as they ship.
+                  </p>
+                  <p className="text-zinc-400 leading-relaxed">
+                    Claude is deeply embedded in how we build — from architecture
+                    and code generation to testing and deployment. As a partner,
+                    we work closely with Anthropic to push the boundaries of
+                    AI-assisted software development, ensuring our clients
+                    benefit from the most advanced AI tooling available.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
