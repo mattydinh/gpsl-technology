@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import ThemeSurface from "@/components/ThemeSurface";
+
+export const metadata: Metadata = {
+  title: "Execution",
+  description:
+    "The operating arm of GPSL. Deal flow, structuring, stand-up, long-horizon holding.",
+};
 
 const SECTORS = [
   {

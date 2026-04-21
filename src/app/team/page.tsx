@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import ThemeSurface from "@/components/ThemeSurface";
+
+export const metadata: Metadata = {
+  title: "Team",
+  description: "The people behind GPSL.",
+};
 
 const executionTeam = [
   {

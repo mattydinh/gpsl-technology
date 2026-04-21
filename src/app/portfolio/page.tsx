@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import ThemeSurface from "@/components/ThemeSurface";
+
+export const metadata: Metadata = {
+  title: "Portfolio",
+  description: "Ventures we operate and software we ship.",
+};
 
 const techProducts = [
   {

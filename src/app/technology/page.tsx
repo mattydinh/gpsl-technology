@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Cpu, Layers, Sparkles } from "lucide-react";
 import ThemeSurface from "@/components/ThemeSurface";
+
+export const metadata: Metadata = {
+  title: "Technology",
+  description:
+    "Agentic software, shipped into real operations. GPSL's in-house AI agency.",
+};
 
 export default function TechnologyPage() {
   return (
