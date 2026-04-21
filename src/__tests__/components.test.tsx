@@ -7,6 +7,9 @@ jest.mock("next/font/google", () => ({
   Fraunces: () => ({ variable: "--font-fraunces", className: "mock-fraunces" }),
 }));
 
+jest.mock("@vercel/analytics/react", () => ({ Analytics: () => null }));
+jest.mock("@vercel/speed-insights/next", () => ({ SpeedInsights: () => null }));
+
 jest.mock("framer-motion", () => ({
   motion: {
     div: ({
