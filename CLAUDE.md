@@ -69,9 +69,11 @@ Operating surface tokens (light → dark):
 Hierarchy: `bg → panel → card` always reads as a lift in both modes. Don't mix `op.bg` and `op.card` on adjacent surfaces — you'll invert the hierarchy in one mode.
 
 ### Typography
-- **Display:** Fraunces (serif) — `.font-display` / `font-display:`. Stylistic sets 01/02/03 enabled in globals.css.
-- **Body:** Figtree (sans) — applied via `font-sans` in Tailwind (default). `ss01` + `cv11` feature sets enabled. `letter-spacing: -0.005em` + `optimizeLegibility`.
+- **Display:** Fraunces (serif) — `.font-display` / `font-display:`. Loaded at weights **500 / 600 / 700 only**. Stylistic sets 01/02/03 enabled in globals.css.
+- **Body:** Figtree (sans) — applied via `font-sans` in Tailwind (default). Loaded at 400/500/600/700. `ss01` + `cv11` feature sets enabled. `letter-spacing: -0.005em` + `optimizeLegibility`.
 - **Labels:** system monospace (`font-mono`) — the small uppercase `tracking-[0.2em]` kicker pattern used throughout.
+
+**⚠️ Fraunces weight gotcha.** Body weight is 400. Fraunces is NOT loaded at 400 — the browser falls back to weight 500 when a heading inherits 400, which reads too thin for card titles. **Always put an explicit `font-semibold` (600) or `font-bold` (700) on `.font-display` headings inside cards or small contexts.** Hero h1s usually get away with the implicit 500 because of the large size, but `text-xl`/`text-2xl` titles need explicit weight.
 
 ## Commands
 ```bash
