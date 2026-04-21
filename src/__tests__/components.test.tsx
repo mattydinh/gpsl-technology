@@ -61,8 +61,8 @@ describe("Footer", () => {
     render(<Footer />);
     expect(screen.getByText("Overview")).toBeInTheDocument();
     expect(screen.getByText("Team")).toBeInTheDocument();
-    expect(screen.getByText("Projects")).toBeInTheDocument();
-    expect(screen.getByText("AI")).toBeInTheDocument();
+    expect(screen.getByText("Portfolio")).toBeInTheDocument();
+    expect(screen.getByText("Technology")).toBeInTheDocument();
     expect(screen.getByText("Contact")).toBeInTheDocument();
   });
 

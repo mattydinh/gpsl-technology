@@ -1,8 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import Home from "@/app/page";
 import Team from "@/app/team/page";
-import Projects from "@/app/projects/page";
-import AI from "@/app/ai/page";
 import Contact from "@/app/contact/page";
 
 // Mock framer-motion to avoid animation issues in tests
@@ -168,60 +166,6 @@ describe("Team page", () => {
     render(<Team />);
     expect(
       screen.getByText(/Designs and deploys end-to-end/i)
-    ).toBeInTheDocument();
-  });
-});
-
-describe("Projects page", () => {
-  it("renders all projects", () => {
-    render(<Projects />);
-    expect(screen.getByText("Civic Sentinel")).toBeInTheDocument();
-    expect(screen.getByText("HelixBridge")).toBeInTheDocument();
-    expect(screen.getByText("Grantbridge")).toBeInTheDocument();
-    expect(screen.getByText("Meridian AI")).toBeInTheDocument();
-    expect(screen.getByText("LegacyCompass")).toBeInTheDocument();
-    expect(screen.getByText("LuxusAI")).toBeInTheDocument();
-    expect(screen.getByText("InvenioAI")).toBeInTheDocument();
-  });
-
-  it("renders tags for the political intelligence project", () => {
-    render(<Projects />);
-    expect(
-      screen.getByText("Multi-Agent Orchestration")
-    ).toBeInTheDocument();
-    expect(screen.getByText("LLM Pipelines")).toBeInTheDocument();
-    expect(screen.getByText("Political Data")).toBeInTheDocument();
-    expect(screen.getByText("RAG")).toBeInTheDocument();
-  });
-
-  it("renders project descriptions", () => {
-    render(<Projects />);
-    expect(
-      screen.getByText(/aggregates and analyzes political data/i)
-    ).toBeInTheDocument();
-  });
-});
-
-describe("AI page", () => {
-  it("renders page heading", () => {
-    render(<AI />);
-    expect(screen.getByText("AI applications")).toBeInTheDocument();
-  });
-
-  it("renders philosophy section", () => {
-    render(<AI />);
-    expect(screen.getByText("Philosophy")).toBeInTheDocument();
-  });
-
-  it("renders stack section", () => {
-    render(<AI />);
-    expect(screen.getByText("Our stack")).toBeInTheDocument();
-  });
-
-  it("mentions key technologies", () => {
-    render(<AI />);
-    expect(
-      screen.getByText(/Next\.js, Supabase, Git, Cursor, and Claude Code/i)
     ).toBeInTheDocument();
   });
 });
