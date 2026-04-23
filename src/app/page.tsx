@@ -7,51 +7,162 @@ import ThemeSurface from "@/components/ThemeSurface";
 export default function Home() {
   return (
     <ThemeSurface surface="operating">
+      {/* 4.1 Hero */}
       <section className="mx-auto max-w-5xl px-6 py-28 sm:py-36 md:py-44">
         <FadeIn delay={0}>
           <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-op-accent">
-            GPSL &mdash; Operating Group
+            GPSL &mdash; an operating discipline
           </span>
         </FadeIn>
 
         <FadeIn delay={0.1}>
           <h1 className="mt-5 font-display text-5xl font-semibold leading-[1.05] tracking-[-0.02em] text-op-ink sm:text-6xl md:text-7xl">
-            We build, operate,
+            Transformation needs a pathway,
             <br />
-            and scale ventures.
+            not just ambition.
           </h1>
         </FadeIn>
 
         <FadeIn delay={0.2}>
           <p className="mt-8 max-w-[62ch] text-lg leading-relaxed text-op-muted">
-            GPSL pursues diversified initiatives across finance, trade,
-            logistics, and fishing &mdash; with an in-house AI agency that
-            builds the technology our ventures need.
+            Most organizations understand what they want to change. Few know how
+            to make the change actually happen &mdash; which people, in what
+            place, at what time, with what support. GPSL is the discipline that
+            closes that gap.
           </p>
         </FadeIn>
 
         <FadeIn delay={0.3}>
           <div className="mt-10 flex flex-wrap gap-4">
             <Link
-              href="/portfolio"
+              href="/execution"
               className="inline-flex items-center rounded-md bg-op-accent px-6 py-3 text-sm font-medium text-white transition-colors hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-op-accent"
             >
-              Explore our ventures
+              How we execute
             </Link>
             <Link
-              href="/execution"
+              href="/technology"
               className="inline-flex items-center rounded-md border border-op-line px-6 py-3 text-sm font-medium text-op-ink transition-colors hover:bg-op-line/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-op-ink"
             >
-              How we execute
+              Technology division
             </Link>
           </div>
         </FadeIn>
       </section>
 
+      {/* 4.2 Why we exist */}
       <section className="py-24 border-t border-op-line">
         <div className="max-w-6xl mx-auto px-6">
           <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono">
-            One operating group, two engines.
+            Why GPSL exists
+          </p>
+          <h2 className="font-display text-3xl md:text-4xl font-semibold text-op-ink mt-4 leading-tight tracking-[-0.01em] max-w-2xl">
+            Most transformation fails in the operating layer.
+          </h2>
+          <div className="mt-8 max-w-3xl space-y-5 text-base md:text-lg leading-relaxed text-op-muted">
+            <p>
+              Modernization, AI, reform, reinvention &mdash; the language of
+              change is everywhere, and most of it never reaches operation. Not
+              for lack of intent. For lack of structure: the right people in the
+              right roles, clear coordination across stakeholders, and support
+              that holds up when the work gets hard.
+            </p>
+            <p>
+              GPSL was built to close that gap. Our work is not the idea, not
+              the software, not the announcement. It is the operating
+              discipline underneath &mdash; the human logistics that make
+              execution actually happen.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 4.3 Origin */}
+      <section className="py-24 border-t border-op-line">
+        <div className="max-w-6xl mx-auto px-6">
+          <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono">
+            Origin
+          </p>
+          <h2 className="font-display text-3xl md:text-4xl font-semibold text-op-ink mt-4 leading-tight tracking-[-0.01em] max-w-2xl">
+            We were built inside Tribal Economic Development.
+          </h2>
+          <div className="mt-8 max-w-3xl space-y-5 text-base md:text-lg leading-relaxed text-op-muted">
+            <p>
+              Tribal communities have too often had to operate within
+              fragmented and under-supported systems, where the surrounding
+              infrastructure makes execution harder than it should be. GPSL was
+              built inside that work.
+            </p>
+            <p>
+              We learned that progress rarely fails because of a lack of
+              vision. It fails because the operating infrastructure underneath
+              was never designed to carry it. GPSL was built from the belief
+              that those systems can and should work better &mdash; and that
+              better execution is not an ambition. It is a discipline.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 4.4 What the mission taught us */}
+      <section className="py-24 border-t border-op-line">
+        <div className="max-w-6xl mx-auto px-6">
+          <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono">
+            What we learned
+          </p>
+          <h2 className="font-display text-3xl md:text-4xl font-semibold text-op-ink mt-4 leading-tight tracking-[-0.01em] max-w-2xl">
+            The mission made us better at everything else.
+          </h2>
+          <div className="mt-8 max-w-3xl space-y-5 text-base md:text-lg leading-relaxed text-op-muted">
+            <p>
+              Solving a real, difficult coordination problem pulled GPSL into
+              finance, trade, logistics, housing, food systems, energy, and the
+              software underneath all of them. Not by choice &mdash; by
+              necessity. Each sector forced us to see how intent, people,
+              timing, and infrastructure actually interact.
+            </p>
+            <p>
+              The pattern we now run across every engagement came from that
+              work. The mission taught us to see systems whole, design for the
+              hand-off, and treat execution as the output of a well-built
+              pathway, not the result of willpower.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 4.5 Human logistics (framework) */}
+      <section className="py-24 border-t border-op-line bg-op-panel">
+        <div className="max-w-6xl mx-auto px-6">
+          <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono">
+            The framework
+          </p>
+          <h2 className="font-display text-3xl md:text-4xl font-semibold text-op-ink mt-4 leading-tight tracking-[-0.01em] max-w-2xl">
+            Human logistics is what we do.
+          </h2>
+          <div className="mt-8 max-w-3xl space-y-5 text-base md:text-lg leading-relaxed text-op-muted">
+            <p>
+              Human logistics is the discipline of getting the right people
+              into the right place, doing the right work, at the right time,
+              with the support structure around them that makes the work hold
+              up. It is not a methodology we borrowed. It is the pattern we
+              learned from doing it.
+            </p>
+            <p>
+              We apply it across two sides of the company. Execution, where
+              people and operations carry the work. Technology, where systems
+              and software give the work the leverage to scale. Both answer to
+              the same discipline.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 4.6 Two pathways */}
+      <section className="py-24 border-t border-op-line">
+        <div className="max-w-6xl mx-auto px-6">
+          <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono">
+            Two pathways
           </p>
           <h2 className="font-display text-3xl md:text-4xl font-semibold text-op-ink mt-4 leading-tight tracking-[-0.01em]">
             How GPSL is organized.
@@ -66,12 +177,11 @@ export default function Home() {
                 Division 01
               </p>
               <h3 className="font-display text-2xl md:text-3xl font-semibold text-op-ink mt-3 tracking-[-0.01em]">
-                Execution
+                Execution &mdash; the human layer.
               </h3>
               <p className="text-op-muted text-base leading-relaxed mt-3">
-                Human logistics, deal flow, stakeholder alignment, and
-                operational delivery across our ventures in finance, trade,
-                logistics, and tribal economic development.
+                Coordination, governance, operating models, and the teams who
+                carry the work. Where intent becomes an operation that runs.
               </p>
               <p className="text-sm text-op-ink mt-6 flex items-center gap-2 group-hover:text-op-accent transition-colors">
                 Visit division <span aria-hidden="true">→</span>
@@ -86,11 +196,11 @@ export default function Home() {
                 Division 02
               </p>
               <h3 className="font-display text-2xl md:text-3xl font-semibold text-op-ink mt-3 tracking-[-0.01em]">
-                Technology
+                Technology &mdash; the systems layer.
               </h3>
               <p className="text-op-muted text-base leading-relaxed mt-3">
-                In-house AI agency building production software for our ventures
-                and external clients. Claude Partner Network firm.
+                Software, automation, and AI-native tools that give execution
+                the leverage to scale without losing its discipline.
               </p>
               <p className="text-sm text-op-ink mt-6 flex items-center gap-2 group-hover:text-op-accent transition-colors">
                 Visit division <span aria-hidden="true">→</span>
@@ -99,232 +209,27 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* 4.7 Start the conversation */}
       <section className="py-24 border-t border-op-line">
         <div className="max-w-6xl mx-auto px-6">
           <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono">
-            Our operating model
+            Work with us
           </p>
           <h2 className="font-display text-3xl md:text-4xl font-semibold text-op-ink mt-4 leading-tight tracking-[-0.01em] max-w-2xl">
-            How we turn opportunity into durable venture.
+            Come in through the side that fits.
           </h2>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
-            <div className="border-t border-op-line pt-6">
-              <p className="text-xs font-mono text-op-accent">01</p>
-              <h3 className="font-display text-xl font-semibold text-op-ink mt-2 tracking-[-0.01em]">Discover</h3>
-              <p className="text-sm text-op-muted mt-3 leading-relaxed">
-                Originate opportunity through our networks in finance, trade, tribal economic development, and forward-deployed engineering.
-              </p>
-            </div>
-
-            <div className="border-t border-op-line pt-6">
-              <p className="text-xs font-mono text-op-accent">02</p>
-              <h3 className="font-display text-xl font-semibold text-op-ink mt-2 tracking-[-0.01em]">Align</h3>
-              <p className="text-sm text-op-muted mt-3 leading-relaxed">
-                Structure the deal or engagement so the ownership, governance, and incentives hold up at scale.
-              </p>
-            </div>
-
-            <div className="border-t border-op-line pt-6">
-              <p className="text-xs font-mono text-op-accent">03</p>
-              <h3 className="font-display text-xl font-semibold text-op-ink mt-2 tracking-[-0.01em]">Execute</h3>
-              <p className="text-sm text-op-muted mt-3 leading-relaxed">
-                Stand the venture up. Ship the software. Close the deal. Run the operation with the people who will own it.
-              </p>
-            </div>
-
-            <div className="border-t border-op-line pt-6">
-              <p className="text-xs font-mono text-op-accent">04</p>
-              <h3 className="font-display text-xl font-semibold text-op-ink mt-2 tracking-[-0.01em]">Sustain</h3>
-              <p className="text-sm text-op-muted mt-3 leading-relaxed">
-                Operate as a long-horizon holder. Reinvest, compound, and keep the asset close to the people it serves.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="py-24 border-t border-op-line">
-        <div className="max-w-6xl mx-auto px-6">
-          <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono">
-            Ventures in motion
+          <p className="mt-6 max-w-2xl text-base md:text-lg leading-relaxed text-op-muted">
+            Every engagement starts on a call. Tell us the shape of what you
+            are trying to build, move, or make work &mdash; and we will come
+            back with the side of GPSL that should handle it.
           </p>
-          <h2 className="font-display text-3xl md:text-4xl font-semibold text-op-ink mt-4 leading-tight tracking-[-0.01em] max-w-2xl">
-            Real businesses we are building or operating.
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-6 mt-12">
-            <div className="border border-op-line rounded-lg p-6 bg-op-card">
-              <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">
-                Finance
-              </p>
-              <h3 className="font-display text-xl font-semibold text-op-ink mt-3 tracking-[-0.01em]">
-                Tribal Bank
-              </h3>
-              <p className="text-sm text-op-muted mt-3 leading-relaxed">
-                A federally chartered tribal bank focused on self-determination, small business credit, and reinvestment in tribal communities.
-              </p>
-            </div>
-
-            <div className="border border-op-line rounded-lg p-6 bg-op-card">
-              <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">
-                Trade &amp; Logistics
-              </p>
-              <h3 className="font-display text-xl font-semibold text-op-ink mt-3 tracking-[-0.01em]">
-                Tribal Trade
-              </h3>
-              <p className="text-sm text-op-muted mt-3 leading-relaxed">
-                Cross-border commerce and logistics that use tribal sovereignty to move goods on terms our partners cannot get elsewhere.
-              </p>
-            </div>
-
-            <div className="border border-op-line rounded-lg p-6 bg-op-card">
-              <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">
-                Food &amp; Processing
-              </p>
-              <h3 className="font-display text-xl font-semibold text-op-ink mt-3 tracking-[-0.01em]">
-                Fishing &amp; Processing
-              </h3>
-              <p className="text-sm text-op-muted mt-3 leading-relaxed">
-                Vertically integrated fisheries operation: harvest, processing, and distribution, anchored in coastal tribal communities.
-              </p>
-            </div>
-          </div>
-
-          <Link
-            href="/portfolio"
-            className="inline-flex items-center gap-2 text-sm font-medium text-op-ink hover:text-op-accent mt-10 transition-colors"
-          >
-            See the full ventures portfolio <span aria-hidden>→</span>
-          </Link>
-        </div>
-      </section>
-      <section className="py-24 border-t border-op-line">
-        <div className="max-w-6xl mx-auto px-6">
-          <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono">
-            Technology spotlight
-          </p>
-          <h2 className="font-display text-3xl md:text-4xl font-semibold text-op-ink mt-4 leading-tight tracking-[-0.01em] max-w-2xl">
-            Software we ship, for our ventures and for clients.
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-6 mt-12">
-            <div className="bg-zinc-950 rounded-lg p-6 border border-zinc-900">
-              <p className="text-xs uppercase tracking-[0.2em] text-cyan-400 font-mono">CRM</p>
-              <h3 className="font-display text-xl font-semibold text-zinc-50 mt-3 tracking-[-0.01em]">LegacyCompass</h3>
-              <p className="text-sm text-zinc-400 mt-3 leading-relaxed">
-                A tribally owned CRM built for the way operating groups actually run accounts and relationships, not the way legacy SaaS wants us to.
-              </p>
-            </div>
-
-            <div className="bg-zinc-950 rounded-lg p-6 border border-zinc-900">
-              <p className="text-xs uppercase tracking-[0.2em] text-cyan-400 font-mono">Financial Intelligence</p>
-              <h3 className="font-display text-xl font-semibold text-zinc-50 mt-3 tracking-[-0.01em]">Meridian AI</h3>
-              <p className="text-sm text-zinc-400 mt-3 leading-relaxed">
-                Agentic analyst for finance and investment teams. Reads the filings, cross-checks the market, and writes the memo.
-              </p>
-            </div>
-
-            <div className="bg-zinc-950 rounded-lg p-6 border border-zinc-900">
-              <p className="text-xs uppercase tracking-[0.2em] text-cyan-400 font-mono">Luxury Commerce</p>
-              <h3 className="font-display text-xl font-semibold text-zinc-50 mt-3 tracking-[-0.01em]">LuxusAI</h3>
-              <p className="text-sm text-zinc-400 mt-3 leading-relaxed">
-                Multi-agent luxury commerce platform. Applies Claude-grade reasoning to high-touch sales, clienteling, and post-purchase relationships.
-              </p>
-            </div>
-          </div>
-
-          <Link
-            href="/technology"
-            className="inline-flex items-center gap-2 text-sm font-medium text-op-ink hover:text-op-accent mt-10 transition-colors"
-          >
-            Explore the Technology division <span aria-hidden>→</span>
-          </Link>
-        </div>
-      </section>
-
-      <section className="py-24 border-t border-op-line bg-op-bg">
-        <div className="max-w-6xl mx-auto px-6">
-          <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono">Why GPSL</p>
-          <h2 className="font-display text-3xl md:text-4xl font-semibold text-op-ink mt-4 leading-tight tracking-[-0.01em] max-w-2xl">
-            An operator&apos;s approach, in an owner&apos;s timeframe.
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-8 mt-12">
-            <div>
-              <p className="font-display text-5xl font-semibold text-op-accent">01</p>
-              <h3 className="font-display text-xl font-semibold text-op-ink mt-4 tracking-[-0.01em]">Tribal sovereignty as advantage</h3>
-              <p className="text-sm text-op-muted mt-3 leading-relaxed">
-                We operate under tribal jurisdiction with a federally recognized nation. That structure unlocks finance, trade, and regulatory positions our peers cannot access.
-              </p>
-            </div>
-
-            <div>
-              <p className="font-display text-5xl font-semibold text-op-accent">02</p>
-              <h3 className="font-display text-xl font-semibold text-op-ink mt-4 tracking-[-0.01em]">Long-horizon holder posture</h3>
-              <p className="text-sm text-op-muted mt-3 leading-relaxed">
-                We are not a fund with a return clock. We buy, build, and hold. Our incentive is the asset compounding, not a five-year exit.
-              </p>
-            </div>
-
-            <div>
-              <p className="font-display text-5xl font-semibold text-op-accent">03</p>
-              <h3 className="font-display text-xl font-semibold text-op-ink mt-4 tracking-[-0.01em]">In-house AI, not outsourced</h3>
-              <p className="text-sm text-op-muted mt-3 leading-relaxed">
-                Our Technology division is our leverage. Every venture ships with agentic software built by the same team that built the CRM.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 border-t border-op-line">
-        <div className="max-w-6xl mx-auto px-6">
-          <p className="text-xs uppercase tracking-[0.2em] text-op-muted font-mono">Work with us</p>
-          <h2 className="font-display text-3xl md:text-4xl font-semibold text-op-ink mt-4 leading-tight tracking-[-0.01em] max-w-2xl">
-            Three doors into GPSL.
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-6 mt-12">
+          <div className="mt-10">
             <Link
-              href="/contact?topic=execution"
-              className="block group rounded-lg border border-op-line bg-op-card p-8 transition-colors hover:border-op-accent"
+              href="/contact"
+              className="inline-flex items-center rounded-md bg-op-accent px-6 py-3 text-sm font-medium text-white transition-colors hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-op-accent"
             >
-              <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">EXECUTION</p>
-              <h3 className="font-display text-xl font-semibold text-op-ink mt-3 tracking-[-0.01em]">Operators &amp; deal flow</h3>
-              <p className="text-sm text-op-muted mt-3 leading-relaxed">
-                You have an asset, an operation, or a deal we should be looking at. Come in via Execution.
-              </p>
-              <p className="text-sm text-op-ink mt-6 flex items-center gap-2 group-hover:text-op-accent transition-colors">
-                Start the conversation <span aria-hidden>→</span>
-              </p>
-            </Link>
-
-            <Link
-              href="/contact?topic=technology"
-              className="block group rounded-lg border border-op-line bg-op-card p-8 transition-colors hover:border-op-accent"
-            >
-              <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">TECHNOLOGY</p>
-              <h3 className="font-display text-xl font-semibold text-op-ink mt-3 tracking-[-0.01em]">AI agency engagement</h3>
-              <p className="text-sm text-op-muted mt-3 leading-relaxed">
-                You want the Technology division to build or embed with you. Come in via Technology.
-              </p>
-              <p className="text-sm text-op-ink mt-6 flex items-center gap-2 group-hover:text-op-accent transition-colors">
-                Start the conversation <span aria-hidden>→</span>
-              </p>
-            </Link>
-
-            <Link
-              href="/contact?topic=partnerships"
-              className="block group rounded-lg border border-op-line bg-op-card p-8 transition-colors hover:border-op-accent"
-            >
-              <p className="text-xs uppercase tracking-[0.2em] text-op-accent font-mono">PARTNERSHIPS</p>
-              <h3 className="font-display text-xl font-semibold text-op-ink mt-3 tracking-[-0.01em]">Tribal &amp; institutional partnerships</h3>
-              <p className="text-sm text-op-muted mt-3 leading-relaxed">
-                You represent a tribe, a partner institution, or an investor. Start a partnership conversation.
-              </p>
-              <p className="text-sm text-op-ink mt-6 flex items-center gap-2 group-hover:text-op-accent transition-colors">
-                Start the conversation <span aria-hidden>→</span>
-              </p>
+              Start the conversation
             </Link>
           </div>
         </div>

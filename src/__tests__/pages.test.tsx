@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import Home from "@/app/page";
-import Team from "@/app/team/page";
 import Contact from "@/app/contact/page";
 
 // Mock framer-motion to avoid animation issues in tests
@@ -9,14 +8,12 @@ jest.mock("framer-motion", () => ({
     div: ({
       children,
       className,
-      ...rest
     }: React.HTMLAttributes<HTMLDivElement>) => (
       <div className={className}>{children}</div>
     ),
     span: ({
       children,
       className,
-      ...rest
     }: React.HTMLAttributes<HTMLSpanElement>) => (
       <span className={className}>{children}</span>
     ),
@@ -58,22 +55,29 @@ describe("Home page", () => {
     ).toBeInTheDocument();
   });
 
-  test("Home hero mentions 'operating group' and has two primary CTAs", () => {
+  test("Home hero H1 is 'Transformation needs a pathway, not just ambition.'", () => {
     render(<Home />);
-    expect(screen.getByText(/GPSL.*Operating Group/i)).toBeInTheDocument();
     expect(
-      screen.getByRole("link", { name: /Explore our ventures/i })
-    ).toHaveAttribute("href", "/portfolio");
-    expect(
-      screen.getByRole("link", { name: /How we execute/i })
-    ).toHaveAttribute("href", "/execution");
+      screen.getByRole("heading", {
+        level: 1,
+        name: /transformation needs a pathway,\s*not just ambition/i,
+      })
+    ).toBeInTheDocument();
   });
 
-  test("Home hero H1 says 'We build, operate, and scale ventures.'", () => {
+  test("Home kicker positions GPSL as an operating discipline", () => {
     render(<Home />);
     expect(
-      screen.getByRole("heading", { level: 1, name: /build, operate, and scale ventures/i })
+      screen.getByText(/GPSL\s*—\s*an operating discipline/i)
     ).toBeInTheDocument();
+  });
+
+  test("Home hero has primary and secondary CTAs to Execution and Technology", () => {
+    render(<Home />);
+    const howWeExecute = screen.getByRole("link", { name: /how we execute/i });
+    expect(howWeExecute).toHaveAttribute("href", "/execution");
+    const techDivision = screen.getByRole("link", { name: /technology division/i });
+    expect(techDivision).toHaveAttribute("href", "/technology");
   });
 
   test("Home wraps content in data-surface='operating'", () => {
@@ -81,109 +85,75 @@ describe("Home page", () => {
     expect(container.querySelector('[data-surface="operating"]')).not.toBeNull();
   });
 
-  test("Home Two Engines section renders Execution + Technology cards", () => {
+  test("Home Why-we-exist section names the operating-layer failure", () => {
     render(<Home />);
-    expect(screen.getByText(/one operating group, two engines/i)).toBeInTheDocument();
-    // Find the Two Engines division card (href="/execution", contains "Division 01")
-    const execLinks = screen.getAllByRole("link").filter(
-      (el) => el.getAttribute("href") === "/execution"
-    );
-    expect(execLinks.length).toBeGreaterThanOrEqual(1);
-    expect(execLinks.some((el) => /division 01/i.test(el.textContent ?? ""))).toBe(true);
-    // Multiple links go to /technology; confirm at least one is a division card (contains "Division 02" text)
-    const techLinks = screen.getAllByRole("link").filter(
-      (el) => el.getAttribute("href") === "/technology"
-    );
-    expect(techLinks.length).toBeGreaterThanOrEqual(1);
-    expect(techLinks.some((el) => /division 02/i.test(el.textContent ?? ""))).toBe(true);
-  });
-
-  test("Home operating model section renders all four steps", () => {
-    render(<Home />);
-    expect(screen.getByText(/our operating model/i)).toBeInTheDocument();
-    ["Discover", "Align", "Execute", "Sustain"].forEach((step) => {
-      expect(screen.getByRole("heading", { name: step, level: 3 })).toBeInTheDocument();
-    });
-  });
-
-  test("Home ventures teaser renders three flagship ventures + portfolio CTA", () => {
-    render(<Home />);
-    expect(screen.getByText(/ventures in motion/i)).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /tribal bank/i, level: 3 })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /tribal trade/i, level: 3 })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /fishing & processing/i, level: 3 })).toBeInTheDocument();
-    const cta = screen.getByRole("link", { name: /see the full ventures portfolio/i });
-    expect(cta).toHaveAttribute("href", "/portfolio");
-  });
-
-  test("Home technology spotlight renders three flagship products + tech CTA", () => {
-    render(<Home />);
-    expect(screen.getByText(/technology spotlight/i)).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /legacycompass/i, level: 3 })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /meridian ai/i, level: 3 })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /luxusai/i, level: 3 })).toBeInTheDocument();
-    const cta = screen.getByRole("link", { name: /explore the technology division/i });
-    expect(cta).toHaveAttribute("href", "/technology");
-  });
-
-  test("Home trust tiles render three differentiators", () => {
-    render(<Home />);
-    expect(screen.getByText(/why gpsl/i)).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /tribal sovereignty as advantage/i, level: 3 })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /long-horizon holder posture/i, level: 3 })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /in-house ai, not outsourced/i, level: 3 })).toBeInTheDocument();
-  });
-
-  test("Home engagement routing exposes three topic-routed contact doors", () => {
-    render(<Home />);
-    expect(screen.getByText(/three doors into gpsl/i)).toBeInTheDocument();
-    const allLinks = screen.getAllByRole("link");
-    const topics = ["execution", "technology", "partnerships"];
-    topics.forEach((topic) => {
-      const match = allLinks.find((l) => l.getAttribute("href") === `/contact?topic=${topic}`);
-      expect(match).toBeDefined();
-    });
-  });
-});
-
-describe("Team page", () => {
-  it("renders all existing team members", () => {
-    render(<Team />);
-    expect(screen.getByRole("heading", { name: /matty dinh/i, level: 3 })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /cliff wu/i, level: 3 })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /nate sou/i, level: 3 })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /martin leung/i, level: 3 })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /bernie chan/i, level: 3 })).toBeInTheDocument();
-  });
-
-  test("wraps content in operating surface", () => {
-    const { container } = render(<Team />);
-    expect(container.querySelector('[data-surface="operating"]')).not.toBeNull();
-  });
-
-  test("hero introduces the team", () => {
-    render(<Team />);
+    expect(screen.getByText(/why gpsl exists/i)).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", { name: /the people behind gpsl/i, level: 1 })
+      screen.getByRole("heading", {
+        level: 2,
+        name: /most transformation fails in the operating layer/i,
+      })
     ).toBeInTheDocument();
   });
 
-  test("renders both Execution and Technology group headings", () => {
-    render(<Team />);
-    expect(screen.getByRole("heading", { name: /operators/i, level: 2 })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /engineers/i, level: 2 })).toBeInTheDocument();
+  test("Home Origin section anchors in Tribal Economic Development", () => {
+    render(<Home />);
+    expect(screen.getByText(/^origin$/i)).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
+        level: 2,
+        name: /built inside tribal economic development/i,
+      })
+    ).toBeInTheDocument();
   });
 
-  test("includes Kentory as a team member", () => {
-    render(<Team />);
-    expect(screen.getByRole("heading", { name: /kentory/i, level: 3 })).toBeInTheDocument();
+  test("Home human-logistics framework section appears", () => {
+    render(<Home />);
+    expect(
+      screen.getByRole("heading", {
+        level: 2,
+        name: /human logistics is what we do/i,
+      })
+    ).toBeInTheDocument();
+  });
+
+  test("Home Two Pathways section renders Execution + Technology cards", () => {
+    render(<Home />);
+    expect(screen.getByText(/two pathways/i)).toBeInTheDocument();
+    const execLinks = screen
+      .getAllByRole("link")
+      .filter((el) => el.getAttribute("href") === "/execution");
+    expect(
+      execLinks.some((el) => /division 01/i.test(el.textContent ?? ""))
+    ).toBe(true);
+    const techLinks = screen
+      .getAllByRole("link")
+      .filter((el) => el.getAttribute("href") === "/technology");
+    expect(
+      techLinks.some((el) => /division 02/i.test(el.textContent ?? ""))
+    ).toBe(true);
+  });
+
+  test("Home final CTA routes to a single /contact entry point", () => {
+    render(<Home />);
+    const start = screen.getByRole("link", { name: /start the conversation/i });
+    expect(start).toHaveAttribute("href", "/contact");
+  });
+
+  test("Home does not surface any priced-package or tier language", () => {
+    render(<Home />);
+    const body = document.body.textContent ?? "";
+    expect(body).not.toMatch(/\$\d/);
+    expect(body.toLowerCase()).not.toContain("starting at");
   });
 });
 
 describe("Contact page", () => {
   it("renders the Let's talk headline", () => {
     render(<Contact />);
-    expect(screen.getByRole("heading", { name: /let's talk/i, level: 1 })).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /let's talk/i, level: 1 })
+    ).toBeInTheDocument();
   });
 
   it("wraps content in operating surface", () => {
@@ -193,6 +163,8 @@ describe("Contact page", () => {
 
   it("shows the GPSL email as a mailto link", () => {
     render(<Contact />);
-    expect(screen.getByRole("link", { name: /matthew\.dinh@gpsl-ubo\.com/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: /matthew\.dinh@gpsl-ubo\.com/i })
+    ).toBeInTheDocument();
   });
 });

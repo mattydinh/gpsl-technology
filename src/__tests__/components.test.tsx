@@ -61,20 +61,24 @@ describe("Footer", () => {
     expect(screen.getByText(/a diversified operating group/i)).toBeInTheDocument();
   });
 
-  it("renders all six nav links with correct hrefs", () => {
+  it("renders all four nav links with correct hrefs", () => {
     render(<Footer />);
     const expected: [string, string][] = [
       ["Home", "/"],
       ["Execution", "/execution"],
       ["Technology", "/technology"],
-      ["Portfolio", "/portfolio"],
-      ["Team", "/team"],
       ["Contact", "/contact"],
     ];
     expected.forEach(([label, href]) => {
       const link = screen.getByRole("link", { name: label });
       expect(link).toHaveAttribute("href", href);
     });
+  });
+
+  it("does not render removed Portfolio or Team links", () => {
+    render(<Footer />);
+    expect(screen.queryByRole("link", { name: "Portfolio" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "Team" })).not.toBeInTheDocument();
   });
 
   it("renders email link", () => {
@@ -107,15 +111,17 @@ describe("Nav", () => {
     expect(brandLinks.length).toBeGreaterThan(0);
   });
 
-  it("renders the 6 top-level items", () => {
+  it("renders the 4 top-level items", () => {
     render(<Nav />);
-    ["Home", "Execution", "Technology", "Portfolio", "Team", "Contact"].forEach((label) => {
+    ["Home", "Execution", "Technology", "Contact"].forEach((label) => {
       expect(screen.getByText(label)).toBeInTheDocument();
     });
   });
 
-  it("does not render the old AI/Projects/Overview items", () => {
+  it("does not render removed Portfolio, Team, AI, or Projects items", () => {
     render(<Nav />);
+    expect(screen.queryByText("Portfolio")).not.toBeInTheDocument();
+    expect(screen.queryByText("Team")).not.toBeInTheDocument();
     expect(screen.queryByText("AI")).not.toBeInTheDocument();
     expect(screen.queryByText("Projects")).not.toBeInTheDocument();
     expect(screen.queryByText("Overview")).not.toBeInTheDocument();

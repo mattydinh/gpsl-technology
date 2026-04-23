@@ -22,16 +22,16 @@ const figtree = Figtree({
 
 export const metadata: Metadata = {
   title: {
-    default: "GPSL — A diversified operating group.",
+    default: "GPSL — The discipline of human logistics.",
     template: "%s | GPSL",
   },
   description:
-    "GPSL is a diversified operating group. We build, operate, and hold ventures across finance, trade, and food — and we ship the agentic software those ventures run on.",
+    "GPSL is the pathway between intent and execution. An operating discipline for the people, coordination, timing, and software that make transformation actually happen.",
   metadataBase: new URL("https://www.gpsl-ubo.com"),
   openGraph: {
-    title: "GPSL — A diversified operating group.",
+    title: "GPSL — The discipline of human logistics.",
     description:
-      "Operators and engineers, working on ventures we plan to hold for a long time.",
+      "An operating discipline for the people, coordination, timing, and software that turn intent into work that actually runs.",
     url: "https://www.gpsl-ubo.com",
     siteName: "GPSL",
     type: "website",

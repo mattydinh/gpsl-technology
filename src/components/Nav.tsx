@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Menu, X, Home, Compass, Cpu, FolderKanban, Users, Mail } from "lucide-react";
+import { Menu, X, Home, Compass, Cpu, Mail } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import ThemeToggle from "@/components/ThemeToggle";
 
@@ -11,8 +11,6 @@ const navItems = [
   { href: "/", label: "Home", icon: Home },
   { href: "/execution", label: "Execution", icon: Compass },
   { href: "/technology", label: "Technology", icon: Cpu },
-  { href: "/portfolio", label: "Portfolio", icon: FolderKanban },
-  { href: "/team", label: "Team", icon: Users },
   { href: "/contact", label: "Contact", icon: Mail },
 ];
 

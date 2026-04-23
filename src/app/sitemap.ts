@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 const BASE_URL = "https://www.gpsl-ubo.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["", "/execution", "/technology", "/portfolio", "/team", "/contact"];
+  const routes = ["", "/execution", "/technology", "/contact"];
   const now = new Date();
   return routes.map((path) => ({
     url: `${BASE_URL}${path}`,

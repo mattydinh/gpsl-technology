@@ -25,16 +25,16 @@ describe("ExecutionPage", () => {
     expect(screen.getByText(/division 01 — execution/i)).toBeInTheDocument();
   });
 
-  test("hero shows the operating-arm headline", () => {
+  test("hero shows the human-layer headline", () => {
     render(<ExecutionPage />);
     expect(
-      screen.getByRole("heading", { name: /the operating arm of gpsl/i, level: 1 })
+      screen.getByRole("heading", { name: /the human layer of gpsl/i, level: 1 })
     ).toBeInTheDocument();
   });
 
   test("hero has primary services anchor and secondary contact link", () => {
     render(<ExecutionPage />);
-    const services = screen.getByRole("link", { name: /see what we do/i });
+    const services = screen.getByRole("link", { name: /how we engage/i });
     expect(services).toHaveAttribute("href", "#services");
     const contact = screen.getByRole("link", { name: /start a conversation/i });
     expect(contact).toHaveAttribute("href", "/contact?topic=execution");
@@ -48,7 +48,9 @@ describe("ExecutionPage", () => {
 
   test("Execution operating model shows all four steps with activity bullets", () => {
     render(<ExecutionPage />);
-    expect(screen.getByText(/how we actually run it/i)).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /discover\. align\. execute\. sustain/i, level: 2 })
+    ).toBeInTheDocument();
     ["Discover", "Align", "Execute", "Sustain"].forEach((step) => {
       expect(screen.getByRole("heading", { name: step, level: 3 })).toBeInTheDocument();
     });
@@ -56,46 +58,83 @@ describe("ExecutionPage", () => {
     expect(screen.getByText(/hiring the operator and core team/i)).toBeInTheDocument();
   });
 
-  test("Execution services section describes four engagement types", () => {
+  test("Execution hosts the ventures section as proof of the operating model", () => {
     render(<ExecutionPage />);
-    expect(screen.getByText(/how we engage/i)).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /deal & opportunity origination/i, level: 3 })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /deal structuring & governance/i, level: 3 })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /stand-up & operate/i, level: 3 })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /hold, reinvest, compound/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByText(/what the model has built/i)).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /tribal bank/i, level: 3 })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /tribal trade/i, level: 3 })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /fishing & processing/i, level: 3 })
+    ).toBeInTheDocument();
   });
 
-  test("Execution services section links to contact with execution topic", () => {
-    render(<ExecutionPage />);
-    const links = screen.getAllByRole("link", { name: /talk to us about an engagement/i });
-    expect(links[0]).toHaveAttribute("href", "/contact?topic=execution");
+  test("Execution hosts the unified team at #team anchor", () => {
+    const { container } = render(<ExecutionPage />);
+    expect(container.querySelector("#team")).not.toBeNull();
+    expect(
+      screen.getByRole("heading", { name: /bernie chan/i, level: 3 })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /matty dinh/i, level: 3 })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /kentory thomas/i, level: 3 })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /nate sou/i, level: 3 })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /martin leung/i, level: 3 })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /cliff wu/i, level: 3 })
+    ).toBeInTheDocument();
   });
 
-  test("Execution sectors section lists operating sectors", () => {
-    render(<ExecutionPage />);
-    expect(screen.getByText(/where we operate/i)).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /tribal finance/i, level: 3 })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /trade & logistics/i, level: 3 })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /food & processing/i, level: 3 })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /housing & land/i, level: 3 })).toBeInTheDocument();
+  test("Execution 'how we engage' section describes four engagement shapes", () => {
+    const { container } = render(<ExecutionPage />);
+    expect(container.querySelector("#services")).not.toBeNull();
+    expect(
+      screen.getByRole("heading", { name: /source what's worth doing/i, level: 3 })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /work the structure until it holds/i, level: 3 })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /hire, stand up, stay inside/i, level: 3 })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /hold, reinvest, rebuild/i, level: 3 })
+    ).toBeInTheDocument();
   });
 
-  test("Execution final CTA has both contact and portfolio links", () => {
+  test("Execution final CTA links to contact and internal ventures anchor", () => {
     render(<ExecutionPage />);
-    expect(screen.getByText(/tell us about the deal/i)).toBeInTheDocument();
+    expect(screen.getByText(/tell us about the operation/i)).toBeInTheDocument();
     const contact = screen.getByRole("link", { name: /start the conversation/i });
     expect(contact).toHaveAttribute("href", "/contact?topic=execution");
-    const portfolio = screen.getByRole("link", { name: /see our ventures/i });
-    expect(portfolio).toHaveAttribute("href", "/portfolio");
+    const ventures = screen.getByRole("link", { name: /see the ventures/i });
+    expect(ventures).toHaveAttribute("href", "#ventures");
+  });
+
+  test("Execution page uses no 'advantage' / 'peers cannot' posture language", () => {
+    const { container } = render(<ExecutionPage />);
+    const text = (container.textContent ?? "").toLowerCase();
+    expect(text).not.toContain("sovereignty as advantage");
+    expect(text).not.toContain("our peers cannot");
+    expect(text).not.toContain("regulatory edges");
+    expect(text).not.toContain("our edge comes from");
   });
 
   test("Execution page contains NO priced packages, dollar amounts, or tier names", () => {
     const { container } = render(<ExecutionPage />);
     const text = container.textContent ?? "";
-    // Dollar sign / currency digits
     expect(text).not.toMatch(/\$/);
     expect(text).not.toMatch(/\b\d+\s?(k|K|M|million|thousand)\b/);
-    // Tier / package / pricing vocabulary
     const forbidden = [
       /\bpricing\b/i,
       /\bprice\b/i,
