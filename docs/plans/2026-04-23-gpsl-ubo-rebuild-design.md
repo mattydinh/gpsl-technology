@@ -246,7 +246,7 @@ Six sections. Mostly a re-tone + one new section ("How Technology supports the m
 **Kicker:** How we build
 **H2:** Claude-grade tools, shipped at operator speed.
 **Body:**
-Our stack is Next.js, Supabase, Claude, Claude Code, and Cursor, with fastai and the surrounding frameworks when deep-learning, NLP, or computer-vision work is needed. The point is not the stack — it is that every engineering decision is made to let a small team ship production work fast enough to be useful and reliable enough to run inside a real operation.
+Our platform layer is Next.js on Vercel, Supabase for data and auth, and Claude (with Claude Code) for the engineering loop itself. On top of that, the division is versed in the range the work actually demands — AI agents and multi-orchestrated systems, workflow automation, knowledge-graph infrastructure, NLP and computer-vision pipelines, and the mobile and web apps that put the whole thing in an operator's hands. The point is not the stack — it is that every engineering decision is made to let a small team ship production work fast enough to be useful and reliable enough to run inside a real operation.
 
 GPSL's Technology division is an official member of the **Claude Partner Network**. The partnership gives us direct access to Anthropic's models, Claude Code as a core development tool, and early access to new capabilities as they ship — which keeps us close to the work Anthropic is doing on agent reliability, tool use, and long-horizon reasoning.
 

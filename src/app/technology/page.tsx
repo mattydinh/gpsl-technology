@@ -227,13 +227,17 @@ export default function TechnologyPage() {
                   The stack
                 </h3>
                 <p className="text-tech-muted leading-relaxed">
-                  Our stack is Next.js, Supabase, Claude, Claude Code, and
-                  Cursor, with fastai and the surrounding frameworks when
-                  deep-learning, NLP, or computer-vision work is needed. The
-                  point is not the stack &mdash; it is that every engineering
-                  decision is made to let a small team ship production work
-                  fast enough to be useful and reliable enough to run inside a
-                  real operation.
+                  Our platform layer is Next.js on Vercel, Supabase for data
+                  and auth, and Claude (with Claude Code) for the engineering
+                  loop itself. On top of that, the division is versed in the
+                  range the work actually demands &mdash; AI agents and
+                  multi-orchestrated systems, workflow automation,
+                  knowledge-graph infrastructure, NLP and computer-vision
+                  pipelines, and the mobile and web apps that put the whole
+                  thing in an operator&apos;s hands. The point is not the stack
+                  &mdash; it is that every engineering decision is made to let
+                  a small team ship production work fast enough to be useful
+                  and reliable enough to run inside a real operation.
                 </p>
               </div>
             </div>
