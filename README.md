@@ -1,8 +1,10 @@
 # GPSL
 
-GPSL is a diversified operating group with two divisions: Execution and Technology. The Execution division is the operating engine — it builds and runs ventures across deals, logistics, housing, fishing and processing, and tribal economic development. The Technology division is the AI and engineering engine — it powers internal tools and delivers AI/ML work for clients, including through the Claude Partner Network relationship with Anthropic. This site serves as the public face for both divisions.
+GPSL is the pathway between intent and execution — an operating discipline of human logistics, anchored in Tribal Economic Development. The company is organized in two divisions: **Execution** (the human layer — coordination, operating models, ventures, team) and **Technology** (the systems layer — software, automation, and AI-native tools that give execution the leverage to scale). This site is the public face for both divisions.
 
-**Live site:** [https://gpsl-technology.vercel.app](https://gpsl-technology.vercel.app)
+**Live site:** [https://gpsl-ubo.com](https://gpsl-ubo.com)
+
+**Source of truth for messaging + IA:** [docs/plans/2026-04-23-gpsl-ubo-rebuild-design.md](docs/plans/2026-04-23-gpsl-ubo-rebuild-design.md). Developer context (design system, theme tokens, test rules): [CLAUDE.md](CLAUDE.md).
 
 ## Tech stack
 
@@ -39,13 +41,16 @@ Updates: push to your main branch and Vercel will auto-deploy.
 
 ## Customize content
 
-- **Team** – Edit `src/app/team/page.tsx` and the `team` array (or later add a CMS/PostgreSQL).
-- **Projects** – Edit `src/app/projects/page.tsx` and the `projects` array.
-- **AI** – Edit `src/app/ai/page.tsx` and the `useCases` array.
-- **Contact** – Form is in `src/app/contact/page.tsx`. Wire the form to an API route or external service when ready.
+The site has 4 routes. All page data (ventures, products, team, services) lives inline in the page components — no CMS.
+
+- **Home** — `src/app/page.tsx`. Hero, why-we-exist, origin, human-logistics framework, two pathways, CTA.
+- **Execution** — `src/app/execution/page.tsx`. Positioning, operating model (Discover / Align / Execute / Sustain), ventures (`#ventures`), team (`#team`), services (`#services`).
+- **Technology** — `src/app/technology/page.tsx`. Positioning, why Technology exists, `#shipped` (products + forward-deployed), stack + Claude Partner Network, forward-deployed shape.
+- **Contact** — `src/app/contact/page.tsx`. Three topic tiles (Execution / Technology / General); pre-selects via `?topic=` query param. Mailto handoff to `matthew.dinh@gpsl-ubo.com`.
+
+**Do not add top-level routes** without first re-brainstorming the design doc. Portfolio and Team used to be nav items; both now redirect to anchors on Technology and Execution respectively ([next.config.mjs](next.config.mjs)).
 
 ## Optional next steps
 
-- Add an API route (e.g. `src/app/api/contact/route.ts`) to handle contact form submissions.
-- Add PostgreSQL + Prisma for team/projects CMS.
-- Add a proper form handler (e.g. Resend, Formspree) for contact emails.
+- Wire the contact form to a proper handler (Resend / Formspree) when volume warrants it — current flow is a mailto link.
+- If adding a blog or case studies, put them behind a new `/work` or `/thinking` top-level route and update the IA + nav — don't spread back into `/portfolio` / `/projects` URLs.

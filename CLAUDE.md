@@ -1,8 +1,10 @@
 # GPSL Technology — Developer Context
 
 ## Project Overview
-Company marketing site for GPSL — a diversified operating group with two engines: an Execution arm (ventures we own and run) and a Technology division (agentic software we ship into those ventures and to client engagements).
-Live at: https://gpsl-technology.vercel.app
+Company marketing site for GPSL. Positioning: *GPSL is the pathway between intent and execution — an operating discipline of human logistics, anchored in Tribal Economic Development.* Two divisions: **Execution** (the human layer — coordination, operating models, ventures, team) and **Technology** (the systems layer — software, automation, AI-native tools).
+Live at: https://gpsl-ubo.com (production) · https://gpsl-technology.vercel.app (preview)
+
+**Source of truth for copy + IA:** [docs/plans/2026-04-23-gpsl-ubo-rebuild-design.md](docs/plans/2026-04-23-gpsl-ubo-rebuild-design.md). Read it before any substantial copy or structural change.
 
 ## Tech Stack
 - **Framework:** Next.js 15.5 (App Router, Turbopack dev)
@@ -23,22 +25,22 @@ Live at: https://gpsl-technology.vercel.app
 src/
 ├── app/
 │   ├── layout.tsx          # Root: Nav + Footer, Fraunces + Figtree, inline theme-init <script>
-│   ├── page.tsx            # Home — operating-group hero, two-engine grid, operating-model steps
+│   ├── page.tsx            # Home — "Transformation needs a pathway, not just ambition." H1
 │   ├── globals.css         # Theme tokens (light + dark per surface), body typography, animations
 │   ├── robots.ts / sitemap.ts
-│   ├── execution/page.tsx  # Execution arm — ventures, operating model, sectors
-│   ├── technology/page.tsx # Technology division — dark zinc surface, flagships, philosophy, stack
-│   ├── portfolio/page.tsx  # Ventures + Technology island (soft tonal panel, not black card)
-│   ├── team/page.tsx       # Team cards
-│   └── contact/page.tsx    # Contact form (mailto handler)
+│   ├── execution/page.tsx  # Execution division — #ventures (Tribal Bank/Trade/Fishing), #team, #services
+│   ├── technology/page.tsx # Technology division — #shipped (LegacyCompass/Meridian/LuxusAI/forward-deployed)
+│   └── contact/page.tsx    # Three-topic contact (Execution / Technology / General)
 ├── components/
-│   ├── Nav.tsx             # Sticky nav, mobile hamburger, ThemeToggle, animated active underline
-│   ├── Footer.tsx          # Links + contact
+│   ├── Nav.tsx             # Sticky nav, 4 top-level items, ThemeToggle, mobile hamburger
+│   ├── Footer.tsx          # 4 navigate links + contact
 │   ├── ThemeSurface.tsx    # Wraps pages; sets data-surface="operating" | "technology"
 │   ├── ThemeToggle.tsx     # Sun/moon toggle, persists to localStorage, hydration-safe
 │   ├── CTA.tsx / FadeIn.tsx
-└── __tests__/              # 6 suites, 66 tests — must pass before push
+└── __tests__/              # 5 suites, 60 tests — must pass before push
 ```
+
+**IA is locked at 4 nav items:** Home / Execution / Technology / Contact. Portfolio folds into Technology `#shipped`; Team folds into Execution `#team`. 308 redirects for `/portfolio`, `/portfolio/tech`, `/team`, `/projects`, `/ai` live in [next.config.mjs](next.config.mjs). Do not add top-level routes without re-brainstorming the rebuild design doc.
 
 ## Design System
 
@@ -94,7 +96,7 @@ Hierarchy: `bg → panel → card` always reads as a lift in both modes. Don't m
 ```bash
 npm run dev        # Dev server (Turbopack, port 3000)
 npm run build      # Production build
-npm test           # Jest — 66 tests across 6 suites, must pass before push
+npm test           # Jest — 60 tests across 5 suites, must pass before push
 npm run lint       # ESLint
 npx tsc --noEmit   # Typecheck
 ```
@@ -106,11 +108,17 @@ npx tsc --noEmit   # Typecheck
 Types: `feat`, `fix`, `refactor`, `docs`, `test`, `chore`. Author commits as `Matthew Dinh <matthew.dinh@gpsl-ubo.com>`.
 
 ## Key Patterns
-- Client components (`"use client"`) only where needed — Nav, ThemeToggle, FadeIn. Pages are server components.
+- Client components (`"use client"`) only where needed — Nav, ThemeToggle, FadeIn, Contact (useSearchParams). Pages are server components by default.
 - `FadeIn` wraps sections for scroll-triggered entrance animations.
 - Nav active indicator uses Framer Motion `layoutId="nav-underline"`.
 - All page data (ventures, products, team) lives inline in page components — no CMS.
-- Technology page and the Portfolio `/tech` island intentionally live in different surface languages; the Portfolio island uses soft tonal inset (`bg-op-panel` + `bg-op-card`) rather than full dark to avoid the harsh contrast break on the operating surface.
+- Execution is on the `operating` surface; Technology is on the `technology` surface (brand-locked dark). Do not cross tokens (`op.*` vs `tech.*`) between them.
+
+## Copy + tone rules (enforced by tests)
+- **No priced packages.** No `$`, no tier names, no "starting at", no subscription language on any marketing surface. Tests in `execution.test.tsx` and `pages.test.tsx` fail the build if this slips in.
+- **No posture language.** "Sovereignty as advantage", "our peers cannot", "regulatory edges", "our edge comes from" are banned. Confident measured tone, not claims of superiority.
+- **No `#philosophy` anchor.** Technology page's old Philosophy section was cut; don't reintroduce it without re-brainstorming.
+- **H1s are locked** (see design doc). Home: *"Transformation needs a pathway, not just ambition."* Execution: *"The human layer of GPSL."* Technology: *"The systems layer of GPSL."* Contact: *"Let's talk."*
 
 ## Testing
 - Jest mocks `next/font/google` (both `Fraunces` and `Figtree`), `framer-motion`, `next/link`, `next/navigation`.
