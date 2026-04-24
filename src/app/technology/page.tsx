@@ -101,82 +101,86 @@ export default function TechnologyPage() {
             Production software, shipped into real operations.
           </h2>
           <p className="text-tech-muted mt-4 max-w-2xl leading-relaxed">
-            Four products and engagements built by the Technology division.
-            Three of our own, one a representative pattern of how we work with
-            clients. Each runs in production today.
+            Three products and a forward-deployed practice, built by the
+            Technology division. Legal, real estate, end-of-life planning
+            &mdash; each one ships AI into a domain where the workflow was
+            still manual. All run in production today.
           </p>
 
           <div className="grid md:grid-cols-2 gap-6 mt-12">
             {/* LegacyCompass */}
             <div className="flex flex-col rounded-lg border border-tech-line bg-tech-card p-6 transition-colors hover:border-tech-accent">
               <p className="text-xs uppercase tracking-[0.2em] text-tech-accent font-mono">
-                CRM
+                End-of-Life Planning
               </p>
               <h3 className="font-display text-2xl font-semibold text-tech-ink mt-3 tracking-[-0.01em]">
                 LegacyCompass
               </h3>
               <p className="font-display text-base italic font-medium text-tech-ink/80 mt-2">
-                A CRM that understands how the work actually moves.
+                One conversation for the whole family, when it matters most.
               </p>
               <p className="text-sm text-tech-muted mt-4 leading-relaxed">
-                Tribally owned CRM built for operating groups. Deal flow,
-                accounts, and agent-native workflows shaped around how
-                operators actually run relationships &mdash; not around the
-                data model a legacy SaaS vendor wants. Deployed inside GPSL
-                ventures first.
+                An LLM-powered platform for funeral planning, end-of-life
+                financial coordination, and legacy preservation. The whole
+                family talks to one shared AI &mdash; collaborating on
+                service arrangements, insurance, and final wishes in a
+                single thread instead of a dozen phone calls.
               </p>
               <ul className="text-sm text-tech-muted mt-4 space-y-2 list-disc pl-5">
-                <li>Agent-native workflows, not bolted on</li>
-                <li>Claude-grade reasoning in the core loop</li>
-                <li>Data and governance stay with the operator</li>
+                <li>Family-wide LLM chat for collaborative funeral planning</li>
+                <li>Leave messages to loved ones, unlocked at life milestones</li>
+                <li>End-of-life financial tools and life insurance purchasing</li>
               </ul>
             </div>
 
             {/* Meridian AI */}
             <div className="flex flex-col rounded-lg border border-tech-line bg-tech-card p-6 transition-colors hover:border-tech-accent">
               <p className="text-xs uppercase tracking-[0.2em] text-tech-accent font-mono">
-                Financial Intelligence
+                Real Estate Intelligence
               </p>
               <h3 className="font-display text-2xl font-semibold text-tech-ink mt-3 tracking-[-0.01em]">
                 Meridian AI
               </h3>
               <p className="font-display text-base italic font-medium text-tech-ink/80 mt-2">
-                An analyst that reads every 10-K before you get out of bed.
+                A buyer&apos;s advisor that never sleeps on a listing.
               </p>
               <p className="text-sm text-tech-muted mt-4 leading-relaxed">
-                Agentic analyst for investment and corporate development
-                teams. Reads filings and market signal, writes the memo in the
-                team&apos;s own voice. Designed to sit inside the analyst&apos;s
-                workflow, not around it.
+                Multi-orchestrated real estate agent that acts as an AI
+                advisor and buyer intake system. Meridian qualifies buyers
+                through conversation, then connects them directly to agents
+                for calls and tours &mdash; compressing the buying timeline
+                from weeks of back-and-forth into a single guided flow.
               </p>
               <ul className="text-sm text-tech-muted mt-4 space-y-2 list-disc pl-5">
-                <li>Filings, earnings, and market data ingestion</li>
-                <li>Memo generation in your team&apos;s house style</li>
-                <li>Analyst co-pilot, not chatbot</li>
+                <li>AI-driven buyer intake and qualification</li>
+                <li>Automated call and tour booking with agents</li>
+                <li>Multi-agent orchestration across the buying journey</li>
               </ul>
             </div>
 
             {/* LuxusAI */}
             <div className="flex flex-col rounded-lg border border-tech-line bg-tech-card p-6 transition-colors hover:border-tech-accent">
               <p className="text-xs uppercase tracking-[0.2em] text-tech-accent font-mono">
-                Luxury Commerce
+                Legal SaaS
               </p>
               <h3 className="font-display text-2xl font-semibold text-tech-ink mt-3 tracking-[-0.01em]">
                 LuxusAI
               </h3>
               <p className="font-display text-base italic font-medium text-tech-ink/80 mt-2">
-                High-touch sales at scale, without losing the clienteling craft.
+                Draft it, send it, close it &mdash; in the language the law already speaks.
               </p>
               <p className="text-sm text-tech-muted mt-4 leading-relaxed">
-                Multi-agent platform for high-touch sales, clienteling, and
-                post-purchase relationships. Preserves the hand-sold feel
-                luxury operations depend on while automating the repeatable
-                work around it.
+                A legal SaaS platform that uses semantic language understanding
+                to draft contracts and legal documents, then delivers them
+                directly to clients for review and signature. LuxusAI turns
+                the drafting cycle from days of redlines into a guided,
+                AI-native workflow &mdash; precise enough for counsel,
+                clear enough for the client on the other side.
               </p>
               <ul className="text-sm text-tech-muted mt-4 space-y-2 list-disc pl-5">
-                <li>Clienteling workflows and VIP lifecycle</li>
-                <li>Multi-agent orchestration across sales and service</li>
-                <li>White-glove replication, not chatbot shortcuts</li>
+                <li>Semantic drafting of contracts and legal documents</li>
+                <li>Direct client delivery for review and signature</li>
+                <li>AI-native workflow that replaces the redline cycle</li>
               </ul>
             </div>
 
