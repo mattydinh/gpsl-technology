@@ -117,7 +117,7 @@ export default function TechnologyPage() {
       </section>
 
       {/* 3. Flagship spotlight — Cornerstone */}
-      <section id="cornerstone" className="border-b border-tech-line bg-tech-panel">
+      <section id="cornerstone" className="border-b border-tech-line bg-tech-panel scroll-mt-16">
         <div className="mx-auto max-w-6xl px-6 py-24">
           <p className="font-mono text-xs uppercase tracking-[0.25em] text-tech-accent">
             Flagship // Spotlight
@@ -189,13 +189,14 @@ export default function TechnologyPage() {
               className={BTN_GHOST}
             >
               [ Visit cornerstone.gold ]
+              <span className="sr-only"> (opens in new tab)</span>
             </a>
           </div>
         </div>
       </section>
 
       {/* 4. Projects index — smaller projects, visually subordinate */}
-      <section id="shipped" className="border-b border-tech-line">
+      <section id="shipped" className="border-b border-tech-line scroll-mt-16">
         <div className="mx-auto max-w-6xl px-6 py-20">
           <p className="font-mono text-xs uppercase tracking-[0.25em] text-tech-muted">
             Index // Smaller projects

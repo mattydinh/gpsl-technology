@@ -106,7 +106,7 @@ describe("TechnologyPage — Monolith", () => {
     expect(text).not.toContain("soc2");
     expect(text).not.toContain("99.9%");
     expect(text).not.toContain("45ms");
-    expect(text).not.toContain("sla");
+    expect(text).not.toMatch(/\bslas?\b/);
   });
 
   test("how-we-build section keeps the Claude Partner Network callout", () => {

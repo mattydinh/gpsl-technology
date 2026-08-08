@@ -37,7 +37,7 @@ src/
 │   ├── ThemeSurface.tsx    # Wraps pages; sets data-surface="operating" | "technology"
 │   ├── ThemeToggle.tsx     # Sun/moon toggle, persists to localStorage, hydration-safe
 │   ├── CTA.tsx / FadeIn.tsx
-└── __tests__/              # 5 suites, 60 tests — must pass before push
+└── __tests__/              # 5 suites, 62 tests — must pass before push
 ```
 
 **IA is locked at 4 nav items:** Home / Execution / Technology / Contact. Portfolio folds into Technology `#shipped`; Team folds into Execution `#team`. 308 redirects for `/portfolio`, `/portfolio/tech`, `/team`, `/projects`, `/ai` live in [next.config.mjs](next.config.mjs). Do not add top-level routes without re-brainstorming the rebuild design doc.
@@ -79,8 +79,8 @@ Technology surface tokens (light → dark):
 | `tech.panel` | `#EFEFEF` | `#111111` | Section panel |
 | `tech.card` | `#FFFFFF` | `#161616` | Card lift |
 | `tech.ink` | `#111111` | `#EDEDED` | Primary text |
-| `tech.muted` | `#6E6E6E` | `#8A8A8A` | Secondary text |
-| `tech.accent` | `#D93A00` | `#FF4500` | Monolith orange (AA both modes) |
+| `tech.muted` | `#6A6A6A` | `#8A8A8A` | Secondary text |
+| `tech.accent` | `#C43600` | `#FF4500` | Monolith orange (AA both modes) |
 | `tech.line` | `#E5E5E5` | `#333333` | Hairlines |
 
 Hierarchy: `bg → panel → card` always reads as a lift in both modes. Don't mix `*.bg` and `*.card` on adjacent surfaces — you'll invert the hierarchy in one mode. Never put `op.*` tokens on the Technology surface (or vice versa); the two families aren't interchangeable.
@@ -97,7 +97,7 @@ Hierarchy: `bg → panel → card` always reads as a lift in both modes. Don't m
 ```bash
 npm run dev        # Dev server (Turbopack, port 3000)
 npm run build      # Production build
-npm test           # Jest — 60 tests across 5 suites, must pass before push
+npm test           # Jest — 62 tests across 5 suites, must pass before push
 npm run lint       # ESLint
 npx tsc --noEmit   # Typecheck
 ```

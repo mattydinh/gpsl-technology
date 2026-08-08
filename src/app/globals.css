@@ -31,8 +31,8 @@
   --tech-panel: 239 239 239;  /* #EFEFEF — one step off bg */
   --tech-card: 255 255 255;   /* #FFFFFF */
   --tech-ink: 17 17 17;       /* #111111 */
-  --tech-muted: 110 110 110;  /* #6E6E6E — AA on #F7F7F7 */
-  --tech-accent: 217 58 0;    /* #D93A00 — Monolith orange, AA on light */
+  --tech-muted: 106 106 106;  /* #6A6A6A — AA on bg + panel */
+  --tech-accent: 196 54 0;    /* #C43600 — Monolith orange, AA on bg + panel */
   --tech-line: 229 229 229;   /* #E5E5E5 — hairlines */
 }
 
@@ -120,14 +120,6 @@ body,
   transition: background-color 0.28s ease, color 0.28s ease, border-color 0.28s ease;
 }
 
-/* Subtle grid background for the technology surface */
-.bg-grid {
-  background-image:
-    linear-gradient(to right, rgb(228 228 231 / 0.4) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(228 228 231 / 0.4) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
 /* Claude Partner badge pulse */
 @keyframes claude-pulse {
   0%, 100% { opacity: 0.7; filter: drop-shadow(0 0 6px rgba(217, 119, 87, 0.4)); }
@@ -158,7 +150,9 @@ body,
   animation: cursor-blink 1.1s step-end infinite;
 }
 @media (prefers-reduced-motion: reduce) {
-  .terminal-cursor {
+  .terminal-cursor,
+  .claude-icon-pulse,
+  .claude-border-shimmer {
     animation: none;
   }
 }
