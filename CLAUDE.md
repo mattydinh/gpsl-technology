@@ -4,7 +4,7 @@
 Company marketing site for GPSL. Positioning: *GPSL is the pathway between intent and execution — an operating discipline of human logistics, anchored in Tribal Economic Development.* Two divisions: **Execution** (the human layer — coordination, operating models, ventures, team) and **Technology** (the systems layer — software, automation, AI-native tools).
 Live at: https://gpsl-ubo.com (production) · https://gpsl-technology.vercel.app (preview)
 
-**Source of truth for copy + IA:** [docs/plans/2026-04-23-gpsl-ubo-rebuild-design.md](docs/plans/2026-04-23-gpsl-ubo-rebuild-design.md). Read it before any substantial copy or structural change.
+**Source of truth for copy + IA:** [docs/plans/2026-04-23-gpsl-ubo-rebuild-design.md](docs/plans/2026-04-23-gpsl-ubo-rebuild-design.md). Read it before any substantial copy or structural change. **Exception — the Technology page:** its design + copy source of truth is [docs/superpowers/specs/2026-08-08-technology-monolith-design.md](docs/superpowers/specs/2026-08-08-technology-monolith-design.md) (the "Monolith" redesign).
 
 ## Tech Stack
 - **Framework:** Next.js 15.5 (App Router, Turbopack dev)
