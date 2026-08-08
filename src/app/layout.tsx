@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Figtree } from "next/font/google";
+import { Fraunces, Figtree, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -18,6 +18,18 @@ const figtree = Figtree({
   variable: "--font-figtree",
   display: "swap",
   weight: ["400", "500", "600", "700"],
+});
+
+const geist = Geist({
+  subsets: ["latin"],
+  variable: "--font-geist",
+  display: "swap",
+});
+
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -60,7 +72,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeInit }} />
       </head>
       <body
-        className={`${fraunces.variable} ${figtree.variable} font-sans min-h-screen antialiased flex flex-col`}
+        className={`${fraunces.variable} ${figtree.variable} ${geist.variable} ${geistMono.variable} font-sans min-h-screen antialiased flex flex-col`}
       >
         <Nav />
         <main className="flex-1">{children}</main>

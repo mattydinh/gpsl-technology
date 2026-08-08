@@ -6,6 +6,8 @@ import RootLayout from "@/app/layout";
 jest.mock("next/font/google", () => ({
   Fraunces: () => ({ variable: "--font-fraunces", className: "mock-fraunces" }),
   Figtree: () => ({ variable: "--font-figtree", className: "mock-figtree" }),
+  Geist: () => ({ variable: "--font-geist", className: "mock-geist" }),
+  Geist_Mono: () => ({ variable: "--font-geist-mono", className: "mock-geist-mono" }),
 }));
 
 jest.mock("@vercel/analytics/react", () => ({ Analytics: () => null }));
@@ -138,6 +140,21 @@ test("layout applies Fraunces serif font variable", () => {
   try {
     render(<RootLayout>{null}</RootLayout>);
     expect(document.body.className).toMatch(/--font-fraunces/);
+  } finally {
+    errorSpy.mockRestore();
+  }
+});
+
+test("layout exposes Geist font variables for the technology surface", () => {
+  const errorSpy = jest.spyOn(console, "error").mockImplementation(() => {});
+  try {
+    render(
+      <RootLayout>
+        <div />
+      </RootLayout>
+    );
+    expect(document.body.className).toContain("--font-geist");
+    expect(document.body.className).toContain("--font-geist-mono");
   } finally {
     errorSpy.mockRestore();
   }
