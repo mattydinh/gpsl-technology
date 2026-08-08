@@ -27,12 +27,12 @@ export const metadata: Metadata = {
   },
   description:
     "GPSL is the pathway between intent and execution. An operating discipline for the people, coordination, timing, and software that make transformation actually happen.",
-  metadataBase: new URL("https://www.gpsl-ubo.com"),
+  metadataBase: new URL("https://gpsl-ubo.com"),
   openGraph: {
     title: "GPSL — The discipline of human logistics.",
     description:
       "An operating discipline for the people, coordination, timing, and software that turn intent into work that actually runs.",
-    url: "https://www.gpsl-ubo.com",
+    url: "https://gpsl-ubo.com",
     siteName: "GPSL",
     type: "website",
   },

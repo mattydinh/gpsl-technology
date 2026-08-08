@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = "https://www.gpsl-ubo.com";
+const BASE_URL = "https://gpsl-ubo.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = ["", "/execution", "/technology", "/contact"];
