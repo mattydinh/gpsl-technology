@@ -114,6 +114,135 @@ export default function TechnologyPage() {
           </div>
         </div>
       </section>
+
+      {/* 3. Flagship spotlight — Cornerstone */}
+      <section id="cornerstone" className="border-b border-tech-line bg-tech-panel">
+        <div className="mx-auto max-w-6xl px-6 py-24">
+          <p className="font-mono text-xs uppercase tracking-[0.25em] text-tech-accent">
+            Flagship // Spotlight
+          </p>
+          <h2 className="mt-6 font-display text-5xl font-semibold uppercase tracking-[-0.03em] text-tech-ink sm:text-6xl md:text-7xl">
+            Cornerstone
+          </h2>
+          <p className="mt-4 font-mono text-sm uppercase tracking-[0.2em] text-tech-muted">
+            AI CRM for frontline insurance agents
+          </p>
+          <p className="mt-8 max-w-[60ch] text-base leading-relaxed text-tech-muted">
+            Cornerstone is the flagship of the division &mdash; built for
+            frontline life and P&amp;C insurance agents and run as a product
+            serving paying customers. It turns an agent&apos;s calls, notes,
+            and documents into structured client intelligence, and turns that
+            intelligence into the agent&apos;s next best action.
+          </p>
+
+          {/* Fact grid — real, defensible facts only. Keep in sync with the
+              shipped product; remove anything that stops being true. */}
+          <div className="mt-12 grid gap-px border border-tech-line bg-tech-line sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { label: "Status", value: "Live in production" },
+              { label: "Architecture", value: "RAG + knowledge graph" },
+              { label: "Ingest", value: "Voice → structured data" },
+              { label: "Planning", value: "FNA engine" },
+              { label: "Reasoning", value: "Claude-powered" },
+              { label: "Coverage", value: "Life + P&C lines" },
+            ].map((fact) => (
+              <div key={fact.label} className="bg-tech-bg p-6">
+                <p className="font-mono text-xs uppercase tracking-[0.2em] text-tech-muted">
+                  {fact.label}
+                </p>
+                <p className="mt-3 font-display text-xl font-semibold tracking-[-0.01em] text-tech-ink">
+                  {fact.value}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12">
+            <p className="font-mono text-xs uppercase tracking-[0.25em] text-tech-muted">
+              &gt;&gt; Architecture breakdown
+            </p>
+            <ul className="mt-6 max-w-[70ch] space-y-4">
+              {[
+                "Retrieval pipeline over every client document, note, and call — answers grounded in the record, with evidence attached.",
+                "Deterministic guardrails between the model and the agent — compliance-aware answer shaping, not raw LLM output.",
+                "Full observability on every AI interaction — tracing and product analytics on by default.",
+              ].map((line) => (
+                <li
+                  key={line}
+                  className="flex gap-3 text-sm leading-relaxed text-tech-muted"
+                >
+                  <span aria-hidden="true" className="font-mono text-tech-accent">
+                    &gt;
+                  </span>
+                  {line}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="mt-12">
+            <a
+              href="https://cornerstone.gold"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={BTN_GHOST}
+            >
+              [ Visit cornerstone.gold ]
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Projects index — smaller projects, visually subordinate */}
+      <section id="shipped" className="border-b border-tech-line">
+        <div className="mx-auto max-w-6xl px-6 py-20">
+          <p className="font-mono text-xs uppercase tracking-[0.25em] text-tech-muted">
+            Index // Smaller projects
+          </p>
+          <p className="mt-4 max-w-[60ch] text-sm leading-relaxed text-tech-muted">
+            Exploratory builds and demos from the division. Evidence of range
+            &mdash; the flagship is above.
+          </p>
+          <div className="mt-8 border-t border-tech-line">
+            {[
+              {
+                name: "LegacyCompass",
+                domain: "End-of-life planning",
+                line: "Family-shared AI planning thread",
+                status: "Demo",
+              },
+              {
+                name: "Meridian",
+                domain: "Real estate",
+                line: "AI buyer intake and qualification",
+                status: "Demo",
+              },
+              {
+                name: "LuxusAI",
+                domain: "Legal",
+                line: "Semantic contract drafting and delivery",
+                status: "Demo",
+              },
+            ].map((project) => (
+              <div
+                key={project.name}
+                className="grid gap-2 border-b border-tech-line py-4 sm:grid-cols-[1fr_1fr_2fr_auto] sm:items-baseline sm:gap-6"
+              >
+                <p className="font-display text-base font-semibold text-tech-ink">
+                  {project.name}
+                </p>
+                <p className="font-mono text-xs uppercase tracking-[0.15em] text-tech-muted">
+                  {project.domain}
+                </p>
+                <p className="text-sm text-tech-muted">{project.line}</p>
+                <p className="font-mono text-xs uppercase tracking-[0.15em] text-tech-accent">
+                  {project.status}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </ThemeSurface>
   );
 }

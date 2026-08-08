@@ -63,4 +63,49 @@ describe("TechnologyPage — Monolith", () => {
       expect(href.startsWith("/portfolio")).toBe(false);
     });
   });
+
+  test("Cornerstone spotlight is present with anchor and real facts", () => {
+    const { container } = render(<TechnologyPage />);
+    expect(container.querySelector("#cornerstone")).not.toBeNull();
+    expect(
+      screen.getByRole("heading", { name: /cornerstone/i, level: 2 })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/ai crm for frontline insurance agents/i)
+    ).toBeInTheDocument();
+    // Fact blocks — real, defensible claims only
+    expect(screen.getByText(/live in production/i)).toBeInTheDocument();
+    expect(screen.getByText(/rag \+ knowledge graph/i)).toBeInTheDocument();
+    expect(screen.getByText(/fna engine/i)).toBeInTheDocument();
+    expect(screen.getByText(/claude-powered/i)).toBeInTheDocument();
+  });
+
+  test("Cornerstone links out to cornerstone.gold", () => {
+    render(<TechnologyPage />);
+    const link = screen.getByRole("link", { name: /cornerstone\.gold/i });
+    expect(link).toHaveAttribute("href", "https://cornerstone.gold");
+  });
+
+  test("projects index keeps #shipped anchor and demotes the small projects", () => {
+    const { container } = render(<TechnologyPage />);
+    expect(container.querySelector("#shipped")).not.toBeNull();
+    expect(screen.getByText(/legacycompass/i)).toBeInTheDocument();
+    expect(screen.getByText(/meridian/i)).toBeInTheDocument();
+    expect(screen.getByText(/luxusai/i)).toBeInTheDocument();
+    // They are rows, not feature cards — no h3 headings for them
+    expect(
+      screen.queryByRole("heading", { name: /legacycompass/i, level: 3 })
+    ).toBeNull();
+    // Framed as demos
+    expect(screen.getAllByText(/demo/i).length).toBeGreaterThanOrEqual(3);
+  });
+
+  test("no fabricated metrics appear", () => {
+    const { container } = render(<TechnologyPage />);
+    const text = (container.textContent ?? "").toLowerCase();
+    expect(text).not.toContain("soc2");
+    expect(text).not.toContain("99.9%");
+    expect(text).not.toContain("45ms");
+    expect(text).not.toContain("sla");
+  });
 });
