@@ -1,364 +1,116 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Layers, Sparkles } from "lucide-react";
 import ThemeSurface from "@/components/ThemeSurface";
 
 export const metadata: Metadata = {
   title: "Technology",
   description:
-    "The systems layer of GPSL. Software, automation, and agentic tools built so execution can scale without losing its discipline.",
+    "The systems layer of GPSL. Production-grade AI engineering — forward-deployed engineers, full-lifecycle builds, and Cornerstone, our flagship AI CRM for insurance agents.",
 };
+
+// Monolith buttons: rectangular, 1px border, uppercase mono, bracketed label.
+const BTN_BASE =
+  "inline-flex items-center border px-6 py-3 font-mono text-sm uppercase tracking-[0.08em] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tech-accent";
+const BTN_PRIMARY = `${BTN_BASE} border-tech-ink bg-tech-ink text-tech-bg hover:border-tech-accent hover:bg-tech-accent`;
+const BTN_GHOST = `${BTN_BASE} border-tech-line text-tech-ink hover:border-tech-accent hover:text-tech-accent`;
+
+const SERVICES = [
+  {
+    index: "01",
+    name: "Forward-Deployed",
+    tagline: "Engineers inside your team",
+    body: "Embedded senior engineers inside your operation — not a ticket queue. We learn your codebase, your data, and your culture, then ship into it and take commercial ownership of the outcome.",
+    points: [
+      "Patterns proven inside GPSL ventures first",
+      "Engineers embed and stay through launch",
+      "No prototypes in prod",
+    ],
+  },
+  {
+    index: "02",
+    name: "Full-Lifecycle",
+    tagline: "Specification to production",
+    body: "End-to-end system ownership. From specification and data engineering through deployment, with the monitoring and reliability a real operation needs.",
+    points: [],
+  },
+  {
+    index: "03",
+    name: "Maintenance",
+    tagline: "Systems that keep running",
+    body: "Long-term reliability and support after launch. Upgrades, observability, and the operational discipline that keeps production software resilient.",
+    points: [],
+  },
+];
 
 export default function TechnologyPage() {
   return (
     <ThemeSurface surface="technology">
-      {/* 6.1 Hero */}
-      <section className="max-w-6xl mx-auto px-6 pt-24 pb-20">
-        <p className="text-xs uppercase tracking-[0.2em] text-tech-accent font-mono">
-          Division 02 — Technology
-        </p>
-        <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold text-tech-ink mt-6 leading-[1.05] tracking-[-0.02em] max-w-4xl">
-          The systems layer of GPSL.
-        </h1>
-        <p className="text-lg text-tech-muted mt-6 max-w-2xl leading-relaxed">
-          Technology is the leverage side of the company. Software, automation,
-          and agentic tools built so execution can scale without losing its
-          discipline. We ship into our own ventures first, then into the
-          operations of partners who need them.
-        </p>
-        <div className="mt-10 flex flex-wrap gap-3">
-          <Link
-            href="#shipped"
-            className="inline-flex items-center gap-2 rounded-md bg-tech-accent px-5 py-3 text-sm font-medium text-tech-bg hover:opacity-90 transition-opacity"
-          >
-            See what we ship <span aria-hidden>→</span>
-          </Link>
-          <Link
-            href="/contact?topic=technology"
-            className="inline-flex items-center gap-2 rounded-md border border-tech-line px-5 py-3 text-sm font-medium text-tech-ink hover:border-tech-accent transition-colors"
-          >
-            Engage the team
-          </Link>
-        </div>
-      </section>
-
-      {/* 6.2 How Technology supports the mission */}
-      <section className="border-t border-tech-line bg-tech-panel">
-        <div className="max-w-6xl mx-auto px-6 py-24">
-          <p className="text-xs uppercase tracking-[0.2em] text-tech-accent font-mono">
-            Why Technology exists inside GPSL
+      {/* 1. Hero */}
+      <section className="border-b border-tech-line">
+        <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
+          <p className="font-mono text-xs uppercase tracking-[0.25em] text-tech-accent">
+            Division 02 // Technology
           </p>
-          <h2 className="font-display text-3xl md:text-4xl font-semibold text-tech-ink mt-4 leading-tight tracking-[-0.01em] max-w-3xl">
-            Built to scale execution, not replace it.
-          </h2>
-          <div className="mt-8 max-w-3xl space-y-5 text-base md:text-lg leading-relaxed text-tech-muted">
-            <p>
-              Most of what organizations call &ldquo;AI transformation&rdquo;
-              is a tooling problem dressed up as a strategy problem. Software
-              is bought, rolled out, and asked to replace operating discipline
-              that does not yet exist. It never does.
-            </p>
-            <p>
-              At the same time, AI is genuinely changing how work gets done.
-              The discipline is separating the uses that hold up in production
-              from the ones that collapse under real workload. Sometimes the
-              answer is an agent platform running across a whole operation.
-              More often it is a precise workflow automation that removes a
-              recurring hour of manual coordination and pays for itself in a
-              month. Both are legitimate technology work. We build for
-              whichever one the problem actually needs &mdash; at the speed,
-              cost, and reliability that make the deployment worth having.
-            </p>
-            <p>
-              Technology inside GPSL is built the opposite way from most AI
-              platforms &mdash; starting from the shape of the operation, not
-              the shape of the model. Depending on what the work needs, we
-              ship custom AI solutions, agents, multi-orchestrated systems,
-              mobile applications, or augmented layers on top of the tools a
-              team already uses. Each one is engineered as a real answer to a
-              real operating problem &mdash; not a generic platform an
-              operation has to bend itself around.
-            </p>
-            <p>
-              This is why Technology and Execution sit under one company. The
-              systems we ship are shaped by the operations they have to
-              support &mdash; built with the operating team, for the way the
-              work actually runs. The outcome usually has the same shape:
-              clearer coordination, better timing, less handoff friction, more
-              of the work visible to the people who need to see it.
-            </p>
+          <h1 className="mt-8 font-display text-5xl font-semibold leading-[1.04] tracking-[-0.04em] text-tech-ink sm:text-6xl md:text-7xl">
+            Software that ships.
+            <br />
+            Engineers who stay.
+          </h1>
+          <p className="mt-8 max-w-[52ch] text-lg leading-relaxed text-tech-muted">
+            Production-grade AI engineering from the systems layer of GPSL.
+            We bridge the gap between fragile prototypes and resilient
+            enterprise systems &mdash; shipped into our own ventures first,
+            then into the operations of partners.
+          </p>
+          <div className="mt-12 flex flex-wrap gap-4">
+            <Link href="/contact?topic=technology" className={BTN_PRIMARY}>
+              [ Initiate contact ]
+            </Link>
+            <Link href="#cornerstone" className={BTN_GHOST}>
+              [ Explore Cornerstone ]
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* 6.3 What we ship */}
-      <section id="shipped" className="border-t border-tech-line">
-        <div className="max-w-6xl mx-auto px-6 py-24">
-          <p className="text-xs uppercase tracking-[0.2em] text-tech-accent font-mono">
-            What we ship
+      {/* 2. Services grid */}
+      <section className="border-b border-tech-line">
+        <div className="mx-auto max-w-6xl px-6 py-20">
+          <p className="font-mono text-xs uppercase tracking-[0.25em] text-tech-muted">
+            Services // Index
           </p>
-          <h2 className="font-display text-3xl md:text-4xl font-semibold text-tech-ink mt-4 leading-tight tracking-[-0.01em] max-w-3xl">
-            Production software, shipped into real operations.
-          </h2>
-          <p className="text-tech-muted mt-4 max-w-2xl leading-relaxed">
-            Three products and a forward-deployed practice, built by the
-            Technology division. Legal, real estate, end-of-life planning
-            &mdash; each one ships AI into a domain where the workflow was
-            still manual. All run in production today.
-          </p>
-
-          <div className="grid md:grid-cols-2 gap-6 mt-12">
-            {/* LegacyCompass */}
-            <div className="flex flex-col rounded-lg border border-tech-line bg-tech-card p-6 transition-colors hover:border-tech-accent">
-              <p className="text-xs uppercase tracking-[0.2em] text-tech-accent font-mono">
-                End-of-Life Planning
-              </p>
-              <h3 className="font-display text-2xl font-semibold text-tech-ink mt-3 tracking-[-0.01em]">
-                LegacyCompass
-              </h3>
-              <p className="font-display text-base italic font-medium text-tech-ink/80 mt-2">
-                One conversation for the whole family, when it matters most.
-              </p>
-              <p className="text-sm text-tech-muted mt-4 leading-relaxed">
-                An LLM-powered platform for funeral planning, end-of-life
-                financial coordination, and legacy preservation. The whole
-                family talks to one shared AI &mdash; collaborating on
-                service arrangements, insurance, and final wishes in a
-                single thread instead of a dozen phone calls.
-              </p>
-              <ul className="text-sm text-tech-muted mt-4 space-y-2 list-disc pl-5">
-                <li>Family-wide LLM chat for collaborative funeral planning</li>
-                <li>Leave messages to loved ones, unlocked at life milestones</li>
-                <li>End-of-life financial tools and life insurance purchasing</li>
-              </ul>
-            </div>
-
-            {/* Meridian AI */}
-            <div className="flex flex-col rounded-lg border border-tech-line bg-tech-card p-6 transition-colors hover:border-tech-accent">
-              <p className="text-xs uppercase tracking-[0.2em] text-tech-accent font-mono">
-                Real Estate Intelligence
-              </p>
-              <h3 className="font-display text-2xl font-semibold text-tech-ink mt-3 tracking-[-0.01em]">
-                Meridian AI
-              </h3>
-              <p className="font-display text-base italic font-medium text-tech-ink/80 mt-2">
-                A buyer&apos;s advisor that never sleeps on a listing.
-              </p>
-              <p className="text-sm text-tech-muted mt-4 leading-relaxed">
-                Multi-orchestrated real estate agent that acts as an AI
-                advisor and buyer intake system. Meridian qualifies buyers
-                through conversation, then connects them directly to agents
-                for calls and tours &mdash; compressing the buying timeline
-                from weeks of back-and-forth into a single guided flow.
-              </p>
-              <ul className="text-sm text-tech-muted mt-4 space-y-2 list-disc pl-5">
-                <li>AI-driven buyer intake and qualification</li>
-                <li>Automated call and tour booking with agents</li>
-                <li>Multi-agent orchestration across the buying journey</li>
-              </ul>
-            </div>
-
-            {/* LuxusAI */}
-            <div className="flex flex-col rounded-lg border border-tech-line bg-tech-card p-6 transition-colors hover:border-tech-accent">
-              <p className="text-xs uppercase tracking-[0.2em] text-tech-accent font-mono">
-                Legal SaaS
-              </p>
-              <h3 className="font-display text-2xl font-semibold text-tech-ink mt-3 tracking-[-0.01em]">
-                LuxusAI
-              </h3>
-              <p className="font-display text-base italic font-medium text-tech-ink/80 mt-2">
-                Draft it, send it, close it &mdash; in the language the law already speaks.
-              </p>
-              <p className="text-sm text-tech-muted mt-4 leading-relaxed">
-                A legal SaaS platform that uses semantic language understanding
-                to draft contracts and legal documents, then delivers them
-                directly to clients for review and signature. LuxusAI turns
-                the drafting cycle from days of redlines into a guided,
-                AI-native workflow &mdash; precise enough for counsel,
-                clear enough for the client on the other side.
-              </p>
-              <ul className="text-sm text-tech-muted mt-4 space-y-2 list-disc pl-5">
-                <li>Semantic drafting of contracts and legal documents</li>
-                <li>Direct client delivery for review and signature</li>
-                <li>AI-native workflow that replaces the redline cycle</li>
-              </ul>
-            </div>
-
-            {/* Forward-deployed */}
-            <div className="flex flex-col rounded-lg border border-tech-line bg-tech-card p-6 transition-colors hover:border-tech-accent">
-              <p className="text-xs uppercase tracking-[0.2em] text-tech-accent font-mono">
-                Client Work
-              </p>
-              <h3 className="font-display text-2xl font-semibold text-tech-ink mt-3 tracking-[-0.01em]">
-                Forward-deployed engagements
-              </h3>
-              <p className="font-display text-base italic font-medium text-tech-ink/80 mt-2">
-                Engineers inside your team, shipping with ownership of the outcome.
-              </p>
-              <p className="text-sm text-tech-muted mt-4 leading-relaxed">
-                Custom systems shipped alongside a partner&apos;s internal
-                team. We embed, ship, and take commercial ownership of the
-                outcome with them &mdash; agents, orchestration, automations,
-                or the platform underneath all of it.
-              </p>
-              <ul className="text-sm text-tech-muted mt-4 space-y-2 list-disc pl-5">
-                <li>Embedded senior engineers, not ticket queues</li>
-                <li>Patterns proven inside GPSL ventures first</li>
-                <li>Commercial ownership of the delivered system</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 6.4 How we build (stack + Claude Partner merged) */}
-      <section className="border-t border-tech-line">
-        <div className="max-w-6xl mx-auto px-6 py-24">
-          <p className="text-xs uppercase tracking-[0.2em] text-tech-accent font-mono">
-            How we build
-          </p>
-          <h2 className="font-display text-3xl md:text-4xl font-semibold text-tech-ink mt-4 leading-tight tracking-[-0.01em] max-w-3xl">
-            Claude-grade tools, shipped at operator speed.
-          </h2>
-
-          <div className="mt-12 grid md:grid-cols-2 gap-6">
-            <div className="flex items-start gap-4 rounded-lg border border-tech-line bg-tech-card p-6">
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-tech-accent/10 mt-0.5">
-                <Layers size={16} className="text-tech-accent" />
-              </div>
-              <div className="space-y-4">
-                <h3 className="font-mono text-xs font-semibold uppercase tracking-widest text-tech-muted">
-                  The stack
-                </h3>
-                <p className="text-tech-muted leading-relaxed">
-                  Our platform layer is Next.js on Vercel, Supabase for data
-                  and auth, and Claude (with Claude Code) for the engineering
-                  loop itself. On top of that, the division is versed in the
-                  range the work actually demands &mdash; AI agents and
-                  multi-orchestrated systems, workflow automation,
-                  knowledge-graph infrastructure, NLP and computer-vision
-                  pipelines, and the mobile and web apps that put the whole
-                  thing in an operator&apos;s hands. The point is not the stack
-                  &mdash; it is that every engineering decision is made to let
-                  a small team ship production work fast enough to be useful
-                  and reliable enough to run inside a real operation.
+          <div className="mt-10 grid gap-px border border-tech-line bg-tech-line md:grid-cols-3">
+            {SERVICES.map((service) => (
+              <div key={service.index} className="bg-tech-bg p-8">
+                <p className="font-mono text-xs uppercase tracking-[0.2em] text-tech-accent">
+                  {service.index} / Services
                 </p>
-              </div>
-            </div>
-
-            <div className="claude-border-shimmer flex items-start gap-4 rounded-lg border border-tech-line bg-tech-card p-6">
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-[#D97757]/10 mt-0.5">
-                <Sparkles size={16} className="claude-icon-pulse text-[#D97757]" />
-              </div>
-              <div className="space-y-4">
-                <h3 className="font-mono text-xs font-semibold uppercase tracking-widest text-tech-muted">
-                  Claude Partner Network
+                <h3 className="mt-4 font-display text-2xl font-semibold tracking-[-0.02em] text-tech-ink">
+                  {service.name}
                 </h3>
-                <p className="text-tech-muted leading-relaxed">
-                  GPSL&apos;s Technology division is an official member of the{" "}
-                  <span className="font-semibold text-[#D97757]">
-                    Claude Partner Network
-                  </span>
-                  . The partnership gives us direct access to Anthropic&apos;s
-                  models, Claude Code as a core development tool, and early
-                  access to new capabilities as they ship &mdash; which keeps
-                  us close to the work Anthropic is doing on agent
-                  reliability, tool use, and long-horizon reasoning.
+                <p className="mt-1 font-mono text-xs uppercase tracking-[0.15em] text-tech-muted">
+                  {service.tagline}
                 </p>
+                <p className="mt-5 text-sm leading-relaxed text-tech-muted">
+                  {service.body}
+                </p>
+                {service.points.length > 0 && (
+                  <ul className="mt-5 space-y-2">
+                    {service.points.map((point) => (
+                      <li
+                        key={point}
+                        className="flex gap-2 font-mono text-xs uppercase tracking-[0.08em] text-tech-ink"
+                      >
+                        <span aria-hidden="true" className="text-tech-accent">
+                          &gt;
+                        </span>
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 6.5 How we work with clients */}
-      <section className="border-t border-tech-line bg-tech-panel">
-        <div className="max-w-6xl mx-auto px-6 py-24">
-          <p className="text-xs uppercase tracking-[0.2em] text-tech-accent font-mono">
-            How we work with clients
-          </p>
-          <h2 className="font-display text-3xl md:text-4xl font-semibold text-tech-ink mt-4 leading-tight tracking-[-0.01em] max-w-3xl">
-            Forward-deployed engineering, not billable hours.
-          </h2>
-          <p className="text-tech-muted mt-6 max-w-2xl leading-relaxed">
-            We work the way the strongest AI-native teams work: small, senior,
-            and deployed inside the problem. No account managers, no layered
-            delivery orgs &mdash; just engineers who own the outcome with you.
-          </p>
-
-          <div className="mt-12 grid md:grid-cols-3 gap-6">
-            <div className="rounded-lg border border-tech-line bg-tech-card p-6">
-              <p className="font-display text-4xl font-semibold text-tech-accent">
-                01
-              </p>
-              <h3 className="font-display text-xl font-semibold text-tech-ink mt-3 tracking-[-0.01em]">
-                Embedded engineers
-              </h3>
-              <p className="text-sm text-tech-muted mt-3 leading-relaxed">
-                Our engineers sit inside your team, not across a ticket queue.
-                They learn your codebase, your data, and your culture &mdash;
-                and ship into it.
-              </p>
-            </div>
-            <div className="rounded-lg border border-tech-line bg-tech-card p-6">
-              <p className="font-display text-4xl font-semibold text-tech-accent">
-                02
-              </p>
-              <h3 className="font-display text-xl font-semibold text-tech-ink mt-3 tracking-[-0.01em]">
-                Claude-grade agents
-              </h3>
-              <p className="text-sm text-tech-muted mt-3 leading-relaxed">
-                Every engagement uses Claude as the reasoning layer. We bring
-                opinionated tooling and patterns we have built across GPSL
-                ventures, so you skip the first six months of experimentation.
-              </p>
-            </div>
-            <div className="rounded-lg border border-tech-line bg-tech-card p-6">
-              <p className="font-display text-4xl font-semibold text-tech-accent">
-                03
-              </p>
-              <h3 className="font-display text-xl font-semibold text-tech-ink mt-3 tracking-[-0.01em]">
-                Own the outcome
-              </h3>
-              <p className="text-sm text-tech-muted mt-3 leading-relaxed">
-                We take commercial ownership of the work. Not &lsquo;consulted
-                on&rsquo; &mdash; delivered. When the agent goes live, it is
-                because our engineer pressed the button with yours.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 6.6 CTA band */}
-      <section className="border-t border-tech-line">
-        <div className="max-w-6xl mx-auto px-6 py-24">
-          <div className="rounded-lg border border-tech-accent/30 bg-gradient-to-br from-tech-panel to-tech-bg p-10 md:p-16">
-            <p className="text-xs uppercase tracking-[0.2em] text-tech-accent font-mono">
-              Engage the Technology division
-            </p>
-            <h2 className="font-display text-3xl md:text-4xl font-semibold text-tech-ink mt-4 leading-tight tracking-[-0.01em] max-w-3xl">
-              Tell us what you need built.
-            </h2>
-            <p className="mt-6 text-base leading-relaxed max-w-2xl text-tech-muted">
-              The fastest way in is a conversation. Tell us the shape of the
-              problem &mdash; agents, a CRM, a platform &mdash; and we will
-              come back with who on our team is right for the work.
-            </p>
-            <div className="mt-10 flex flex-wrap gap-3">
-              <Link
-                href="/contact?topic=technology"
-                className="inline-flex items-center gap-2 rounded-md bg-tech-accent px-5 py-3 text-sm font-medium text-tech-bg hover:opacity-90 transition-opacity"
-              >
-                Start the conversation <span aria-hidden>→</span>
-              </Link>
-              <Link
-                href="#shipped"
-                className="inline-flex items-center gap-2 rounded-md border border-tech-line px-5 py-3 text-sm font-medium text-tech-ink hover:border-tech-accent transition-colors"
-              >
-                See what we&apos;ve shipped
-              </Link>
-            </div>
+            ))}
           </div>
         </div>
       </section>
