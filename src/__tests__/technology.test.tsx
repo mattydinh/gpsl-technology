@@ -108,4 +108,20 @@ describe("TechnologyPage — Monolith", () => {
     expect(text).not.toContain("45ms");
     expect(text).not.toContain("sla");
   });
+
+  test("how-we-build section keeps the Claude Partner Network callout", () => {
+    render(<TechnologyPage />);
+    expect(screen.getAllByText(/claude partner network/i).length).toBeGreaterThan(0);
+    expect(screen.getByText(/the stack/i)).toBeInTheDocument();
+  });
+
+  test("terminal CTA renders the prompt and links to technology contact", () => {
+    render(<TechnologyPage />);
+    expect(screen.getByText(/root@gpsl:~\$/)).toBeInTheDocument();
+    const links = screen.getAllByRole("link", { name: /initiate contact/i });
+    links.forEach((link) => {
+      expect(link).toHaveAttribute("href", "/contact?topic=technology");
+    });
+    expect(links.length).toBeGreaterThanOrEqual(2); // hero + terminal CTA
+  });
 });

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Layers, Sparkles } from "lucide-react";
 import ThemeSurface from "@/components/ThemeSurface";
 
 export const metadata: Metadata = {
@@ -240,6 +241,86 @@ export default function TechnologyPage() {
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. How we build */}
+      <section className="border-b border-tech-line">
+        <div className="mx-auto max-w-6xl px-6 py-20">
+          <p className="font-mono text-xs uppercase tracking-[0.25em] text-tech-muted">
+            Method // How we build
+          </p>
+          <div className="mt-10 grid gap-px border border-tech-line bg-tech-line md:grid-cols-2">
+            <div className="flex items-start gap-4 bg-tech-bg p-8">
+              <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center border border-tech-line">
+                <Layers size={16} className="text-tech-accent" />
+              </div>
+              <div className="space-y-4">
+                <h3 className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-tech-ink">
+                  The stack
+                </h3>
+                <p className="text-sm leading-relaxed text-tech-muted">
+                  Next.js on Vercel, Supabase and Postgres for data, and
+                  Claude with Claude Code as the engineering loop itself. On
+                  top of that: agents and multi-orchestrated systems,
+                  workflow automation, knowledge-graph infrastructure, and
+                  the web and mobile surfaces that put it in an
+                  operator&apos;s hands. Every engineering decision lets a
+                  small team ship production work fast enough to be useful
+                  and reliable enough to run inside a real operation.
+                </p>
+              </div>
+            </div>
+
+            <div className="claude-border-shimmer flex items-start gap-4 border-l bg-tech-bg p-8">
+              <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center border border-tech-line">
+                <Sparkles size={16} className="claude-icon-pulse text-[#D97757]" />
+              </div>
+              <div className="space-y-4">
+                <h3 className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-tech-ink">
+                  Claude Partner Network
+                </h3>
+                <p className="text-sm leading-relaxed text-tech-muted">
+                  GPSL&apos;s Technology division is an official member of
+                  the{" "}
+                  <span className="font-semibold text-[#D97757]">
+                    Claude Partner Network
+                  </span>
+                  . The partnership gives us direct access to
+                  Anthropic&apos;s models, Claude Code as a core development
+                  tool, and early access to new capabilities as they ship.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Terminal CTA */}
+      <section>
+        <div className="mx-auto max-w-6xl px-6 py-24">
+          <div className="border border-tech-line bg-tech-card p-8 md:p-12">
+            <p className="font-mono text-sm text-tech-muted">
+              root@gpsl:~$ ./initiate_contact.sh
+              <span aria-hidden="true" className="terminal-cursor text-tech-accent">
+                _
+              </span>
+            </p>
+            <h2 className="mt-6 font-display text-3xl font-semibold tracking-[-0.02em] text-tech-ink md:text-4xl">
+              Tell us what you need built.
+            </h2>
+            <p className="mt-4 max-w-[52ch] text-sm leading-relaxed text-tech-muted">
+              The fastest way in is a conversation. Tell us the shape of the
+              problem &mdash; an embedded team, a system to ship, a platform
+              to keep running &mdash; and we will come back with the
+              engineers who fit.
+            </p>
+            <div className="mt-8">
+              <Link href="/contact?topic=technology" className={BTN_PRIMARY}>
+                [ Initiate contact ]
+              </Link>
+            </div>
           </div>
         </div>
       </section>
